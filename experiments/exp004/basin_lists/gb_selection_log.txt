@@ -1,0 +1,17 @@
+{
+  "n_target": 80,
+  "n_actual": 80,
+  "tier_counts": {
+    "gb_wet": 32,
+    "gb_mid": 20,
+    "gb_drier_q4": 20,
+    "gb_montane": 8
+  },
+  "seed": 0,
+  "filters": {
+    "min_area_km2": 10.0,
+    "max_missing_frac": 0.1,
+    "cal_start": "1995-10-01",
+    "test_end": "2015-09-30"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "method": "ACI_Gibbs2021_clipped",
+  "alpha_star": 0.1,
+  "gamma": 0.005,
+  "score_function": "log_flow_residual",
+  "score_epsilon": 0.01,
+  "lstm_seed_set": [
+    42
+  ],
+  "n_basins": 671,
+  "marginal_coverage": 0.8997902757818322,
+  "marginal_coverage_median_basin": 0.8998745819397993,
+  "tier_coverage_spread_pp": 0.32963803081333953,
+  "tier_coverage_spread_pp_median_basin": 0.19025455196287622,
+  "log_width_spread_across_tiers": 2.178997829870241,
+  "tier_coverage_spread_definition": "max - min of basin-mean coverage across {dry, semi_arid, humid, snow}",
+  "width_reporting_note": "mean width in mm/d is dominated by extreme-flow days (log-space score gives interval = Q_hat * exp(+/- q_t); a single q_t > 4 at high Q_hat blows up the linear mean). Report median width per basin (robust) and mean log-width (natural scale).",
+  "per_tier": [
+    {
+      "tier": "dry",
+      "n_basins": 92,
+      "mean_coverage": 0.9022603012235006,
+      "median_coverage": 0.9011788999103973,
+      "std_coverage": 0.007190904297897172,
+      "median_width_mm_d": 0.5876366523187568,
+      "p95_width_mm_d": 5.606110452975218,
+      "mean_log_width": 3.7227222989642335,
+      "median_log_width": 3.0733780872792016,
+      "clip_binding_fraction": 0.023413999156445167,
+      "mean_basin_clip_binding_fraction": 0.023255642983415894
+    },
+    {
+      "tier": "semi_arid",
+      "n_basins": 77,
+      "mean_coverage": 0.8989639209153673,
+      "median_coverage": 0.8992763543907686,
+      "std_coverage": 0.005803879932647001,
+      "median_width_mm_d": 1.6860981277135427,
+      "p95_width_mm_d": 12.005610204000275,
+      "mean_log_width": 3.2855662545538182,
+      "median_log_width": 2.7211324483575,
+      "clip_binding_fraction": 0.021526209255964067,
+      "mean_basin_clip_binding_fraction": 0.021469851493838128
+    },
+    {
+      "tier": "humid",
+      "n_basins": 407,
+      "mean_coverage": 0.8995729464553872,
+      "median_coverage": 0.8998630940739292,
+      "std_coverage": 0.005018985697111927,
+      "median_width_mm_d": 3.4150379302438045,
+      "p95_width_mm_d": 14.765112678689816,
+      "mean_log_width": 2.11068206546259,
+      "median_log_width": 1.6288814621274748,
+      "clip_binding_fraction": 0.00551520429377882,
+      "mean_basin_clip_binding_fraction": 0.005562308670621602
+    },
+    {
+      "tier": "snow",
+      "n_basins": 95,
+      "mean_coverage": 0.8989991180970696,
+      "median_coverage": 0.8996675141795424,
+      "std_coverage": 0.006742347991394131,
+      "median_width_mm_d": 1.7916421767380928,
+      "p95_width_mm_d": 7.843908677321087,
+      "mean_log_width": 1.5437244690939924,
+      "median_log_width": 1.2423537866361554,
+      "clip_binding_fraction": 0.004594732071648514,
+      "mean_basin_clip_binding_fraction": 0.004618956827803185
+    }
+  ],
+  "comparison_context": {
+    "global_cp_seed42_tier_spread_pp": 20.68,
+    "global_cp_5seed_tier_spread_pp": 20.97,
+    "hscc_5seed_tier_spread_pp": 1.53,
+    "hopcpt_3seed_tier_spread_pp": 2.48,
+    "global_cqr_5seed_tier_spread_pp": 4.75,
+    "mondrian_cqr_seed42_tier_spread_pp": 2.38,
+    "aci_seed42_tier_spread_pp": 0.32963803081333953,
+    "aci_clipped_seed42_tier_spread_pp": 0.32963803081333953
+  },
+  "notes": [
+    "Single LSTM seed=42 (only exp002 .p file retained locally). ACI itself is deterministic.",
+    "Comparable upstream to exp_global_cqr (seed=42 only) and exp_CQR_GB.",
+    "Initial alpha_0 = alpha_star = 0.10; gamma = 0.005 per Gibbs & Candes 2021.",
+    "ACI closes tier coverage spread to <1 pp but the price is interval inflation on extreme-flow days: mean width across the snow tier is two orders of magnitude larger than median width, indicating a Pareto trade-off rather than a free lunch.",
+    "CLIPPED variant (reviewer S1-O-R1-04): per-timestep upper endpoint capped at W_MAX_b = 2 * max(calibration observed flow per basin). This removes the non-physical p95 width blow-ups of the unbounded multiplicative back-transform while leaving marginal coverage and tier spread essentially unchanged (clip binds on only a tiny fraction of high-flow timesteps)."
+  ],
+  "clip_multiplier_K": 2.0,
+  "clip_ceiling_definition": "W_MAX_b = K * nanmax(calibration-period observed streamflow QObs(mm/d)_obs for basin b); upper interval endpoint hi is capped at W_MAX_b, lo unchanged. Falls back to max predicted flow if obs all-NaN.",
+  "clip_binding_fraction": 0.009702542829922577,
+  "clip_binding_fraction_per_tier": {
+    "dry": 0.023413999156445167,
+    "semi_arid": 0.021526209255964067,
+    "humid": 0.00551520429377882,
+    "snow": 0.004594732071648514
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "n_basins_subset": 574,
+  "matrix": [
+    {
+      "tier": "dry",
+      "method": "Global_CP",
+      "n_basins": 82,
+      "coverage": 0.7429426664694967,
+      "coverage_std": 0.0101967432413615,
+      "width_mm_d": 0.5682827186021135,
+      "width_std": 0.0344533938075892,
+      "winkler_mm_d": 0.8612806100852606,
+      "winkler_std": 0.0260787005198728,
+      "source": "exp010 comparison_matrix_574subset; exp009 5-seed"
+    },
+    {
+      "tier": "dry",
+      "method": "HSCC",
+      "n_basins": 82,
+      "coverage": 0.8792814108465746,
+      "coverage_std": 0.003179561496721,
+      "width_mm_d": 0.9973972509546976,
+      "width_std": 0.1453053775520664,
+      "winkler_mm_d": 1.13297342176481,
+      "winkler_std": 0.1224961353968099,
+      "source": "exp010 comparison_matrix_574subset; exp009 5-seed"
+    },
+    {
+      "tier": "semi_arid",
+      "method": "Global_CP",
+      "n_basins": 70,
+      "coverage": 0.7903573524070296,
+      "coverage_std": 0.0100815895219161,
+      "width_mm_d": 1.901973743098123,
+      "width_std": 0.0965463300113302,
+      "winkler_mm_d": 2.3009865064280377,
+      "winkler_std": 0.0804151000911794,
+      "source": "exp010 comparison_matrix_574subset; exp009 5-seed"
+    },
+    {
+      "tier": "semi_arid",
+      "method": "HSCC",
+      "n_basins": 70,
+      "coverage": 0.8652041015897851,
+      "coverage_std": 0.0064975506908898,
+      "width_mm_d": 2.831033394762448,
+      "width_std": 0.3694339947102304,
+      "winkler_mm_d": 3.048602224928992,
+      "winkler_std": 0.3391023477490076,
+      "source": "exp010 comparison_matrix_574subset; exp009 5-seed"
+    },
+    {
+      "tier": "humid",
+      "method": "Global_CP",
+      "n_basins": 339,
+      "coverage": 0.9116073494193472,
+      "coverage_std": 0.0044041254366269,
+      "width_mm_d": 6.684606317573592,
+      "width_std": 0.2457628310483437,
+      "winkler_mm_d": 7.006073789821613,
+      "winkler_std": 0.2236130490568541,
+      "source": "exp010 comparison_matrix_574subset; exp009 5-seed"
+    },
+    {
+      "tier": "humid",
+      "method": "HSCC",
+      "n_basins": 339,
+      "coverage": 0.882776911418462,
+      "coverage_std": 0.0025412742729295,
+      "width_mm_d": 5.34643633689149,
+      "width_std": 0.1006275867586453,
+      "winkler_mm_d": 5.849258398939375,
+      "winkler_std": 0.0798433897207221,
+      "source": "exp010 comparison_matrix_574subset; exp009 5-seed"
+    },
+    {
+      "tier": "snow",
+      "method": "Global_CP",
+      "n_basins": 83,
+      "coverage": 0.952217711055448,
+      "coverage_std": 0.0040880127603362,
+      "width_mm_d": 5.500304469573929,
+      "width_std": 0.2512102948085146,
+      "winkler_mm_d": 5.593599113929703,
+      "winkler_std": 0.2390609367507757,
+      "source": "exp010 comparison_matrix_574subset; exp009 5-seed"
+    },
+    {
+      "tier": "snow",
+      "method": "HSCC",
+      "n_basins": 83,
+      "coverage": 0.8804973855916527,
+      "coverage_std": 0.0029840658126623,
+      "width_mm_d": 3.2005657193890533,
+      "width_std": 0.1287420550516324,
+      "winkler_mm_d": 3.587888103436275,
+      "winkler_std": 0.1077252477533613,
+      "source": "exp010 comparison_matrix_574subset; exp009 5-seed"
+    },
+    {
+      "tier": "dry",
+      "method": "HopCPT",
+      "n_basins": 82,
+      "coverage": 0.9335091962302372,
+      "coverage_std": 0.0067601949756665,
+      "width_mm_d": 0.4824073438982768,
+      "width_std": 0.0245772465306478,
+      "winkler_mm_d": 0.7953520910200269,
+      "winkler_std": 0.006549508900393,
+      "source": "exp010 3-seed aggregate on same 574 basins"
+    },
+    {
+      "tier": "semi_arid",
+      "method": "HopCPT",
+      "n_basins": 70,
+      "coverage": 0.9447216711836308,
+      "coverage_std": 0.0052294175879621,
+      "width_mm_d": 1.1188941687566718,
+      "width_std": 0.0286698979114803,
+      "winkler_mm_d": 1.7133198857770402,
+      "winkler_std": 0.0015500441502502,
+      "source": "exp010 3-seed aggregate on same 574 basins"
+    },
+    {
+      "tier": "humid",
+      "method": "HopCPT",
+      "n_basins": 339,
+      "coverage": 0.9299545127704824,
+      "coverage_std": 0.0039039629096314,
+      "width_mm_d": 2.2230083324874954,
+      "width_std": 0.0840998897081147,
+      "winkler_mm_d": 3.511767884622789,
+      "winkler_std": 0.0161594299695206,
+      "source": "exp010 3-seed aggregate on same 574 basins"
+    },
+    {
+      "tier": "snow",
+      "method": "HopCPT",
+      "n_basins": 83,
+      "coverage": 0.9199693355860368,
+      "coverage_std": 0.0018224074446798,
+      "width_mm_d": 1.5704753850678417,
+      "width_std": 0.0505917572469366,
+      "winkler_mm_d": 2.166932532834425,
+      "winkler_std": 0.038340979979535,
+      "source": "exp010 3-seed aggregate on same 574 basins"
+    },
+    {
+      "tier": "dry",
+      "method": "Global_CQR",
+      "n_basins": 82,
+      "coverage": 0.9281515791883912,
+      "coverage_std": 0.006426737524063414,
+      "width_mm_d": 0.33388428120402347,
+      "width_std": 0.021513307164542087,
+      "winkler_mm_d": 0.8653130334553968,
+      "winkler_std": 0.01442522662395831,
+      "source": "exp_global_cqr 5 seeds restricted to HopCPT 574 subset"
+    },
+    {
+      "tier": "semi_arid",
+      "method": "Global_CQR",
+      "n_basins": 70,
+      "coverage": 0.8806387080550977,
+      "coverage_std": 0.004802393984795844,
+      "width_mm_d": 0.8522021209077758,
+      "width_std": 0.01319652499796302,
+      "winkler_mm_d": 1.884237547199192,
+      "winkler_std": 0.04138378539419625,
+      "source": "exp_global_cqr 5 seeds restricted to HopCPT 574 subset"
+    },
+    {
+      "tier": "humid",
+      "method": "Global_CQR",
+      "n_basins": 339,
+      "coverage": 0.8854985296892011,
+      "coverage_std": 0.0018210756213895751,
+      "width_mm_d": 2.683806943326103,
+      "width_std": 0.04210398819772745,
+      "winkler_mm_d": 4.2264350520232465,
+      "winkler_std": 0.0211963361002639,
+      "source": "exp_global_cqr 5 seeds restricted to HopCPT 574 subset"
+    },
+    {
+      "tier": "snow",
+      "method": "Global_CQR",
+      "n_basins": 83,
+      "coverage": 0.904013158049762,
+      "coverage_std": 0.0029381907492696505,
+      "width_mm_d": 2.193571647731135,
+      "width_std": 0.040190165809956914,
+      "winkler_mm_d": 3.0241414603612293,
+      "winkler_std": 0.04326314400430416,
+      "source": "exp_global_cqr 5 seeds restricted to HopCPT 574 subset"
+    },
+    {
+      "tier": "dry",
+      "method": "Mondrian_CQR",
+      "n_basins": 82,
+      "coverage": 0.9091579092986314,
+      "coverage_std": 0.08113399139299066,
+      "width_mm_d": 0.3794414759948618,
+      "width_std": NaN,
+      "winkler_mm_d": 0.7113974320081474,
+      "winkler_std": NaN,
+      "source": "exp011 residual-CQR restricted to HopCPT 574 subset"
+    },
+    {
+      "tier": "semi_arid",
+      "method": "Mondrian_CQR",
+      "n_basins": 70,
+      "coverage": 0.8836858428096448,
+      "coverage_std": 0.10362002440067185,
+      "width_mm_d": 1.116971546592832,
+      "width_std": NaN,
+      "winkler_mm_d": 1.831944489040429,
+      "winkler_std": NaN,
+      "source": "exp011 residual-CQR restricted to HopCPT 574 subset"
+    },
+    {
+      "tier": "humid",
+      "method": "Mondrian_CQR",
+      "n_basins": 339,
+      "coverage": 0.8909287275710535,
+      "coverage_std": 0.10180498957417548,
+      "width_mm_d": 2.6153896073349503,
+      "width_std": NaN,
+      "winkler_mm_d": 4.225458406471569,
+      "winkler_std": NaN,
+      "source": "exp011 residual-CQR restricted to HopCPT 574 subset"
+    },
+    {
+      "tier": "snow",
+      "method": "Mondrian_CQR",
+      "n_basins": 83,
+      "coverage": 0.874006489482279,
+      "coverage_std": 0.13445379982487762,
+      "width_mm_d": 1.9884235573346423,
+      "width_std": NaN,
+      "winkler_mm_d": 2.984080125814728,
+      "winkler_std": NaN,
+      "source": "exp011 residual-CQR restricted to HopCPT 574 subset"
+    }
+  ],
+  "spread_summary": [
+    {
+      "method": "HSCC",
+      "spread_pp": 1.7572809828676927,
+      "mean_coverage": 0.8769399523616186,
+      "mean_width_mm_d": 3.093858175499422,
+      "mean_winkler_mm_d": 3.404680537267363,
+      "min_tier": "semi_arid",
+      "max_tier": "humid"
+    },
+    {
+      "method": "HopCPT",
+      "spread_pp": 2.4752335597594044,
+      "mean_coverage": 0.9320386789425968,
+      "mean_width_mm_d": 1.3486963075525713,
+      "mean_winkler_mm_d": 2.04684309856357,
+      "min_tier": "snow",
+      "max_tier": "semi_arid"
+    },
+    {
+      "method": "Mondrian_CQR",
+      "spread_pp": 3.515141981635239,
+      "mean_coverage": 0.8894447422904022,
+      "mean_width_mm_d": 1.5250565468143218,
+      "mean_winkler_mm_d": 2.4382201133337182,
+      "min_tier": "snow",
+      "max_tier": "dry"
+    },
+    {
+      "method": "Global_CQR",
+      "spread_pp": 4.75128711332935,
+      "mean_coverage": 0.899575493745613,
+      "mean_width_mm_d": 1.5158662482922594,
+      "mean_winkler_mm_d": 2.5000317732597663,
+      "min_tier": "semi_arid",
+      "max_tier": "dry"
+    },
+    {
+      "method": "Global_CP",
+      "spread_pp": 20.927504458595124,
+      "mean_coverage": 0.8492812698378304,
+      "mean_width_mm_d": 3.6637918122119393,
+      "mean_winkler_mm_d": 3.9404850050661535,
+      "min_tier": "dry",
+      "max_tier": "snow"
+    }
+  ],
+  "note": "All methods restricted to the same HopCPT-eligible 574-basin subset; HopCPT uses existing 3-seed aggregate."
+}

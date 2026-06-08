@@ -1,0 +1,25 @@
+# exp003 LORO basin list build summary
+canonical_basins	671
+missing_in_streamflow	0
+
+HUC	n_test	n_train	low_count_warn
+01	27	644	
+02	75	596	
+03	92	579	
+04	31	640	
+05	45	626	
+06	17	654	
+07	33	638	
+08	12	659	
+09	9	662	
+10	70	601	
+11	31	640	
+12	37	634	
+13	7	664	
+14	17	654	
+15	19	652	
+16	18	653	
+17	91	580	
+18	40	631	
+
+coverage_check	test_union=671	canonical=671	identical=OK

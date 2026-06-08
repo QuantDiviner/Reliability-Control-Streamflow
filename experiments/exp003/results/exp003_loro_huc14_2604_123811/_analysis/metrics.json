@@ -1,0 +1,44 @@
+{
+  "huc": "14",
+  "alpha": 0.1,
+  "n_cal_basins": 654,
+  "n_test_basins": 17,
+  "global_q": 1.3352807044972135,
+  "tier_coverage_spread_global_pp": 77.35347319365023,
+  "tier_coverage_spread_hscc_pp": 46.80277660399006,
+  "per_tier": {
+    "dry": {
+      "n_basins": 1,
+      "global_coverage": 0.0013690592607079992,
+      "hscc_coverage": 0.12614903187952278,
+      "global_width_mm_d": 2.6858458518981934,
+      "hscc_width_mm_d": 5.243471622467041,
+      "hscc_q": 1.9528747796872472,
+      "test_pred_min": 0.1175999641418457,
+      "n_cal_basins": 91,
+      "n_cal_pts": 332423
+    },
+    "snow": {
+      "n_basins": 16,
+      "global_coverage": 0.7749037911972103,
+      "hscc_coverage": 0.5941767979194233,
+      "global_width_mm_d": 4.5953861474990845,
+      "hscc_width_mm_d": 2.3406512327492237,
+      "hscc_q": 0.8096332311503847,
+      "test_pred_min": 0.011627674102783203,
+      "n_cal_basins": 79,
+      "n_cal_pts": 288587
+    }
+  },
+  "success_criteria_pub": {
+    "S1_prime_per_tier": false,
+    "S2_prime_spread": false,
+    "S3_prime_global": true,
+    "S4_prime_neg_alarm": true,
+    "S5_prime_humid": null,
+    "S6_prime_spread_reduction": true,
+    "max_neg_pred": -0.0,
+    "eligible_tier_count": 1,
+    "tier_count_with_test": 2
+  }
+}

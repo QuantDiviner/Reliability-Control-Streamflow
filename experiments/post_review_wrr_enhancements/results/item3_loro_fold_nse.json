@@ -1,0 +1,13 @@
+{
+  "n_folds": 18,
+  "fold_median_nse_min": 0.016665279865264893,
+  "fold_median_nse_max": 0.6988524794578552,
+  "fold_median_nse_median": 0.43889710307121277,
+  "fold_median_nse_mean": 0.43833209739791024,
+  "n_folds_median_nse_below_0p3": 4,
+  "n_folds_median_nse_below_0": 0,
+  "worst_fold_huc": "13",
+  "worst_fold_median_nse": 0.016665279865264893,
+  "best_fold_huc": "05",
+  "best_fold_median_nse": 0.6988524794578552
+}

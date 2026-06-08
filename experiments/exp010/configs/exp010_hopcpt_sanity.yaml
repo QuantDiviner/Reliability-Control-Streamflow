@@ -1,0 +1,104 @@
+# exp010 sanity smoke — 5 basins × 50 epoch HopCPT context-encoder training
+# Purpose: validate end-to-end pipeline (NH config → forcing load → precomputed_nh
+# adapter → HopCPT EpsPredictionHopfield train + eval) before launching the
+# 671-basin × 12-20h production run. Reuses the production yaml structure;
+# only basin subset and n_epochs change.
+
+### HYDRA START
+hydra:
+  run:
+    dir: ${config.experiment_data.model_dir}/hydra_run
+  sweep:
+    dir: ${config.experiment_data.model_dir}/hydra_sweep
+    subdir: ${hydra.job.num}
+  job:
+    chdir: True
+    name: ${config.experiment_data.experiment_name}_${now:%d%m%y_%H%M%S}
+### HYDRA END
+
+run_config:
+  exec_type: sequential
+  gpu_ids: [0]
+  runs_per_gpu: 1
+  seeds:
+    - 42
+  init_models: null
+
+sweep:
+  type: grid
+  axes:
+    - parameter: evaluation.pred_vega
+      vals:
+        - False
+
+defaults:
+  - config: default
+  - override config/dataset: hydro
+  - override config/model_fc: precomputed_nh
+  - override config/model_uc: eps_pred_hopfield_3year
+  - override config/task: default_3year_gn
+  - override config/wandb: default
+  - override config/evaluation: default
+  - _self_
+
+config:
+  experiment_data:
+    project_name: hscc_exp010_hopcpt_sanity
+    project_entity: null
+    base_proj_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/
+    data_dir: ${config.experiment_data.base_proj_dir}data/raw
+    model_dir: ${config.experiment_data.base_proj_dir}experiments/exp010/_sanity/run_${now:%d%m%y_%H%M%S}
+    evaluate: true
+    offline: true
+    experiment_tag: exp010_sanity
+    experiment_name: hopcpt_sanity_5basin
+    experiment_notes: "exp010 5-basin smoke; verifies precomputed_nh + EpsPredictionHopfield wiring; n_epochs=50"
+    experiment_dir: null
+    experiment_sweep_fp: null
+    experiment_sweep_tag: NoSweep
+    seed: 42
+    gpu_id: 0
+
+  trainer:
+    _target_: trainer.internal_trainer.ModelInternalTrainer
+    trainer_config:
+      n_epochs: 50
+      val_every: 10
+      save_every: 10000
+      early_stopping_patience: 200
+      optim:
+        _target_: torch.optim.AdamW
+        _partial_: true
+        lr: 0.001
+        weight_decay: 0.001
+      lr_scheduler:
+        _target_: trainer.WarmupCosineSchedule
+        _partial_: true
+        warmup_steps: 5
+        t_total: 50
+      grad_clip_param: null
+      model_selection: threshold-pi
+      init_model: null
+
+  dataset:
+    paths:
+      - ${config.experiment_data.base_proj_dir}data/raw
+    dataset_type: hydro-exp010_basin_list_5sanity.txt
+    add_config:
+      nh_config_path: ${config.experiment_data.base_proj_dir}experiments/exp002/results/exp002_camels_us_temporal_2504_155058/config.yml
+      use_static_attributes: True
+      calib_as_calib: True
+
+  model_fc:
+    model_params:
+      nh_results_path: ${config.experiment_data.base_proj_dir}experiments/exp010/cal_test_results.p
+      nh_train_results_path: null
+      nh_states_path: null
+      nh_states_used: [h_n, c_n]
+      target_variable: 'QObs(mm/d)_sim'
+      allow_shorter_prediction_period: False
+
+  task:
+    alpha: [0.1]
+
+  model_uc: {}

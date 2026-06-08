@@ -1,0 +1,69 @@
+{
+  "alpha": 0.1,
+  "n_basins_analyzed": 80,
+  "global_q": 0.513560819554378,
+  "tier_coverage_spread_global_pp": 9.211280063383631,
+  "tier_coverage_spread_hscc_pp": 2.6569973718840623,
+  "nse_overall": 0.8598845334257931,
+  "per_tier": {
+    "gb_drier_q4": {
+      "n_basins": 20.0,
+      "global_coverage": 0.8429619194481273,
+      "hscc_coverage": 0.9029023089967525,
+      "global_width_mm_d": 0.5853420287370682,
+      "hscc_width_mm_d": 0.8060855895280838,
+      "global_q": 0.513560819554378,
+      "hscc_q": 0.6840876161971177,
+      "nse_mean": 0.8321533177047968,
+      "test_pred_min_in_tier": -0.3127117156982422
+    },
+    "gb_mid": {
+      "n_basins": 20.0,
+      "global_coverage": 0.9009044449222177,
+      "hscc_coverage": 0.8764039461822168,
+      "global_width_mm_d": 1.1780233949422836,
+      "hscc_width_mm_d": 1.0529407784342766,
+      "global_q": 0.513560819554378,
+      "hscc_q": 0.46278069847664904,
+      "nse_mean": 0.8874597579240799,
+      "test_pred_min_in_tier": -0.08539259433746338
+    },
+    "gb_wet": {
+      "n_basins": 32.0,
+      "global_coverage": 0.9350747200819636,
+      "hscc_coverage": 0.9029739199010575,
+      "global_width_mm_d": 3.2413571886718273,
+      "hscc_width_mm_d": 2.7462426722049713,
+      "global_q": 0.513560819554378,
+      "hscc_q": 0.44014547443122015,
+      "nse_mean": 0.8800804670900106,
+      "test_pred_min_in_tier": 0.02617788314819336
+    },
+    "gb_montane": {
+      "n_basins": 8.0,
+      "global_coverage": 0.8559008762322016,
+      "hscc_coverage": 0.8958789704271631,
+      "global_width_mm_d": 2.843036487698555,
+      "hscc_width_mm_d": 3.37537844479084,
+      "global_q": 0.513560819554378,
+      "hscc_q": 0.6001901436059578,
+      "nse_mean": 0.8398445909842849,
+      "test_pred_min_in_tier": -1.204270601272583
+    }
+  },
+  "success_criteria": {
+    "S1": false,
+    "S2": true,
+    "S3": false,
+    "S4": true,
+    "S5": true
+  },
+  "frame": "inconsistent",
+  "frame_note": "Push to \u00a76.4 Discussion as applicability boundary",
+  "us_comparison": {
+    "us_global_spread_pp": 19.861799185266772,
+    "us_hscc_spread_pp": 1.0055783852367717,
+    "gb_global_spread_pp": 9.211280063383631,
+    "gb_hscc_spread_pp": 2.6569973718840623
+  }
+}

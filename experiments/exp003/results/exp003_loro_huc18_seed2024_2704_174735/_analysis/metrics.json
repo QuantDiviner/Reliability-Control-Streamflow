@@ -1,0 +1,66 @@
+{
+  "huc": "18",
+  "alpha": 0.1,
+  "n_cal_basins": 631,
+  "n_test_basins": 40,
+  "global_q": 1.2488198280334473,
+  "tier_coverage_spread_global_pp": 16.7306375904557,
+  "tier_coverage_spread_hscc_pp": 25.26354390768629,
+  "per_tier": {
+    "dry": {
+      "n_basins": 16,
+      "global_coverage": 0.5027503422648152,
+      "hscc_coverage": 0.6966800312927831,
+      "global_width_mm_d": 0.719264967367053,
+      "hscc_width_mm_d": 1.3142590709030628,
+      "hscc_q": 1.7932649135249525,
+      "test_pred_min": -5.2357001304626465,
+      "n_cal_basins": 76,
+      "n_cal_pts": 277628
+    },
+    "semi_arid": {
+      "n_basins": 7,
+      "global_coverage": 0.5554469000586739,
+      "hscc_coverage": 0.6528177474784165,
+      "global_width_mm_d": 3.0890469551086426,
+      "hscc_width_mm_d": 4.6277293137141635,
+      "hscc_q": 1.608000850617818,
+      "test_pred_min": -0.3050121068954468,
+      "n_cal_basins": 70,
+      "n_cal_pts": 255710
+    },
+    "humid": {
+      "n_basins": 12,
+      "global_coverage": 0.6700567181693722,
+      "hscc_coverage": 0.6242747245583155,
+      "global_width_mm_d": 7.511151572068532,
+      "hscc_width_mm_d": 6.390612264474233,
+      "hscc_q": 1.1151547789550857,
+      "test_pred_min": -6.721598148345947,
+      "n_cal_basins": 395,
+      "n_cal_pts": 1442202
+    },
+    "snow": {
+      "n_basins": 5,
+      "global_coverage": 0.6465480148640719,
+      "hscc_coverage": 0.4440445922159202,
+      "global_width_mm_d": 5.049969291687011,
+      "hscc_width_mm_d": 2.8356011867523194,
+      "hscc_q": 0.8075586199735055,
+      "test_pred_min": 0.018908262252807617,
+      "n_cal_basins": 90,
+      "n_cal_pts": 328770
+    }
+  },
+  "success_criteria_pub": {
+    "S1_prime_per_tier": false,
+    "S2_prime_spread": false,
+    "S3_prime_global": true,
+    "S4_prime_neg_alarm": false,
+    "S5_prime_humid": false,
+    "S6_prime_spread_reduction": false,
+    "max_neg_pred": 6.721598148345947,
+    "eligible_tier_count": 4,
+    "tier_count_with_test": 4
+  }
+}

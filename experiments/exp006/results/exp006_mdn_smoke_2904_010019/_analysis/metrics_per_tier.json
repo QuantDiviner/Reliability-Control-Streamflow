@@ -1,0 +1,24 @@
+{
+  "alpha": 0.1,
+  "target_coverage": 0.9,
+  "n_samples_per_step": 100,
+  "epoch": 1,
+  "period": "test",
+  "per_tier": {
+    "humid": {
+      "n_basins": 5,
+      "n_timesteps": 25565,
+      "coverage": 0.8201056131429689,
+      "mean_width": 5.07338941796078,
+      "median_width": 4.668318092823028,
+      "coverage_deviation_pp": 7.98943868570311,
+      "mean_basin_nse": 0.1961856961250305
+    }
+  },
+  "overall": {
+    "coverage": 0.8201056131429689,
+    "mean_width": 5.07338941796078,
+    "mean_basin_nse": 0.1961856961250305,
+    "tier_coverage_spread_pp": 0.0
+  }
+}

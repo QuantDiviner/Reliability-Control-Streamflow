@@ -1,0 +1,54 @@
+{
+  "c0": {
+    "dry": {
+      "n": 5,
+      "coverage_mean": 0.8818146265154478,
+      "coverage_std": 0.04650718807743389,
+      "deviation_pp": 1.818537348455218
+    },
+    "semi_arid": {
+      "n": 5,
+      "coverage_mean": 0.909972624168948,
+      "coverage_std": 0.022083916829007417,
+      "deviation_pp": 0.9972624168947952
+    },
+    "humid": {
+      "n": 5,
+      "coverage_mean": 0.909581540868205,
+      "coverage_std": 0.02598335788599464,
+      "deviation_pp": 0.9581540868204952
+    },
+    "snow": {
+      "n": 5,
+      "coverage_mean": 0.8690653109112241,
+      "coverage_std": 0.009541150211639829,
+      "deviation_pp": 3.0934689088775946
+    }
+  },
+  "c3": {
+    "dry": {
+      "n": 5,
+      "coverage_mean": 0.8808760265936645,
+      "coverage_std": 0.05007744930027241,
+      "deviation_pp": 1.9123973406335537
+    },
+    "semi_arid": {
+      "n": 5,
+      "coverage_mean": 0.9128666405944467,
+      "coverage_std": 0.020550301802873344,
+      "deviation_pp": 1.2866640594446643
+    },
+    "humid": {
+      "n": 5,
+      "coverage_mean": 0.9138052405162298,
+      "coverage_std": 0.021027047462388575,
+      "deviation_pp": 1.3805240516229778
+    },
+    "snow": {
+      "n": 5,
+      "coverage_mean": 0.876104810324599,
+      "coverage_std": 0.012077447638558622,
+      "deviation_pp": 2.389518967540105
+    }
+  }
+}

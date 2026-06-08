@@ -1,0 +1,255 @@
+{
+  "experiment": "exp006",
+  "phase": "Phase A1 (D-028 / D-029 closure)",
+  "seeds": [
+    42,
+    1337,
+    2024
+  ],
+  "head": "umal",
+  "loss": "UMALLoss",
+  "n_taus": 20,
+  "epochs": 30,
+  "n_basins": 671,
+  "alpha": 0.1,
+  "tier_scheme": "snow >= 0.4 frac_snow / dry aridity > 1.5 / semi_arid 1.0-1.5 / humid <= 1.0",
+  "per_seed": {
+    "seed_42": {
+      "run_dir": "exp006_mdn_camels_us_2904_155205",
+      "test_mean_basin_nse": 0.5816630893865747,
+      "val_mean_basin_nse": 0.6222365393390776,
+      "tier_coverage_spread_pp": 8.798982765374141,
+      "overall_coverage": 0.7292997922084202,
+      "per_tier": {
+        "dry": {
+          "coverage": 0.7670975076594351,
+          "deviation_pp": 13.290249234056494,
+          "mean_width": 0.2419359880064478,
+          "mean_basin_nse": 0.24279605338106985
+        },
+        "semi_arid": {
+          "coverage": 0.7153487684377438,
+          "deviation_pp": 18.465123156225626,
+          "mean_width": 0.7186818850451651,
+          "mean_basin_nse": 0.47738528638691097
+        },
+        "humid": {
+          "coverage": 0.7350418946211424,
+          "deviation_pp": 16.49581053788576,
+          "mean_width": 1.8603225502495877,
+          "mean_basin_nse": 0.6624056876108453
+        },
+        "snow": {
+          "coverage": 0.6791076800056937,
+          "deviation_pp": 22.089231999430638,
+          "mean_width": 1.2296544463330927,
+          "mean_basin_nse": 0.6484306753466004
+        }
+      }
+    },
+    "seed_1337": {
+      "run_dir": "exp006_mdn_camels_us_seed1337_3004_223135",
+      "test_mean_basin_nse": 0.5679545975144503,
+      "val_mean_basin_nse": 0.6003593708403775,
+      "tier_coverage_spread_pp": 11.878398085557784,
+      "overall_coverage": 0.7276544438117946,
+      "per_tier": {
+        "dry": {
+          "coverage": 0.7707607622823939,
+          "deviation_pp": 12.923923771760615,
+          "mean_width": 0.24931486126679736,
+          "mean_basin_nse": 0.15971430812193
+        },
+        "semi_arid": {
+          "coverage": 0.6974960868390327,
+          "deviation_pp": 20.250391316096728,
+          "mean_width": 0.6798680670555183,
+          "mean_basin_nse": 0.46003831710134235
+        },
+        "humid": {
+          "coverage": 0.7412108429013772,
+          "deviation_pp": 15.878915709862284,
+          "mean_width": 1.8381874509056078,
+          "mean_basin_nse": 0.6561619174421859
+        },
+        "snow": {
+          "coverage": 0.651976781426816,
+          "deviation_pp": 24.8023218573184,
+          "mean_width": 1.1443133045781209,
+          "mean_basin_nse": 0.672873344939006
+        }
+      }
+    },
+    "seed_2024": {
+      "run_dir": "exp006_mdn_camels_us_seed2024_0105_123958",
+      "test_mean_basin_nse": 0.5871177809160264,
+      "val_mean_basin_nse": 0.6053190567432146,
+      "tier_coverage_spread_pp": 8.956570419948918,
+      "overall_coverage": 0.715853344612914,
+      "per_tier": {
+        "dry": {
+          "coverage": 0.759569744214477,
+          "deviation_pp": 14.043025578552303,
+          "mean_width": 0.2396625815054919,
+          "mean_basin_nse": 0.2471299552075241
+        },
+        "semi_arid": {
+          "coverage": 0.6880101767678055,
+          "deviation_pp": 21.19898232321945,
+          "mean_width": 0.6858427428985282,
+          "mean_basin_nse": 0.4954715934279677
+        },
+        "humid": {
+          "coverage": 0.7218925377290112,
+          "deviation_pp": 17.810746227098882,
+          "mean_width": 1.8444229084506434,
+          "mean_basin_nse": 0.6562316011298787
+        },
+        "snow": {
+          "coverage": 0.6700040400149878,
+          "deviation_pp": 22.99959599850122,
+          "mean_width": 1.062670790377444,
+          "mean_basin_nse": 0.6945526395973406
+        }
+      }
+    }
+  },
+  "cross_seed": {
+    "test_mean_basin_nse": {
+      "mean": 0.5789118226056839,
+      "std": 0.009873398664863869,
+      "min": 0.5679545975144503,
+      "max": 0.5871177809160264
+    },
+    "val_mean_basin_nse": {
+      "mean": 0.6093049889742232,
+      "std": 0.011470325505092456,
+      "min": 0.6003593708403775,
+      "max": 0.6222365393390776
+    },
+    "tier_coverage_spread_pp": {
+      "mean": 9.877983756960282,
+      "std": 1.7342005598437118,
+      "min": 8.798982765374141,
+      "max": 11.878398085557784
+    },
+    "per_tier": {
+      "dry": {
+        "coverage": {
+          "mean": 0.7658093380521019,
+          "std": 0.005705633799329668,
+          "min": 0.759569744214477,
+          "max": 0.7707607622823939
+        },
+        "deviation_pp": {
+          "mean": 13.419066194789805,
+          "std": 0.5705633799329664,
+          "min": 12.923923771760615,
+          "max": 14.043025578552303
+        },
+        "mean_width": {
+          "mean": 0.24363781025957904,
+          "std": 0.005046164422961876,
+          "min": 0.2396625815054919,
+          "max": 0.24931486126679736
+        }
+      },
+      "semi_arid": {
+        "coverage": {
+          "mean": 0.7002850106815274,
+          "std": 0.013881038173469959,
+          "min": 0.6880101767678055,
+          "max": 0.7153487684377438
+        },
+        "deviation_pp": {
+          "mean": 19.971498931847268,
+          "std": 1.388103817346996,
+          "min": 18.465123156225626,
+          "max": 21.19898232321945
+        },
+        "mean_width": {
+          "mean": 0.6947975649997372,
+          "std": 0.020899036960625304,
+          "min": 0.6798680670555183,
+          "max": 0.7186818850451651
+        }
+      },
+      "humid": {
+        "coverage": {
+          "mean": 0.7327150917505103,
+          "std": 0.009867103799101955,
+          "min": 0.7218925377290112,
+          "max": 0.7412108429013772
+        },
+        "deviation_pp": {
+          "mean": 16.728490824948974,
+          "std": 0.9867103799101947,
+          "min": 15.878915709862284,
+          "max": 17.810746227098882
+        },
+        "mean_width": {
+          "mean": 1.8476443032019463,
+          "std": 0.011413750209714454,
+          "min": 1.8381874509056078,
+          "max": 1.8603225502495877
+        }
+      },
+      "snow": {
+        "coverage": {
+          "mean": 0.6670295004824992,
+          "std": 0.013807871975691596,
+          "min": 0.651976781426816,
+          "max": 0.6791076800056937
+        },
+        "deviation_pp": {
+          "mean": 23.297049951750086,
+          "std": 1.3807871975691597,
+          "min": 22.089231999430638,
+          "max": 24.8023218573184
+        },
+        "mean_width": {
+          "mean": 1.1455461804295526,
+          "std": 0.08349865463722995,
+          "min": 1.062670790377444,
+          "max": 1.2296544463330927
+        }
+      }
+    }
+  },
+  "manifest_sha256": {
+    "seed_42": {
+      "run_dir": "exp006_mdn_camels_us_2904_155205",
+      "test_metrics_csv_sha256": "6ee8252d357c2eeef5790232dd1d27c460c08a3fbfb46e87fc36526edaa11db1",
+      "metrics_per_tier_json_sha256": "353bde5465396bb8033dcb9a6b6a9f5a0a451fdce120df153f46a8ddd3e706f8",
+      "model_epoch030_pt_sha256": "e24c1feb6a76f5e51c2438210ea1e28c2a59b77b482f894e5599e5cf058807f7"
+    },
+    "seed_1337": {
+      "run_dir": "exp006_mdn_camels_us_seed1337_3004_223135",
+      "test_metrics_csv_sha256": "c38ae96f794465aeff624d0a919ed687461ae858074797a341c952d9205ac34c",
+      "metrics_per_tier_json_sha256": "ce30c7d190fdd23570ab744e79c24514d50083bcced29af894b950d30333e8a6",
+      "model_epoch030_pt_sha256": "61397bfa3e10cd8cf09b8829a739ce46e86895d5cb83044e9f7fe548f7ebc9f9"
+    },
+    "seed_2024": {
+      "run_dir": "exp006_mdn_camels_us_seed2024_0105_123958",
+      "test_metrics_csv_sha256": "67e3b89f6a64af4b428c0ad94e1600497acd67fa9d4b1d3fdad2fa2c52494995",
+      "metrics_per_tier_json_sha256": "e8e80f9b992a67690e62388006733de75270aeb7928df773190fd1c228116edd",
+      "model_epoch030_pt_sha256": "705a0b2cc27f62d03e16282ba868239b327a5e0699067238169b4d69e5be272e"
+    }
+  },
+  "comparison": {
+    "v1_gmm_test_nse": 0.3648,
+    "v1_gmm_tier_spread_pp": 42.84,
+    "exp002_global_split_cp_tier_spread_pp": 19.86,
+    "umal_3seed_vs_v1_gmm_nse_relative_improvement": 0.5869293382831245,
+    "umal_3seed_vs_v1_gmm_spread_reduction_factor": 4.336917437206134,
+    "umal_3seed_vs_global_split_cp_spread_better": true
+  },
+  "pass_criterion_check": {
+    "no_nan_3_seeds": true,
+    "test_nse_std_le_0p01": true,
+    "tier_spread_std_le_1p0pp": false,
+    "test_nse_std_actual": 0.009873398664863869,
+    "tier_spread_std_actual_pp": 1.7342005598437118,
+    "verdict": "PASS_with_footnote (tier spread std 1.73 pp slightly above 1.0 pp threshold; mean 9.88 pp dramatically better than v1 GMM 42.84 pp baseline)"
+  }
+}

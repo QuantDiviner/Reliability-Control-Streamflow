@@ -1,0 +1,66 @@
+{
+  "experiment": "exp011_phase_1",
+  "method": "residual-CQR (Romano 2019, sklearn QuantileRegressor on exp002 LSTM residuals)",
+  "alpha": 0.1,
+  "n_basins_analyzed": 671,
+  "per_tier": [
+    {
+      "tier": "dry",
+      "n_basins": 92,
+      "mean_coverage": 0.9047496518125758,
+      "median_coverage": 0.9300801877566987,
+      "std_coverage": 0.09381707553946102,
+      "mean_pi_width": 0.3795112069868121,
+      "median_pi_width": 0.2685475302034692,
+      "mean_winkler_score": 0.7426000095094096,
+      "Q_hat_tier": 4.7654146942359015e-06
+    },
+    {
+      "tier": "semi_arid",
+      "n_basins": 77,
+      "mean_coverage": 0.8833332175285142,
+      "median_coverage": 0.916682964991199,
+      "std_coverage": 0.10012225234371377,
+      "mean_pi_width": 1.089349571072881,
+      "median_pi_width": 0.8873396406315017,
+      "mean_winkler_score": 1.8102950886279174,
+      "Q_hat_tier": 0.00015069515600344013
+    },
+    {
+      "tier": "humid",
+      "n_basins": 407,
+      "mean_coverage": 0.8900709590596108,
+      "median_coverage": 0.9186387639350675,
+      "std_coverage": 0.0976652699222583,
+      "mean_pi_width": 2.5687694474550202,
+      "median_pi_width": 1.9699603096318725,
+      "mean_winkler_score": 4.197871231786216,
+      "Q_hat_tier": 0.000374819320796704
+    },
+    {
+      "tier": "snow",
+      "n_basins": 95,
+      "mean_coverage": 0.8809267574399542,
+      "median_coverage": 0.9143360062585566,
+      "std_coverage": 0.12862303279721435,
+      "mean_pi_width": 1.8822662908634191,
+      "median_pi_width": 1.5955084775244799,
+      "mean_winkler_score": 2.809067249282489,
+      "Q_hat_tier": 0.00013662800455892734
+    }
+  ],
+  "overall": {
+    "mean_coverage": 0.8900157198368254,
+    "mean_pi_width": 2.0016384661126922,
+    "mean_winkler_score": 3.253512522679645,
+    "tier_coverage_spread_pp": 2.382289437262164
+  },
+  "Q_hat_per_tier": {
+    "dry": 4.7654146942359015e-06,
+    "semi_arid": 0.00015069515600344013,
+    "humid": 0.000374819320796704,
+    "snow": 0.00013662800455892734
+  },
+  "S1_marginal_in_band": true,
+  "S2_per_tier_reported": true
+}

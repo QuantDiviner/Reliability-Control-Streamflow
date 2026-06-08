@@ -1,0 +1,24 @@
+{
+  "analysis": "B2-light 5-seed basin-block bootstrap",
+  "n_bootstrap": 5000,
+  "unit": "basin block with seed resampling from retained per-basin mechanism summaries",
+  "not_in_scope": "daily/year-block bootstrap because four non-seed42 test_results.p files are not retained",
+  "spread_ci": [
+    {
+      "method": "Global_CP",
+      "spread_pp_mean": 21.09253090406196,
+      "spread_pp_ci95_lo": 16.231339716273368,
+      "spread_pp_ci95_hi": 26.094883275049472,
+      "spread_pp_p10": 17.89367889813129,
+      "spread_pp_p90": 24.356914593958223
+    },
+    {
+      "method": "HSCC",
+      "spread_pp_mean": 3.2387948834761286,
+      "spread_pp_ci95_lo": 0.9023633599102215,
+      "spread_pp_ci95_hi": 6.527890963113859,
+      "spread_pp_p10": 1.4858761127071318,
+      "spread_pp_p90": 5.215027021781265
+    }
+  ]
+}

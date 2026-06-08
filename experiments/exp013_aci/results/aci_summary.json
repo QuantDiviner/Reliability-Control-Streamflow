@@ -1,0 +1,79 @@
+{
+  "method": "ACI_Gibbs2021",
+  "alpha_star": 0.1,
+  "gamma": 0.005,
+  "score_function": "log_flow_residual",
+  "score_epsilon": 0.01,
+  "lstm_seed_set": [
+    42
+  ],
+  "n_basins": 671,
+  "marginal_coverage": 0.8997908587323371,
+  "marginal_coverage_median_basin": 0.8998745819397993,
+  "tier_coverage_spread_pp": 0.32963803081333953,
+  "tier_coverage_spread_pp_median_basin": 0.19025455196287622,
+  "log_width_spread_across_tiers": 2.176937268067615,
+  "tier_coverage_spread_definition": "max - min of basin-mean coverage across {dry, semi_arid, humid, snow}",
+  "width_reporting_note": "mean width in mm/d is dominated by extreme-flow days (log-space score gives interval = Q_hat * exp(+/- q_t); a single q_t > 4 at high Q_hat blows up the linear mean). Report median width per basin (robust) and mean log-width (natural scale).",
+  "per_tier": [
+    {
+      "tier": "dry",
+      "n_basins": 92,
+      "mean_coverage": 0.9022603012235006,
+      "median_coverage": 0.9011788999103973,
+      "std_coverage": 0.007190904297897172,
+      "median_width_mm_d": 2.047710269661782,
+      "p95_width_mm_d": 363346.41530905233,
+      "mean_log_width": 3.720637361484038,
+      "median_log_width": 3.0733781354135807
+    },
+    {
+      "tier": "semi_arid",
+      "n_basins": 77,
+      "mean_coverage": 0.8989639209153673,
+      "median_coverage": 0.8992763543907686,
+      "std_coverage": 0.005803879932647001,
+      "median_width_mm_d": 2.579502693577252,
+      "p95_width_mm_d": 783928.8045637646,
+      "mean_log_width": 3.285527852230716,
+      "median_log_width": 2.721132479696947
+    },
+    {
+      "tier": "humid",
+      "n_basins": 407,
+      "mean_coverage": 0.8995734269956682,
+      "median_coverage": 0.8998630940739292,
+      "std_coverage": 0.005017765047928622,
+      "median_width_mm_d": 3.869393881154625,
+      "p95_width_mm_d": 701727.4898745297,
+      "mean_log_width": 2.1105487515472943,
+      "median_log_width": 1.628881428471615
+    },
+    {
+      "tier": "snow",
+      "n_basins": 95,
+      "mean_coverage": 0.8990011768327999,
+      "median_coverage": 0.8996675141795424,
+      "std_coverage": 0.006741014765026679,
+      "median_width_mm_d": 2.054593673983176,
+      "p95_width_mm_d": 321605.5757986768,
+      "mean_log_width": 1.5437000934164231,
+      "median_log_width": 1.2423537905822872
+    }
+  ],
+  "comparison_context": {
+    "global_cp_seed42_tier_spread_pp": 20.68,
+    "global_cp_5seed_tier_spread_pp": 20.97,
+    "hscc_5seed_tier_spread_pp": 1.53,
+    "hopcpt_3seed_tier_spread_pp": 2.48,
+    "global_cqr_5seed_tier_spread_pp": 4.75,
+    "mondrian_cqr_seed42_tier_spread_pp": 2.38,
+    "aci_seed42_tier_spread_pp": 0.32963803081333953
+  },
+  "notes": [
+    "Single LSTM seed=42 (only exp002 .p file retained locally). ACI itself is deterministic.",
+    "Comparable upstream to exp_global_cqr (seed=42 only) and exp_CQR_GB.",
+    "Initial alpha_0 = alpha_star = 0.10; gamma = 0.005 per Gibbs & Candes 2021.",
+    "ACI closes tier coverage spread to <1 pp but the price is interval inflation on extreme-flow days: mean width across the snow tier is two orders of magnitude larger than median width, indicating a Pareto trade-off rather than a free lunch."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "huc": "12",
+  "alpha": 0.1,
+  "n_cal_basins": 634,
+  "n_test_basins": 37,
+  "global_q": 1.217889559268905,
+  "tier_coverage_spread_global_pp": 26.11340773085796,
+  "tier_coverage_spread_hscc_pp": 19.10596750138126,
+  "per_tier": {
+    "dry": {
+      "n_basins": 18,
+      "global_coverage": 0.32906085065282586,
+      "hscc_coverage": 0.4893383300712647,
+      "global_width_mm_d": 0.6945983527435197,
+      "hscc_width_mm_d": 1.30833617101113,
+      "hscc_q": 1.7859793422669499,
+      "test_pred_min": -1.3184962272644043,
+      "n_cal_basins": 74,
+      "n_cal_pts": 270322
+    },
+    "semi_arid": {
+      "n_basins": 16,
+      "global_coverage": 0.46172745941717186,
+      "hscc_coverage": 0.6803980050850773,
+      "global_width_mm_d": 1.6894236877560616,
+      "hscc_width_mm_d": 3.1993290558457375,
+      "hscc_q": 1.7926624651919403,
+      "test_pred_min": -0.572824239730835,
+      "n_cal_basins": 61,
+      "n_cal_pts": 222833
+    },
+    "humid": {
+      "n_basins": 3,
+      "global_coverage": 0.5901949279614055,
+      "hscc_coverage": 0.5509485624877762,
+      "global_width_mm_d": 4.117406447728475,
+      "hscc_width_mm_d": 3.48980450630188,
+      "hscc_q": 1.0827360868427793,
+      "test_pred_min": -0.0283358097076416,
+      "n_cal_basins": 404,
+      "n_cal_pts": 1475079
+    }
+  },
+  "success_criteria_pub": {
+    "S1_prime_per_tier": false,
+    "S2_prime_spread": false,
+    "S3_prime_global": true,
+    "S4_prime_neg_alarm": true,
+    "S5_prime_humid": false,
+    "S6_prime_spread_reduction": true,
+    "max_neg_pred": 1.3184962272644043,
+    "eligible_tier_count": 3,
+    "tier_count_with_test": 3
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "run_dir": "/home/qingsong/\u684c\u9762/\u4ee3\u7801\u4ed3\u5e93/Reliability-Control-Streamflow-CP/experiments/exp002/results/exp002_camels_us_temporal_2504_155058",
+  "n_basins": 671,
+  "ablations_run": [
+    "A2",
+    "A3",
+    "A4"
+  ],
+  "A2": {
+    "ablation": "A2_boundary_sensitivity",
+    "n_combos": 15,
+    "spread_reduction_min_pp": 12.920802146445066,
+    "spread_reduction_max_pp": 21.597859929410433,
+    "spread_reduction_range_pp": 8.677057782965367,
+    "n_combos_pass_15pp": 12,
+    "success_A2_1_at_least_13_of_15_pass": false,
+    "success_A2_3_min_above_12pp": true,
+    "baseline_spread_reduction_pp": 18.85622080003
+  },
+  "A3": {
+    "ablation": "A3_leave_one_regime_out",
+    "real_spread_reduction_pp": 18.85622080003,
+    "leave_out_results": [
+      {
+        "hold_out_tier": "dry",
+        "n_remaining_basins": 579,
+        "spread_global_pp": 16.21733517624604,
+        "spread_hscc_pp": 1.0055783852367717,
+        "spread_reduction_pp": 15.211756791009268,
+        "remaining_tier_dry_cov": NaN,
+        "remaining_tier_semi_cov": 0.8740622964546401,
+        "remaining_tier_humid_cov": 0.8841180803070078,
+        "remaining_tier_snow_cov": 0.8807113199827233
+      },
+      {
+        "hold_out_tier": "semi_arid",
+        "n_remaining_basins": 594,
+        "spread_global_pp": 20.902129071191744,
+        "spread_hscc_pp": 0.34067603242844413,
+        "spread_reduction_pp": 20.5614530387633,
+        "remaining_tier_dry_cov": 0.8819898282954057,
+        "remaining_tier_semi_cov": NaN,
+        "remaining_tier_humid_cov": 0.8841180803070078,
+        "remaining_tier_snow_cov": 0.8807113199827233
+      },
+      {
+        "hold_out_tier": "humid",
+        "n_remaining_basins": 264,
+        "spread_global_pp": 15.7006777465181,
+        "spread_hscc_pp": 0.7927531840765667,
+        "spread_reduction_pp": 14.907924562441533,
+        "remaining_tier_dry_cov": 0.8819898282954057,
+        "remaining_tier_semi_cov": 0.8740622964546401,
+        "remaining_tier_humid_cov": NaN,
+        "remaining_tier_snow_cov": 0.8807113199827233
+      },
+      {
+        "hold_out_tier": "snow",
+        "n_remaining_basins": 576,
+        "spread_global_pp": 14.722738536348356,
+        "spread_hscc_pp": 1.0055783852367717,
+        "spread_reduction_pp": 13.717160151111585,
+        "remaining_tier_dry_cov": 0.8819898282954057,
+        "remaining_tier_semi_cov": 0.8740622964546401,
+        "remaining_tier_humid_cov": 0.8841180803070078,
+        "remaining_tier_snow_cov": NaN
+      }
+    ],
+    "n_pass_12pp": 4,
+    "humid_holdout_spread_reduction_pp": 14.907924562441533,
+    "success_A3_1_at_least_3_of_4_pass": true,
+    "success_A3_2_humid_holdout_above_8pp": true
+  },
+  "A4": {
+    "ablation": "A4_min_cal_size_stress",
+    "sizes_tested": [
+      25,
+      50,
+      100,
+      200
+    ],
+    "N_reps": 20,
+    "actual_n_basins_per_tier": {
+      "dry": 92,
+      "semi_arid": 77,
+      "humid": 407,
+      "snow": 95
+    },
+    "aggregate_summary": [
+      {
+        "tier": "dry",
+        "cal_size_basins": 25,
+        "mean": 0.8776648725536254,
+        "std": 0.0257216931565677,
+        "min": 0.8291024965584346,
+        "max": 0.9066764704078447
+      },
+      {
+        "tier": "dry",
+        "cal_size_basins": 50,
+        "mean": 0.8786345121511857,
+        "std": 0.015688301646412904,
+        "min": 0.845732529731136,
+        "max": 0.901871580771365
+      },
+      {
+        "tier": "humid",
+        "cal_size_basins": 25,
+        "mean": 0.8807472665503713,
+        "std": 0.03094662272564726,
+        "min": 0.7889800274129772,
+        "max": 0.9305165819716977
+      },
+      {
+        "tier": "humid",
+        "cal_size_basins": 50,
+        "mean": 0.8837135881188617,
+        "std": 0.0171240424710593,
+        "min": 0.8421629318203966,
+        "max": 0.9081590570597007
+      },
+      {
+        "tier": "humid",
+        "cal_size_basins": 100,
+        "mean": 0.8877861127095106,
+        "std": 0.0104157407221148,
+        "min": 0.8661757133709017,
+        "max": 0.9064767085724507
+      },
+      {
+        "tier": "humid",
+        "cal_size_basins": 200,
+        "mean": 0.8840235131373785,
+        "std": 0.007778560833917151,
+        "min": 0.8685058981991838,
+        "max": 0.899475162055732
+      },
+      {
+        "tier": "semi_arid",
+        "cal_size_basins": 25,
+        "mean": 0.8788215111446389,
+        "std": 0.016411151630670244,
+        "min": 0.8454767388823277,
+        "max": 0.902398770696052
+      },
+      {
+        "tier": "semi_arid",
+        "cal_size_basins": 50,
+        "mean": 0.8686699960302147,
+        "std": 0.011205452560959048,
+        "min": 0.8483469837940171,
+        "max": 0.889219064413954
+      },
+      {
+        "tier": "snow",
+        "cal_size_basins": 25,
+        "mean": 0.8691040943855093,
+        "std": 0.03040960993895858,
+        "min": 0.7961954258492779,
+        "max": 0.9235043509444752
+      },
+      {
+        "tier": "snow",
+        "cal_size_basins": 50,
+        "mean": 0.8790913386535422,
+        "std": 0.016927078270380105,
+        "min": 0.8437131346178407,
+        "max": 0.9063706324736827
+      }
+    ],
+    "success_A4_1_size100_in_086_092_all_tiers": true,
+    "success_A4_2_size50_in_083_093_all_tiers": true,
+    "success_A4_3_size25_in_080_095_at_least_3_of_4": true
+  }
+}

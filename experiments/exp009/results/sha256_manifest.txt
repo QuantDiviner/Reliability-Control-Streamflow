@@ -1,0 +1,31 @@
+# exp009 5-seed sha256 manifest — generated 2026-05-02T23:12:15+08:00
+
+## seed=42  run: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp002/results/exp002_camels_us_temporal_2504_155058
+e82898bd425121d109833c05b45bf6190c1722015d5545466319ece3e9ce331a  config.yml
+51c658849845f6efd1cc76cce2258a0928486dee01795427cafd76bf48a156e5  model_epoch030.pt
+a4705a86477fdae7f5aa26c504793c1142896a82cfa0aee63ac895151905506b  test/model_epoch030/test_results.p
+56f09eb4815ec2ea04052f4f5563271d1daa9ea602560108e35317e98f7c23f7  test/model_epoch030/test_metrics.csv
+
+## seed=137  run: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp009/results/exp009_seed137_0205_180701
+335ff255a2e08b4e88077e8391f9652de8e2bcf2b4d1936fd67f4c54ec8e9d7c  config.yml
+13270d9ec843d0849abc794689c9cd4e720d6cbf1bc5ece69f523b351d0c8fc6  model_epoch030.pt
+802aed98a55004b8f0fc491a2ad49e3617110fa11340efb79c9f8afd7f15c9a2  test/model_epoch030/test_results.p
+de114c9b18f84b2e8684f16c0b1ef2517732476ffd43e59680754c972d6c57ed  test/model_epoch030/test_metrics.csv
+
+## seed=2024  run: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp009/results/exp009_seed2024_0205_193110
+af01dfae603791f1e1d74aff66a49065e6072d5bc5020291271563fdd72f8dfd  config.yml
+149332794f2a73ce5f6aef322aaa6b0529d346c2ecb91f04b555fab1d0be7af5  model_epoch030.pt
+f6ae6f4a4d361f6a7aed20bae958a6fd5e8aff3e03ed8d8778143693e3585b86  test/model_epoch030/test_results.p
+219c622a171d096157c3ee605a33f8798872704317ef4c14f9a04ac827f12ed6  test/model_epoch030/test_metrics.csv
+
+## seed=1337  run: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp009/results/exp009_seed1337_0205_204444
+9428ba6e3823a6aaebf711a908d039d79f0b426d56bc3d3086caf6c478b5326c  config.yml
+1eba6a772fd427eaa07bf87b559f007e9755893853f77e527d92d8586b5b7a61  model_epoch030.pt
+1fc5d304f236aa33d44bba00c115e569127bf7690e10f0916393b16b49d104be  test/model_epoch030/test_results.p
+50401599a29d280cdf4760f3bf0f5601f3bea814b62f206e68f786809459f32f  test/model_epoch030/test_metrics.csv
+
+## seed=7  run: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp009/results/exp009_seed007_0205_215826
+495a1dce2f1ebf20e7a95f6141a6fcd1820beb4473728676048ed0f6995a3cc7  config.yml
+6e890a2022b6b40983161f5db76be7e5e4afa6e3e4710bb6248172ba77556497  model_epoch030.pt
+f075bafe46539a2233aa3a5fb57c76940443fbb4aea7e9b567dbf6b1c6a9eeac  test/model_epoch030/test_results.p
+0a15fa31e2e8260020b2c532539b87a4017f9fe8f4a140ae6458b600f396f560  test/model_epoch030/test_metrics.csv

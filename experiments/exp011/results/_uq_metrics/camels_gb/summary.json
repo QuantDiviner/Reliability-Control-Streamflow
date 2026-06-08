@@ -1,0 +1,157 @@
+{
+  "experiment": "exp011_phase_2_gb",
+  "version": "v2_vectorized",
+  "dataset": "CAMELS-GB native (50 basins, exp004 seed=42)",
+  "alpha": 0.1,
+  "n_basins": 50,
+  "tier_scheme": "GB_tier_scheme (D-022; gb_drier_q4/gb_mid/gb_wet/gb_montane)",
+  "methods": [
+    "Global_CP",
+    "HSCC"
+  ],
+  "marginal_per_method": [
+    {
+      "method": "Global_CP",
+      "marginal_coverage": 0.8921876380707013,
+      "marginal_width": 1.995899887084961,
+      "marginal_winkler": 2.727749774541005,
+      "marginal_crps": 0.35215408337134796,
+      "pit_ks_stat_marginal": 0.27564319295297424,
+      "pit_ks_pvalue_marginal": 0.0,
+      "reliability_dev_marginal": 0.1753305703572133,
+      "spread_pp": 11.26729118724783
+    },
+    {
+      "method": "HSCC",
+      "marginal_coverage": 0.8967439483601197,
+      "marginal_width": 1.9228056383132934,
+      "marginal_winkler": 2.6847728761953493,
+      "marginal_crps": 0.34991696544878104,
+      "pit_ks_stat_marginal": 0.26777993869674843,
+      "pit_ks_pvalue_marginal": 0.0,
+      "reliability_dev_marginal": 0.1743997105453588,
+      "spread_pp": 1.570868802162384
+    }
+  ],
+  "per_method_per_tier": [
+    {
+      "method": "Global_CP",
+      "tier": "gb_drier_q4",
+      "n_basins": 12,
+      "mean_coverage": 0.8234289830774452,
+      "std_coverage": 0.16969115026719503,
+      "mean_pi_width": 0.6174354925751686,
+      "mean_winkler": 1.0716386201641563,
+      "mean_crps": 0.12390646939328041,
+      "pit_ks_stat": 0.24588009639724318,
+      "pit_ks_pvalue": 0.0,
+      "reliability_dev_mean": 0.1707530807850296,
+      "pit_n_points": 21910
+    },
+    {
+      "method": "Global_CP",
+      "tier": "gb_mid",
+      "n_basins": 12,
+      "mean_coverage": 0.9191310697334795,
+      "std_coverage": 0.09614319116397312,
+      "mean_pi_width": 1.0928956593076389,
+      "mean_winkler": 1.3759385975014717,
+      "mean_crps": 0.17884185687107199,
+      "pit_ks_stat": 0.2934336370906503,
+      "pit_ks_pvalue": 0.0,
+      "reliability_dev_mean": 0.17638736765242788,
+      "pit_n_points": 21912
+    },
+    {
+      "method": "Global_CP",
+      "tier": "gb_wet",
+      "n_basins": 21,
+      "mean_coverage": 0.9331548395833216,
+      "std_coverage": 0.04939813715582343,
+      "mean_pi_width": 3.08149984904698,
+      "mean_winkler": 3.830719590416532,
+      "mean_crps": 0.5073770522612256,
+      "pit_ks_stat": 0.28114547617992514,
+      "pit_ks_pvalue": 0.0,
+      "reliability_dev_mean": 0.1637606524807863,
+      "pit_n_points": 38254
+    },
+    {
+      "method": "Global_CP",
+      "tier": "gb_montane",
+      "n_basins": 5,
+      "mean_coverage": 0.8204819277108433,
+      "std_coverage": 0.13582338866191543,
+      "mean_pi_width": 2.911904740333557,
+      "mean_winkler": 5.314290143263109,
+      "mean_crps": 0.663961231181887,
+      "pit_ks_stat": 0.3241581748244796,
+      "pit_ks_pvalue": 0.0,
+      "reliability_dev_mean": 0.23225629791894847,
+      "pit_n_points": 9130
+    },
+    {
+      "method": "HSCC",
+      "tier": "gb_drier_q4",
+      "n_basins": 12,
+      "mean_coverage": 0.8909725825150683,
+      "std_coverage": 0.15050412409331482,
+      "mean_pi_width": 0.8482603927453359,
+      "mean_winkler": 1.1334450437705086,
+      "mean_crps": 0.14509613405321828,
+      "pit_ks_stat": 0.3262855121502861,
+      "pit_ks_pvalue": 0.0,
+      "reliability_dev_mean": 0.1987950707439525,
+      "pit_n_points": 21910
+    },
+    {
+      "method": "HSCC",
+      "tier": "gb_mid",
+      "n_basins": 12,
+      "mean_coverage": 0.8917488134355605,
+      "std_coverage": 0.11640690657945536,
+      "mean_pi_width": 0.9370850125948588,
+      "mean_winkler": 1.3413974545275005,
+      "mean_crps": 0.1683263222793012,
+      "pit_ks_stat": 0.24907787464621645,
+      "pit_ks_pvalue": 0.0,
+      "reliability_dev_mean": 0.16301113545089446,
+      "pit_n_points": 21912
+    },
+    {
+      "method": "HSCC",
+      "tier": "gb_wet",
+      "n_basins": 21,
+      "mean_coverage": 0.9005302054245232,
+      "std_coverage": 0.06447190495129655,
+      "mean_pi_width": 2.5913342918668474,
+      "mean_winkler": 3.724752344261408,
+      "mean_crps": 0.4737909499557673,
+      "pit_ks_stat": 0.23631007158918926,
+      "pit_ks_pvalue": 0.0,
+      "reliability_dev_mean": 0.14951639044282944,
+      "pit_n_points": 38254
+    },
+    {
+      "method": "HSCC",
+      "tier": "gb_montane",
+      "n_basins": 5,
+      "mean_coverage": 0.9066812705366921,
+      "std_coverage": 0.10452248764749188,
+      "mean_pi_width": 4.059623384475708,
+      "mean_winkler": 5.264146920140355,
+      "mean_crps": 0.7570337694755404,
+      "pit_ks_stat": 0.3811118358327943,
+      "pit_ks_pvalue": 0.0,
+      "reliability_dev_mean": 0.24744797371303387,
+      "pit_n_points": 9130
+    }
+  ],
+  "q_global": 0.5152206897706703,
+  "q_hscc_per_tier": {
+    "gb_drier_q4": 0.6847363457891155,
+    "gb_mid": 0.4465807275937161,
+    "gb_wet": 0.4385023294726058,
+    "gb_montane": 0.6935409842638072
+  }
+}

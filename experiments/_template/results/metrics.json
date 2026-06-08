@@ -1,0 +1,58 @@
+{
+  "_format_specification": {
+    "description": "实验结果指标文件格式规范",
+    "version": "1.0",
+    "note": "此文件由 scripts/evaluate.py 或 scripts/train.py 自动生成"
+  },
+
+  "_required_fields": {
+    "description": "必须包含的字段，用于论文动态引用",
+    "primary_metric": "主要评估指标（如 accuracy, rmse）",
+    "secondary_metrics": "次要指标列表"
+  },
+
+  "_meta": {
+    "experiment_id": "expXXX",
+    "experiment_name": "实验名称",
+    "created_at": "YYYY-MM-DDTHH:MM:SS",
+    "script": "scripts/evaluate.py",
+    "config_file": "experiments/expXXX/config.yaml",
+    "git_commit": "abc1234",
+    "random_seed": 42
+  },
+
+  "_example_metrics": {
+    "注意": "以下是示例，实际使用时替换为真实值",
+
+    "accuracy": 0.9850,
+    "precision": 0.9823,
+    "recall": 0.9876,
+    "f1_score": 0.9849,
+
+    "loss": 0.0234,
+
+    "rmse": 0.0156,
+    "mae": 0.0123,
+    "r2": 0.9912,
+
+    "inference_time_ms": 12.34,
+    "model_params": 1234567,
+    "model_size_mb": 4.7,
+
+    "epochs_trained": 100,
+    "best_epoch": 87,
+    "training_time_hours": 2.5
+  },
+
+  "_naming_convention": {
+    "rule": "使用小写下划线命名法",
+    "good_examples": ["proposed_accuracy", "baseline_rmse", "improvement_pct"],
+    "bad_examples": ["ProposedAccuracy", "baseline-rmse", "improvement%"]
+  },
+
+  "_usage_in_paper": {
+    "quarto_inline": "`{python} f\"{metrics['accuracy']:.1%}\"`",
+    "renders_as": "98.5%",
+    "important": "禁止在论文中硬编码数字，必须使用动态引用"
+  }
+}

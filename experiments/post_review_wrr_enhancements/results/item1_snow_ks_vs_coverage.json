@@ -1,0 +1,14 @@
+{
+  "n_snow_regions": 6,
+  "snow_min_target_basins": 3,
+  "spearman_var_shift_vs_shortfall_rho": 0.4285714285714286,
+  "spearman_var_shift_vs_shortfall_p": 0.3965014577259474,
+  "spearman_var_shift_vs_hscc_coverage_rho": -0.4285714285714286,
+  "spearman_var_shift_vs_hscc_coverage_p": 0.3965014577259474,
+  "spearman_ks_vs_shortfall_rho": 0.2,
+  "spearman_ks_vs_shortfall_p": 0.704,
+  "var_shift_log_ratio_min": 0.6201149088813469,
+  "var_shift_log_ratio_max": 2.3717675968788554,
+  "ks_distance_min": 0.37183544303797467,
+  "ks_distance_max": 0.9222222222222223
+}

@@ -1,0 +1,11 @@
+{
+  "ablation": "A2_boundary_sensitivity",
+  "n_combos": 15,
+  "spread_reduction_min_pp": 12.920802146445066,
+  "spread_reduction_max_pp": 21.597859929410433,
+  "spread_reduction_range_pp": 8.677057782965367,
+  "n_combos_pass_15pp": 12,
+  "success_A2_1_at_least_13_of_15_pass": false,
+  "success_A2_3_min_above_12pp": true,
+  "baseline_spread_reduction_pp": 18.85622080003
+}

@@ -1,0 +1,167 @@
+{
+  "n_dropped": 97,
+  "n_kept": 574,
+  "drop_reason": "HopCPT loader/hydrology.py:88-98 strict NaN check on 1980-2014 full period; NH NaN-safe loss tolerated. ELOG-006.",
+  "attribute_ks_tests": [
+    {
+      "attribute": "aridity",
+      "n_kept": 574,
+      "n_dropped": 97,
+      "kept_mean": 1.0681330654127235,
+      "dropped_mean": 0.9877685967851663,
+      "kept_median": 0.8613561836591315,
+      "dropped_median": 0.799791148541591,
+      "kept_std": 0.6238237954436952,
+      "dropped_std": 0.5549132426117953,
+      "ks_statistic": 0.15963217069578647,
+      "ks_pvalue": 0.025599703577097958,
+      "biased": true
+    },
+    {
+      "attribute": "frac_snow",
+      "n_kept": 574,
+      "n_dropped": 97,
+      "kept_mean": 0.17903198746077073,
+      "dropped_mean": 0.1691542572755759,
+      "kept_median": 0.0971524135648658,
+      "dropped_median": 0.10758495614117,
+      "kept_std": 0.20545263477924572,
+      "dropped_std": 0.18862391298365136,
+      "ks_statistic": 0.08926326376665829,
+      "ks_pvalue": 0.49127047775323274,
+      "biased": false
+    },
+    {
+      "attribute": "p_mean",
+      "n_kept": 574,
+      "n_dropped": 97,
+      "kept_mean": 3.256478062612835,
+      "dropped_mean": 3.2650834550547922,
+      "kept_median": 3.192726899383985,
+      "dropped_median": 3.47541273100616,
+      "kept_std": 1.4624349330266202,
+      "dropped_std": 1.0415697474047358,
+      "ks_statistic": 0.16688817845468587,
+      "ks_pvalue": 0.017135234933375244,
+      "biased": true
+    },
+    {
+      "attribute": "pet_mean",
+      "n_kept": 574,
+      "n_dropped": 97,
+      "kept_mean": 2.790872739483198,
+      "dropped_mean": 2.7666093810904826,
+      "kept_median": 2.7035956605065,
+      "dropped_median": 2.59282922655715,
+      "kept_std": 0.5554840092732505,
+      "dropped_std": 0.5485920530099421,
+      "ks_statistic": 0.125381658823952,
+      "ks_pvalue": 0.1337451920502962,
+      "biased": false
+    },
+    {
+      "attribute": "area_gages2",
+      "n_kept": 574,
+      "n_dropped": 97,
+      "kept_mean": 817.916637630662,
+      "dropped_mean": 642.9130927835051,
+      "kept_median": 335.29499999999996,
+      "dropped_median": 290.1,
+      "kept_std": 1780.0302438214871,
+      "dropped_std": 1109.8472215834097,
+      "ks_statistic": 0.12766263156004168,
+      "ks_pvalue": 0.12140367282634024,
+      "biased": false
+    },
+    {
+      "attribute": "gauge_lon",
+      "n_kept": 574,
+      "n_dropped": 97,
+      "kept_mean": -96.87245721254355,
+      "dropped_mean": -89.38367525773197,
+      "kept_median": -94.460275,
+      "dropped_median": -83.7602,
+      "kept_std": 16.261046607275798,
+      "dropped_std": 14.249903635284594,
+      "ks_statistic": 0.2715794389166278,
+      "ks_pvalue": 6.799073883568772e-06,
+      "biased": true
+    },
+    {
+      "attribute": "gauge_lat",
+      "n_kept": 574,
+      "n_dropped": 97,
+      "kept_mean": 39.32340057491289,
+      "dropped_mean": 38.77776443298969,
+      "kept_median": 39.4315,
+      "dropped_median": 38.99122,
+      "kept_std": 5.247542213354038,
+      "dropped_std": 4.90843769921071,
+      "ks_statistic": 0.13470311433600346,
+      "ks_pvalue": 0.08858955775722481,
+      "biased": false
+    },
+    {
+      "attribute": "elev_mean",
+      "n_kept": 574,
+      "n_dropped": 97,
+      "kept_mean": 764.9423867595817,
+      "dropped_mean": 726.7541237113402,
+      "kept_median": 462.07500000000005,
+      "dropped_median": 465.17,
+      "kept_std": 797.3806796069902,
+      "dropped_std": 709.5864175566871,
+      "ks_statistic": 0.07525413987571393,
+      "ks_pvalue": 0.70270472335293,
+      "biased": false
+    },
+    {
+      "attribute": "log_resid_var",
+      "n_kept": 574,
+      "n_dropped": 97,
+      "kept_mean": 0.7130045651990388,
+      "dropped_mean": 0.7088544706804389,
+      "kept_median": 0.13346166908740997,
+      "dropped_median": 0.1594666838645935,
+      "kept_std": 1.7511921912180557,
+      "dropped_std": 1.5893629666378244,
+      "ks_statistic": 0.12220266532562232,
+      "ks_pvalue": 0.15273865084256355,
+      "biased": false
+    }
+  ],
+  "tier_composition": [
+    {
+      "tier": "dry",
+      "kept_n": 82,
+      "dropped_n": 10,
+      "kept_pct": 14.285714285714285,
+      "dropped_pct": 10.309278350515463,
+      "diff_pp": -3.976435935198822
+    },
+    {
+      "tier": "semi_arid",
+      "kept_n": 70,
+      "dropped_n": 7,
+      "kept_pct": 12.195121951219512,
+      "dropped_pct": 7.216494845360824,
+      "diff_pp": -4.978627105858688
+    },
+    {
+      "tier": "humid",
+      "kept_n": 339,
+      "dropped_n": 68,
+      "kept_pct": 59.059233449477354,
+      "dropped_pct": 70.10309278350515,
+      "diff_pp": 11.043859334027793
+    },
+    {
+      "tier": "snow",
+      "kept_n": 83,
+      "dropped_n": 12,
+      "kept_pct": 14.45993031358885,
+      "dropped_pct": 12.371134020618557,
+      "diff_pp": -2.0887962929702937
+    }
+  ]
+}

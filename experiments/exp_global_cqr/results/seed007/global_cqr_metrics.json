@@ -1,0 +1,69 @@
+{
+  "experiment": "exp_global_cqr",
+  "method": "vanilla global residual-CQR (single pooled Q_hat_global)",
+  "seed": 7,
+  "alpha": 0.1,
+  "n_basins_analyzed": 671,
+  "n_tiers_reported": 4,
+  "Q_hat_global": 0.006645828775705243,
+  "overall": {
+    "mean_coverage": 0.8911710188728361,
+    "mean_pi_width": 2.0453550943804806,
+    "mean_winkler_score": 3.305400411529536,
+    "tier_coverage_spread_pp": 5.167043331235943
+  },
+  "per_tier": [
+    {
+      "seed": 7,
+      "tier": "dry",
+      "n_basins": 92,
+      "mean_coverage": 0.9314752128651991,
+      "median_coverage": 0.9475308291213048,
+      "std_coverage": 0.059339337815517694,
+      "mean_pi_width": 0.3347586965911645,
+      "median_pi_width": 0.2742524831122676,
+      "mean_winkler_score": 0.9078516127709327,
+      "Q_hat_global": 0.006645828775705243
+    },
+    {
+      "seed": 7,
+      "tier": "semi_arid",
+      "n_basins": 77,
+      "mean_coverage": 0.8798047795528396,
+      "median_coverage": 0.8945824369254841,
+      "std_coverage": 0.08449125391504347,
+      "mean_pi_width": 0.8245519479692225,
+      "median_pi_width": 0.6927111707517175,
+      "mean_winkler_score": 1.8791539187271615,
+      "Q_hat_global": 0.006645828775705243
+    },
+    {
+      "seed": 7,
+      "tier": "humid",
+      "n_basins": 407,
+      "mean_coverage": 0.8809915552819658,
+      "median_coverage": 0.9074907099550166,
+      "std_coverage": 0.09458831440416075,
+      "mean_pi_width": 2.6576209617708884,
+      "median_pi_width": 2.0368007390697658,
+      "mean_winkler_score": 4.229355673520612,
+      "Q_hat_global": 0.006645828775705243
+    },
+    {
+      "seed": 7,
+      "tier": "snow",
+      "n_basins": 95,
+      "mean_coverage": 0.9049631900499565,
+      "median_coverage": 0.9350674750635635,
+      "std_coverage": 0.10292763770740955,
+      "mean_pi_width": 2.0683498611424547,
+      "median_pi_width": 1.7204695957693568,
+      "mean_winkler_score": 2.8248285989106594,
+      "Q_hat_global": 0.006645828775705243
+    }
+  ],
+  "success_criteria": {
+    "S1_single_global_qhat": true,
+    "S2_all_tiers_reported": true
+  }
+}

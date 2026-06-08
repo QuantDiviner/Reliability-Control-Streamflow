@@ -1,0 +1,128 @@
+{
+  "n_folds_evaluated": 18,
+  "missing_folds": [],
+  "tier_min_test_basins": 3,
+  "low_power_cells_dropped": {
+    "dry": [
+      "HUC-09(n=2)",
+      "HUC-13(n=2)",
+      "HUC-14(n=1)"
+    ],
+    "semi_arid": [
+      "HUC-07(n=2)",
+      "HUC-17(n=2)"
+    ],
+    "humid": [
+      "HUC-09(n=2)"
+    ],
+    "snow": [
+      "HUC-11(n=1)",
+      "HUC-15(n=1)"
+    ]
+  },
+  "avg_tier_coverage_spread_global_pp": 22.44854441774716,
+  "avg_tier_coverage_spread_hscc_pp": 12.356462513028745,
+  "fold_pass_S1_per_tier_count": 3,
+  "fold_pass_S1_per_tier_ratio": 0.16666666666666666,
+  "fold_pass_S6_spread_reduction_count": 12,
+  "fold_pass_S6_spread_reduction_ratio": 0.6666666666666666,
+  "fold_pass_S5_humid_count": 3,
+  "fold_pass_S5_humid_total": 13,
+  "fold_pass_S5_humid_low_power_skipped": [
+    "HUC-09 humid n=2"
+  ],
+  "fold_S5_failures": [
+    "HUC-03 humid=0.7985344751677464",
+    "HUC-04 humid=0.8234792931971303",
+    "HUC-05 humid=0.8161644941603798",
+    "HUC-07 humid=0.6848009185946007",
+    "HUC-08 humid=0.8101452175118289",
+    "HUC-10 humid=0.5090965222424674",
+    "HUC-11 humid=0.6981857088620702",
+    "HUC-12 humid=0.5509485624877762",
+    "HUC-17 humid=0.7876777286162907",
+    "HUC-18 humid=0.7529662950648675"
+  ],
+  "per_tier_marginal_basin_weighted": {
+    "dry": {
+      "n_test_basins_total": 87,
+      "n_folds_with_tier": 6,
+      "global_coverage_basin_weighted": 0.46664003717628755,
+      "hscc_coverage_basin_weighted": 0.6130378729805674,
+      "global_width_basin_weighted": 0.633072817248517,
+      "hscc_width_basin_weighted": 1.1719205764004554
+    },
+    "semi_arid": {
+      "n_test_basins_total": 73,
+      "n_folds_with_tier": 7,
+      "global_coverage_basin_weighted": 0.6300958496614893,
+      "hscc_coverage_basin_weighted": 0.770150697743301,
+      "global_width_basin_weighted": 1.9913325199525649,
+      "hscc_width_basin_weighted": 3.3384879117142665
+    },
+    "humid": {
+      "n_test_basins_total": 405,
+      "n_folds_with_tier": 13,
+      "global_coverage_basin_weighted": 0.8593584041955116,
+      "hscc_coverage_basin_weighted": 0.8165152070363958,
+      "global_width_basin_weighted": 8.820725839520676,
+      "hscc_width_basin_weighted": 7.135459796587627
+    },
+    "snow": {
+      "n_test_basins_total": 93,
+      "n_folds_with_tier": 6,
+      "global_coverage_basin_weighted": 0.8707678394506514,
+      "hscc_coverage_basin_weighted": 0.7069918379594543,
+      "global_width_basin_weighted": 7.630460224484884,
+      "hscc_width_basin_weighted": 4.55003838193032
+    }
+  },
+  "per_tier_marginal_basin_weighted_unfiltered": {
+    "dry": {
+      "n_test_basins_total": 92,
+      "n_folds_with_tier": 9,
+      "global_coverage_basin_weighted": 0.47662810563262686,
+      "hscc_coverage_basin_weighted": 0.6216023309633134,
+      "global_width_basin_weighted": 0.6517212239863432,
+      "hscc_width_basin_weighted": 1.2082036391062583
+    },
+    "semi_arid": {
+      "n_test_basins_total": 77,
+      "n_folds_with_tier": 9,
+      "global_coverage_basin_weighted": 0.627124761659994,
+      "hscc_coverage_basin_weighted": 0.764100110952193,
+      "global_width_basin_weighted": 2.0690517096550436,
+      "hscc_width_basin_weighted": 3.395105416124517
+    },
+    "humid": {
+      "n_test_basins_total": 407,
+      "n_folds_with_tier": 14,
+      "global_coverage_basin_weighted": 0.8596146287340592,
+      "hscc_coverage_basin_weighted": 0.8167541871630977,
+      "global_width_basin_weighted": 8.789176434205263,
+      "hscc_width_basin_weighted": 7.109854195569012
+    },
+    "snow": {
+      "n_test_basins_total": 95,
+      "n_folds_with_tier": 8,
+      "global_coverage_basin_weighted": 0.8729120705103396,
+      "hscc_coverage_basin_weighted": 0.7110666966067138,
+      "global_width_basin_weighted": 7.5242622162166395,
+      "hscc_width_basin_weighted": 4.487251505098845
+    }
+  },
+  "global_pub_success_criteria": {
+    "S1": false,
+    "S2": false,
+    "S3": true,
+    "S5": false,
+    "S6": false,
+    "S7_gap_to_exp002": false
+  },
+  "S7_gap_per_tier_pp": {
+    "dry": -26.89519553148383,
+    "semi_arid": -10.391159871133905,
+    "humid": -6.7602873270611985,
+    "snow": -17.371948202326905
+  }
+}

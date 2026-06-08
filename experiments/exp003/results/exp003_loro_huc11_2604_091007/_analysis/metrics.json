@@ -1,0 +1,66 @@
+{
+  "huc": "11",
+  "alpha": 0.1,
+  "n_cal_basins": 640,
+  "n_test_basins": 31,
+  "global_q": 1.2774422764773803,
+  "tier_coverage_spread_global_pp": 32.065529649053644,
+  "tier_coverage_spread_hscc_pp": 19.05214209434306,
+  "per_tier": {
+    "dry": {
+      "n_basins": 9,
+      "global_coverage": 0.7488493952906928,
+      "hscc_coverage": 0.8887071298055008,
+      "global_width_mm_d": 0.29534971051745945,
+      "hscc_width_mm_d": 0.629539461599456,
+      "hscc_q": 1.9727741479484413,
+      "test_pred_min": -0.3545490503311157,
+      "n_cal_basins": 83,
+      "n_cal_pts": 303199
+    },
+    "semi_arid": {
+      "n_basins": 4,
+      "global_coverage": 0.645900541569311,
+      "hscc_coverage": 0.7670928071815222,
+      "global_width_mm_d": 1.0590054541826248,
+      "hscc_width_mm_d": 1.791421040892601,
+      "hscc_q": 1.7523059604387605,
+      "test_pred_min": -0.30510127544403076,
+      "n_cal_basins": 73,
+      "n_cal_pts": 266669
+    },
+    "humid": {
+      "n_basins": 17,
+      "global_coverage": 0.7550994581286455,
+      "hscc_coverage": 0.6981857088620702,
+      "global_width_mm_d": 4.26596389097326,
+      "hscc_width_mm_d": 3.382541972048142,
+      "hscc_q": 1.0856064558014942,
+      "test_pred_min": -0.5148335695266724,
+      "n_cal_basins": 390,
+      "n_cal_pts": 1423937
+    },
+    "snow": {
+      "n_basins": 1,
+      "global_coverage": 0.9665558380598475,
+      "hscc_coverage": 0.8574222569919813,
+      "global_width_mm_d": 4.5753173828125,
+      "hscc_width_mm_d": 2.773124933242798,
+      "hscc_q": 0.8832896053780631,
+      "test_pred_min": 0.2417999505996704,
+      "n_cal_basins": 94,
+      "n_cal_pts": 343382
+    }
+  },
+  "success_criteria_pub": {
+    "S1_prime_per_tier": false,
+    "S2_prime_spread": false,
+    "S3_prime_global": true,
+    "S4_prime_neg_alarm": true,
+    "S5_prime_humid": false,
+    "S6_prime_spread_reduction": true,
+    "max_neg_pred": 0.5148335695266724,
+    "eligible_tier_count": 3,
+    "tier_count_with_test": 4
+  }
+}

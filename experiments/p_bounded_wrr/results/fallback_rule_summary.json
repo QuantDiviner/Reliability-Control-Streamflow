@@ -1,0 +1,37 @@
+{
+  "default_trigger": "fallback to Global CP if low_power OR HSCC coverage < 0.85 OR Global coverage exceeds HSCC by > 0.02 in the validation cell",
+  "n_cells": 40,
+  "default": {
+    "fallback_cells": 37,
+    "fallback_rate": 0.925,
+    "mean_selected_coverage": 0.7265579545189773,
+    "mean_selected_width": 4.0643453641352,
+    "selected_spread_pp": 97.73127322511246,
+    "hscc_only_mean_coverage": 0.7357169600879458,
+    "global_only_mean_coverage": 0.7207184516299248
+  },
+  "bootstrap_ci": {
+    "fallback_rate": {
+      "mean": 0.9251400000000002,
+      "ci95_lo": 0.825,
+      "ci95_hi": 1.0
+    },
+    "mean_selected_coverage": {
+      "mean": 0.7267525647230505,
+      "ci95_lo": 0.6577495529136123,
+      "ci95_hi": 0.7895176197310146
+    },
+    "mean_selected_width": {
+      "mean": 4.052619814489279,
+      "ci95_lo": 2.688274975945433,
+      "ci95_hi": 5.988964704613032
+    },
+    "selected_spread_pp": {
+      "mean": 85.26150780560927,
+      "ci95_lo": 54.252792250516954,
+      "ci95_hi": 97.73127322511246
+    }
+  },
+  "stability_call": "exploratory_diagnostic",
+  "stability_reason": "downgraded because bootstrap lower coverage is below 0.85 and/or selected spread remains large"
+}

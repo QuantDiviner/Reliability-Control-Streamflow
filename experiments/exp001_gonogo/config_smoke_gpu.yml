@@ -1,0 +1,92 @@
+# Smoke test: 5 basins × 1 epoch on Linux GPU
+# 仅用于验证 nh-run train 在新环境 + cuda:0 下能跑通
+
+experiment_name: exp001_smoke_gpu
+
+run_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp001_gonogo/results
+
+train_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp001_gonogo/basin_list_smoke_5.txt
+validation_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp001_gonogo/basin_list_smoke_5.txt
+test_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp001_gonogo/basin_list_smoke_5.txt
+
+train_start_date: '01/10/1999'
+train_end_date: '30/09/2008'
+validation_start_date: '01/10/1989'
+validation_end_date: '30/09/1999'
+test_start_date: '01/10/1980'
+test_end_date: '30/09/1989'
+
+seed: 42
+
+device: cuda:0
+
+validate_every: 1
+validate_n_random_basins: 3
+metrics:
+- NSE
+
+model: cudalstm
+head: regression
+
+hidden_size: 64
+initial_forget_bias: 3
+output_dropout: 0.4
+output_activation: linear
+
+optimizer: Adam
+loss: NSE
+learning_rate:
+    0: 1e-3
+batch_size: 128
+epochs: 1
+
+predict_last_n: 1
+seq_length: 365
+num_workers: 2
+
+save_weights_every: 1
+save_validation_results: True
+
+dataset: camels_us
+data_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/data/raw/CAMELS_US
+
+forcings:
+- daymet
+
+dynamic_inputs:
+- prcp(mm/day)
+- srad(W/m2)
+- tmax(C)
+- tmin(C)
+- vp(Pa)
+
+target_variables:
+- QObs(mm/d)
+
+static_attributes:
+- elev_mean
+- slope_mean
+- area_gages2
+- frac_forest
+- lai_max
+- lai_diff
+- gvf_max
+- gvf_diff
+- soil_depth_pelletier
+- soil_depth_statsgo
+- soil_porosity
+- soil_conductivity
+- max_water_content
+- sand_frac
+- silt_frac
+- clay_frac
+- carbonate_rocks_frac
+- geol_permeability
+- p_mean
+- pet_mean
+- aridity
+- frac_snow
+- high_prec_freq
+- high_prec_dur
+- low_prec_freq
+- low_prec_dur

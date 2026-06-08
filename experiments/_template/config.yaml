@@ -1,0 +1,23 @@
+# 实验配置
+# 从 configs/default.yaml 派生，仅覆盖需要修改的参数
+
+# 实验元信息
+experiment:
+  name: "expXXX_description"
+  description: "实验目的描述"
+  date: "YYYY-MM-DD"
+  parent_config: "configs/default.yaml"  # 基于哪个配置
+
+# === 覆盖的参数 ===
+# 仅列出与 default.yaml 不同的参数
+
+# 示例：
+# model:
+#   hidden_dim: 128  # 默认是 64
+
+# training:
+#   learning_rate: 0.0001  # 默认是 0.001
+
+# === 实验特定参数 ===
+# 本实验独有的参数
+

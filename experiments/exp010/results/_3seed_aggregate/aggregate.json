@@ -1,0 +1,89 @@
+{
+  "exp": "exp010",
+  "action": "6_HopCPT_+2_seeds_aggregate",
+  "seeds": [
+    42,
+    137,
+    2024
+  ],
+  "tier_3seed_summary": [
+    {
+      "tier": "dry",
+      "n_basins": 82,
+      "n_seeds": 3,
+      "coverage_mean": 0.9335091962302372,
+      "coverage_std": 0.006760194975666527,
+      "coverage_min": 0.9257416532702388,
+      "coverage_max": 0.9380631866166108,
+      "width_mean": 0.4824073438982768,
+      "width_std": 0.024577246530647814,
+      "winkler_mean": 0.7953520910200269,
+      "winkler_std": 0.006549508900393089
+    },
+    {
+      "tier": "semi_arid",
+      "n_basins": 70,
+      "n_seeds": 3,
+      "coverage_mean": 0.9447216711836308,
+      "coverage_std": 0.005229417587962141,
+      "coverage_min": 0.9386912911067028,
+      "coverage_max": 0.9480064820764996,
+      "width_mean": 1.1188941687566718,
+      "width_std": 0.028669897911480335,
+      "winkler_mean": 1.7133198857770402,
+      "winkler_std": 0.0015500441502502393
+    },
+    {
+      "tier": "humid",
+      "n_basins": 339,
+      "n_seeds": 3,
+      "coverage_mean": 0.9299545127704825,
+      "coverage_std": 0.003903962909631441,
+      "coverage_min": 0.9259536827578728,
+      "coverage_max": 0.933753801259673,
+      "width_mean": 2.2230083324874954,
+      "width_std": 0.08409988970811473,
+      "winkler_mean": 3.5117678846227895,
+      "winkler_std": 0.016159429969520613
+    },
+    {
+      "tier": "snow",
+      "n_basins": 83,
+      "n_seeds": 3,
+      "coverage_mean": 0.9199693355860368,
+      "coverage_std": 0.0018224074446798336,
+      "coverage_min": 0.9184926681103448,
+      "coverage_max": 0.9220060370564992,
+      "width_mean": 1.5704753850678415,
+      "width_std": 0.050591757246936674,
+      "winkler_mean": 2.166932532834425,
+      "winkler_std": 0.038340979979535075
+    }
+  ],
+  "spread_per_seed": [
+    {
+      "seed": 42,
+      "spread_pp": 2.546120331119084,
+      "marginal": 0.9341515887288738,
+      "n_basins": 574
+    },
+    {
+      "seed": 137,
+      "spread_pp": 2.0198622996357996,
+      "marginal": 0.9263979021841573,
+      "n_basins": 574
+    },
+    {
+      "seed": 2024,
+      "spread_pp": 2.859718048523341,
+      "marginal": 0.9319085531108446,
+      "n_basins": 574
+    }
+  ],
+  "spread_3seed_mean_pp": 2.475233559759408,
+  "spread_3seed_std_pp": 0.4243914708146388,
+  "marginal_3seed_mean": 0.9308193480079586,
+  "marginal_3seed_std": 0.003989948568032464,
+  "per_basin_cov_std_mean": 0.010276719621574287,
+  "per_basin_cov_std_max": 0.11302577720886327
+}

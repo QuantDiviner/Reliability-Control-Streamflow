@@ -1,0 +1,63 @@
+{
+  "exp": "exp007_mechanism_analysis",
+  "n_basins": 671,
+  "alpha": 0.1,
+  "q_global": 1.2736513137809595,
+  "q_tier": {
+    "dry": 1.7098090290926773,
+    "semi_arid": 1.5747377990412958,
+    "humid": 1.1183578252714381,
+    "snow": 0.8320076465555163
+  },
+  "median_AR1": 0.49476701200171147,
+  "median_Het": 42.09186871998575,
+  "gate_G1": {
+    "criterion": "Spearman(AR1 or Het, miscoverage_global) >= 0.4",
+    "spearman_AR1_miscov": 0.022046095892755625,
+    "spearman_Het_miscov": 0.003469475281357234,
+    "passed": false
+  },
+  "quadrant_analysis": {
+    "Q1_reliable_mean_miscov": 0.11288448652673623,
+    "Q4_unreliable_mean_miscov": 0.12274475744143697,
+    "Q4_Q1_diff": 0.009860270914700736,
+    "S2_pass_diff_ge_005": false
+  },
+  "spearman_top5_abs": [
+    {
+      "var": "log_resid_var",
+      "target": "coverage_global",
+      "spearman_rho": -0.9141565467860365,
+      "spearman_p": 1.4942615091310432e-264,
+      "n": 671
+    },
+    {
+      "var": "log_resid_var",
+      "target": "coverage_hscc",
+      "spearman_rho": -0.8172275025306942,
+      "spearman_p": 2.870712368900177e-162,
+      "n": 671
+    },
+    {
+      "var": "KGE_test",
+      "target": "coverage_global",
+      "spearman_rho": 0.5233183012829172,
+      "spearman_p": 1.9032723294892497e-48,
+      "n": 671
+    },
+    {
+      "var": "NSE_test",
+      "target": "coverage_global",
+      "spearman_rho": 0.46222851285968847,
+      "spearman_p": 8.024405172329441e-37,
+      "n": 671
+    },
+    {
+      "var": "Het",
+      "target": "coverage_global",
+      "spearman_rho": -0.42234539655089964,
+      "spearman_p": 2.0829904783121424e-30,
+      "n": 671
+    }
+  ]
+}

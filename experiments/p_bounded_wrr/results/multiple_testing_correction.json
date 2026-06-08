@@ -1,0 +1,87 @@
+{
+  "n_tests": 9,
+  "method": "Holm family-wise correction plus Benjamini-Hochberg FDR diagnostic",
+  "table": [
+    {
+      "claim_family": "exp008 physical-vs-random spread",
+      "claim": "physical tiers reduce cross-fold spread more than random tiers",
+      "p_value": 0.00021457152348340055,
+      "scope": "primary",
+      "holm_p": 0.0012874291409004034,
+      "bh_fdr_p": 0.0004827859278376512,
+      "classification": "corrected-significant"
+    },
+    {
+      "claim_family": "exp008 per-tier absolute coverage physical-vs-random",
+      "claim": "dry per-tier coverage differs from random tiering",
+      "p_value": 0.7251594274172477,
+      "scope": "secondary",
+      "holm_p": 1.0,
+      "bh_fdr_p": 0.999441934145035,
+      "classification": "descriptive"
+    },
+    {
+      "claim_family": "exp008 per-tier absolute coverage physical-vs-random",
+      "claim": "semi_arid per-tier coverage differs from random tiering",
+      "p_value": 0.4859743974864089,
+      "scope": "secondary",
+      "holm_p": 1.0,
+      "bh_fdr_p": 0.874753915475536,
+      "classification": "descriptive"
+    },
+    {
+      "claim_family": "exp008 per-tier absolute coverage physical-vs-random",
+      "claim": "humid per-tier coverage differs from random tiering",
+      "p_value": 0.9062013580275236,
+      "scope": "secondary",
+      "holm_p": 1.0,
+      "bh_fdr_p": 0.999441934145035,
+      "classification": "descriptive"
+    },
+    {
+      "claim_family": "exp008 per-tier absolute coverage physical-vs-random",
+      "claim": "snow per-tier coverage differs from random tiering",
+      "p_value": 0.999441934145035,
+      "scope": "secondary",
+      "holm_p": 1.0,
+      "bh_fdr_p": 0.999441934145035,
+      "classification": "descriptive"
+    },
+    {
+      "claim_family": "exp003 cookbook predictability",
+      "claim": "cookbook predictor outperforms tier-only baseline",
+      "p_value": 0.926,
+      "scope": "secondary",
+      "holm_p": 1.0,
+      "bh_fdr_p": 0.999441934145035,
+      "classification": "descriptive"
+    },
+    {
+      "claim_family": "exp007 residual diagnostic",
+      "claim": "log_resid_var vs global signed coverage error",
+      "p_value": 1.1700069712976305e-233,
+      "scope": "diagnostic",
+      "holm_p": 1.0530062741678675e-232,
+      "bh_fdr_p": 1.0530062741678675e-232,
+      "classification": "corrected-significant"
+    },
+    {
+      "claim_family": "exp007 residual diagnostic",
+      "claim": "Het vs global signed coverage error",
+      "p_value": 2.8975708278377165e-30,
+      "scope": "diagnostic",
+      "holm_p": 2.3180566622701732e-29,
+      "bh_fdr_p": 1.3039068725269725e-29,
+      "classification": "corrected-significant"
+    },
+    {
+      "claim_family": "exp007 residual diagnostic",
+      "claim": "AR1 vs global signed coverage error",
+      "p_value": 2.9633100713870672e-12,
+      "scope": "diagnostic",
+      "holm_p": 2.074317049970947e-11,
+      "bh_fdr_p": 8.8899302141612e-12,
+      "classification": "corrected-significant"
+    }
+  ]
+}

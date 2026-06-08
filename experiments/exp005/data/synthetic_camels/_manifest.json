@@ -1,0 +1,228 @@
+{
+  "n_basins": 20,
+  "prcp_noise_frac": 0.2,
+  "temp_noise_c": 2.0,
+  "seed": 42,
+  "basins": [
+    {
+      "gauge_id": "07301500",
+      "tier": "dry",
+      "area_km2": 6885.07,
+      "n_days": 12784,
+      "mean_p_clean": 1.666863266583229,
+      "p_noise_std": 0.33337265331664584,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 1247.8460628127796,
+      "q_mean_mm_day": 0.44341519238321153
+    },
+    {
+      "gauge_id": "06847900",
+      "tier": "dry",
+      "area_km2": 1536.19,
+      "n_days": 12784,
+      "mean_p_clean": 1.5130358260325407,
+      "p_noise_std": 0.30260716520650816,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 252.46078352997057,
+      "q_mean_mm_day": 0.4020748494009927
+    },
+    {
+      "gauge_id": "09497980",
+      "tier": "dry",
+      "area_km2": 516.8,
+      "n_days": 12784,
+      "mean_p_clean": 1.667723717146433,
+      "p_noise_std": 0.33354474342928664,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 134.02597710141717,
+      "q_mean_mm_day": 0.6344894321139695
+    },
+    {
+      "gauge_id": "08082700",
+      "tier": "dry",
+      "area_km2": 276.04,
+      "n_days": 12784,
+      "mean_p_clean": 1.7834324155193995,
+      "p_noise_std": 0.3566864831038799,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 48.219651682148296,
+      "q_mean_mm_day": 0.4273758386823073
+    },
+    {
+      "gauge_id": "06360500",
+      "tier": "dry",
+      "area_km2": 12654.96,
+      "n_days": 12784,
+      "mean_p_clean": 1.193872809762203,
+      "p_noise_std": 0.2387745619524406,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 1593.754031500579,
+      "q_mean_mm_day": 0.308118968637949
+    },
+    {
+      "gauge_id": "03471500",
+      "tier": "humid",
+      "area_km2": 198.16,
+      "n_days": 12784,
+      "mean_p_clean": 3.369928035043805,
+      "p_noise_std": 0.6739856070087611,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 157.6541665403752,
+      "q_mean_mm_day": 1.946468479345069
+    },
+    {
+      "gauge_id": "03364500",
+      "tier": "humid",
+      "area_km2": 237.09,
+      "n_days": 12784,
+      "mean_p_clean": 3.2420001564455565,
+      "p_noise_std": 0.6484000312891114,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 164.92674601854253,
+      "q_mean_mm_day": 1.701906785166981
+    },
+    {
+      "gauge_id": "01586610",
+      "tier": "humid",
+      "area_km2": 72.7,
+      "n_days": 12784,
+      "mean_p_clean": 3.2694508760951186,
+      "p_noise_std": 0.6538901752190238,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 53.10546968175997,
+      "q_mean_mm_day": 1.7871572170511334
+    },
+    {
+      "gauge_id": "02028500",
+      "tier": "humid",
+      "area_km2": 245.45,
+      "n_days": 12784,
+      "mean_p_clean": 3.3582884856070088,
+      "p_noise_std": 0.6716576971214018,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 185.2001592405015,
+      "q_mean_mm_day": 1.8460192914942994
+    },
+    {
+      "gauge_id": "01583500",
+      "tier": "humid",
+      "area_km2": 155.85,
+      "n_days": 12784,
+      "mean_p_clean": 3.2516841364205256,
+      "p_noise_std": 0.6503368272841051,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 111.96508215990623,
+      "q_mean_mm_day": 1.7576553175931129
+    },
+    {
+      "gauge_id": "02065500",
+      "tier": "semi_arid",
+      "area_km2": 252.58,
+      "n_days": 12784,
+      "mean_p_clean": 3.1118390175219024,
+      "p_noise_std": 0.6223678035043805,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 162.68732871190085,
+      "q_mean_mm_day": 1.5758420504054749
+    },
+    {
+      "gauge_id": "02070000",
+      "tier": "semi_arid",
+      "area_km2": 270.61,
+      "n_days": 12784,
+      "mean_p_clean": 3.290910513141427,
+      "p_noise_std": 0.6581821026282855,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 189.43330492166814,
+      "q_mean_mm_day": 1.712657066482499
+    },
+    {
+      "gauge_id": "07180500",
+      "tier": "semi_arid",
+      "area_km2": 275.51,
+      "n_days": 12784,
+      "mean_p_clean": 2.5173067897371713,
+      "p_noise_std": 0.5034613579474343,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 120.0888325605233,
+      "q_mean_mm_day": 1.066407453858753
+    },
+    {
+      "gauge_id": "07145700",
+      "tier": "semi_arid",
+      "area_km2": 399.81,
+      "n_days": 12784,
+      "mean_p_clean": 2.402898936170213,
+      "p_noise_std": 0.4805797872340426,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 157.27360477999835,
+      "q_mean_mm_day": 0.9624099504826789
+    },
+    {
+      "gauge_id": "05507600",
+      "tier": "semi_arid",
+      "area_km2": 275.38,
+      "n_days": 12784,
+      "mean_p_clean": 2.9185192428035043,
+      "p_noise_std": 0.5837038485607009,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 153.76147903517264,
+      "q_mean_mm_day": 1.3660703590693966
+    },
+    {
+      "gauge_id": "13023000",
+      "tier": "snow",
+      "area_km2": 1161.93,
+      "n_days": 12784,
+      "mean_p_clean": 2.38532071339174,
+      "p_noise_std": 0.477064142678348,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 767.528963414959,
+      "q_mean_mm_day": 1.6161167218904413
+    },
+    {
+      "gauge_id": "09352900",
+      "tier": "snow",
+      "area_km2": 188.15,
+      "n_days": 12784,
+      "mean_p_clean": 2.6190222152690863,
+      "p_noise_std": 0.5238044430538172,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 143.47925827877154,
+      "q_mean_mm_day": 1.8657043157882898
+    },
+    {
+      "gauge_id": "06280300",
+      "tier": "snow",
+      "area_km2": 793.95,
+      "n_days": 12784,
+      "mean_p_clean": 1.9635450563204007,
+      "p_noise_std": 0.39270901126408014,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 419.6002664155027,
+      "q_mean_mm_day": 1.2930059343744333
+    },
+    {
+      "gauge_id": "06043500",
+      "tier": "snow",
+      "area_km2": 2120.42,
+      "n_days": 12784,
+      "mean_p_clean": 2.2308729662077598,
+      "p_noise_std": 0.44617459324155195,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 1235.7972913346468,
+      "q_mean_mm_day": 1.4258809374899737
+    },
+    {
+      "gauge_id": "06188000",
+      "tier": "snow",
+      "area_km2": 1730.28,
+      "n_days": 12784,
+      "mean_p_clean": 2.2783643617021276,
+      "p_noise_std": 0.4556728723404255,
+      "t_noise_std": 2.0,
+      "q_mean_cfs": 1071.425673854164,
+      "q_mean_mm_day": 1.5149684094183633
+    }
+  ]
+}

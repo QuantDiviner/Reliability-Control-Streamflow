@@ -1,0 +1,120 @@
+{
+  "f2": {
+    "analysis": "F2 residual-variance threshold calibration",
+    "risk_label": "per-basin coverage < 0.85",
+    "primary_recommended_protocol": [
+      "Compute per-basin calibration-period log-flow residual variance using only observed calibration data.",
+      "Calibrate the numeric threshold within the target dataset or a representative historical basin pool.",
+      "Flag basins above the calibrated threshold as residual-variance risk basins.",
+      "Treat the flag as an exploratory evaluation protocol: it triggers a conditional-coverage audit, not automatic deployment."
+    ],
+    "primary_us_global_threshold": {
+      "dataset": "CAMELS-US",
+      "coverage_target": "coverage_global",
+      "threshold": 0.45278395175933833,
+      "n": 3355,
+      "positive_rate": 0.2819672131147541,
+      "tp": 841,
+      "fp": 266,
+      "tn": 2143,
+      "fn": 105,
+      "precision": 0.7597109304426377,
+      "recall": 0.8890063424947146,
+      "specificity": 0.8895807388958074,
+      "f1": 0.8192888455918168,
+      "balanced_accuracy": 0.8892935406952609,
+      "pooled_n": 3355,
+      "pooled_positive_rate": 0.2819672131147541,
+      "pooled_tp": 841,
+      "pooled_fp": 266,
+      "pooled_tn": 2143,
+      "pooled_fn": 105,
+      "pooled_precision": 0.7597109304426377,
+      "pooled_recall": 0.8890063424947146,
+      "pooled_specificity": 0.8895807388958074,
+      "pooled_f1": 0.8192888455918168,
+      "pooled_balanced_accuracy": 0.8892935406952609
+    },
+    "gb_external_threshold": {
+      "dataset": "CAMELS-GB",
+      "coverage_target": "coverage_global",
+      "threshold": 0.15808261930942535,
+      "n": 150,
+      "positive_rate": 0.23333333333333334,
+      "tp": 30,
+      "fp": 9,
+      "tn": 106,
+      "fn": 5,
+      "precision": 0.7692307692307693,
+      "recall": 0.8571428571428571,
+      "specificity": 0.9217391304347826,
+      "f1": 0.8108108108108107,
+      "balanced_accuracy": 0.8894409937888199,
+      "pooled_n": 150,
+      "pooled_positive_rate": 0.23333333333333334,
+      "pooled_tp": 30,
+      "pooled_fp": 9,
+      "pooled_tn": 106,
+      "pooled_fn": 5,
+      "pooled_precision": 0.7692307692307693,
+      "pooled_recall": 0.8571428571428571,
+      "pooled_specificity": 0.9217391304347826,
+      "pooled_f1": 0.8108108108108107,
+      "pooled_balanced_accuracy": 0.8894409937888199
+    },
+    "limitations": [
+      "Numeric thresholds are dataset-calibrated and should not be transplanted as universal constants.",
+      "The target is severe undercoverage screening, not causal mechanism proof.",
+      "GB validation is based on the bounded 50-basin exp004/3-seed package."
+    ]
+  },
+  "g6": {
+    "analysis": "G6 static-attribute weighted conformal on exp003 LORO",
+    "weighting": "diagonal-Gaussian density-ratio estimate using source/target aridity and frac_snow only",
+    "no_target_flow_leakage": true,
+    "baseline_hscc": {
+      "method": "HSCC",
+      "mean_coverage": 0.7283808314213295,
+      "spread_pp": 19.515185619978414,
+      "mean_width_mm_d": 4.050103688974659,
+      "min_tier": "dry",
+      "max_tier": "humid"
+    },
+    "weighted_hscc": {
+      "method": "Weighted_HSCC",
+      "mean_coverage": 0.758646994099782,
+      "spread_pp": 15.8271192490401,
+      "mean_width_mm_d": 114.97344257901932,
+      "min_tier": "dry",
+      "max_tier": "humid"
+    },
+    "delta_weighted_minus_baseline_spread_pp": -3.688066370938314,
+    "weighted_to_baseline_width_ratio": 28.38777755048698,
+    "interpretation": "limited_rescue_with_unacceptable_width_cost",
+    "claim_boundary": "Empirical rescue attempt only; not a formal Tibshirani weighted-CP coverage guarantee."
+  },
+  "b2": {
+    "analysis": "B2-light 5-seed basin-block bootstrap",
+    "n_bootstrap": 5000,
+    "unit": "basin block with seed resampling from retained per-basin mechanism summaries",
+    "not_in_scope": "daily/year-block bootstrap because four non-seed42 test_results.p files are not retained",
+    "spread_ci": [
+      {
+        "method": "Global_CP",
+        "spread_pp_mean": 21.09253090406196,
+        "spread_pp_ci95_lo": 16.231339716273368,
+        "spread_pp_ci95_hi": 26.094883275049472,
+        "spread_pp_p10": 17.89367889813129,
+        "spread_pp_p90": 24.356914593958223
+      },
+      {
+        "method": "HSCC",
+        "spread_pp_mean": 3.2387948834761286,
+        "spread_pp_ci95_lo": 0.9023633599102215,
+        "spread_pp_ci95_hi": 6.527890963113859,
+        "spread_pp_p10": 1.4858761127071318,
+        "spread_pp_p90": 5.215027021781265
+      }
+    ]
+  }
+}

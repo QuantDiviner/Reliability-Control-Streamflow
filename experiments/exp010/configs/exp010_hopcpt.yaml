@@ -1,0 +1,117 @@
+# exp010 — HopCPT (Auer 2024) head-to-head on CAMELS-US 671 basins, single seed=42
+# Re-uses exp002 NH cudalstm checkpoint via precomputed_nh adapter.
+#
+# Path: this file is placed in experiments/exp010/configs/, with a symlink at
+#       libs/HopCPT/configuration/exp010_hopcpt.yaml so HopCPT main.py can resolve
+#       defaults referencing config/{dataset,model_fc,model_uc,task,evaluation,wandb}/.
+#
+# Data flow:
+#   exp002 NH validation_results.p (1990-10-01..2000-09-30) +
+#   exp002 NH test_results.p       (2000-10-01..2014-09-30)
+#     → concat_nh_results.py concatenates along 'date' →
+#   experiments/exp010/cal_test_results.p (8766 days/basin × 671 basins)
+#     → fed to HopCPT precomputed_nh model_fc as nh_results_path
+#     → HopCPT prediction_offset = train_offset = train_steps (≈3652) so
+#       predictions[0] aligns with calibration day 0 (validation start). ✓
+# See experiments/exp010/execution-log.md "HopCPT 接口关键发现" for derivation.
+
+### HYDRA START
+hydra:
+  run:
+    dir: ${config.experiment_data.model_dir}/hydra_run
+  sweep:
+    dir: ${config.experiment_data.model_dir}/hydra_sweep
+    subdir: ${hydra.job.num}
+  job:
+    chdir: True
+    name: ${config.experiment_data.experiment_name}_${now:%d%m%y_%H%M%S}
+### HYDRA END
+
+### RUN CONFIG START
+run_config:
+  exec_type: sequential
+  gpu_ids: [0]
+  runs_per_gpu: 1
+  seeds:
+    - 42
+  init_models: null
+
+sweep:
+  type: grid
+  axes:
+    - parameter: evaluation.pred_vega
+      vals:
+        - False
+### RUN CONFIG END
+
+defaults:
+  - config: default
+  - override config/dataset: hydro
+  - override config/model_fc: precomputed_nh
+  - override config/model_uc: eps_pred_hopfield_3year
+  - override config/task: default_3year_gn
+  - override config/wandb: default
+  - override config/evaluation: default
+  - _self_
+
+config:
+  experiment_data:
+    project_name: hscc_exp010_hopcpt
+    project_entity: null
+    base_proj_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/
+    data_dir: ${config.experiment_data.base_proj_dir}data/raw
+    model_dir: ${config.experiment_data.base_proj_dir}experiments/exp010/results/run_${now:%d%m%y_%H%M%S}
+    evaluate: true
+    offline: true
+    experiment_tag: exp010
+    experiment_name: hopcpt_camels_us_671_seed42
+    experiment_notes: "exp010 HopCPT head-to-head, single seed=42 (P0 v5.0); reuses exp002 NH cudalstm checkpoint"
+    experiment_dir: null
+    experiment_sweep_fp: null
+    experiment_sweep_tag: NoSweep
+    seed: 42
+    gpu_id: 0
+
+  trainer:
+    _target_: trainer.internal_trainer.ModelInternalTrainer
+    trainer_config:
+      n_epochs: 3000
+      val_every: 50
+      save_every: 10000
+      early_stopping_patience: 200
+      optim:
+        _target_: torch.optim.AdamW
+        _partial_: true
+        lr: 0.001
+        weight_decay: 0.001
+      lr_scheduler:
+        _target_: trainer.WarmupCosineSchedule
+        _partial_: true
+        warmup_steps: 20
+        t_total: 3000
+      grad_clip_param: null
+      model_selection: threshold-pi
+      init_model: null
+
+  dataset:
+    paths:
+      - ${config.experiment_data.base_proj_dir}data/raw
+    dataset_type: hydro-exp010_basin_list_clean.txt   # 574 basins (671 minus 97 failing HopCPT hydrology.py:88-98 NaN check on full 1980-2014 range, accounting for the leading-NaN-drop fallback. NH tolerated via NaN-safe loss; HopCPT strict.)
+    add_config:
+      nh_config_path: ${config.experiment_data.base_proj_dir}experiments/exp002/results/exp002_camels_us_temporal_2504_155058/config.yml
+      use_static_attributes: True
+      calib_as_calib: True
+
+  model_fc:
+    model_params:
+      nh_results_path: ${config.experiment_data.base_proj_dir}experiments/exp010/cal_test_results.p
+      nh_train_results_path: null
+      nh_states_path: null
+      nh_states_used: [h_n, c_n]
+      target_variable: 'QObs(mm/d)_sim'
+      allow_shorter_prediction_period: False
+
+  task:
+    alpha: [0.1]
+
+  model_uc: {}

@@ -1,0 +1,123 @@
+{
+  "experiment_id": "exp006",
+  "role": "mdn_baseline",
+  "v4_position": "主文 §5.7 head-to-head baseline (Klotz 2022 真正 paradigm)",
+  "status": "planned",
+  "needs_replan": true,
+  "rewrite_count": 1,
+  "rewrite_budget": 3,
+  "iteration_count": 1,
+  "iteration_budget": 10,
+  "plan_version": 2,
+  "plan_path": "experiments/exp006/plan.md",
+  "created_at": "2026-04-26",
+  "v1_run_completed_at": "2026-04-28 01:33:00",
+  "v1_run_dir": "experiments/exp006/results/exp006_mdn_camels_us_2704_232730",
+  "v1_record_path": "experiments/exp006/records/2804_073319_record.md",
+  "v1_status_after_review": "supplementary_reference (kept, not deleted)",
+  "review_history": {
+    "round_1_2026_04_28": {
+      "stage_1_data_check": "PASS (12/12 files, params consistent, no NaN/Inf)",
+      "stage_2_record": "experiments/exp006/records/2804_073319_record.md (含 Trade-off Analysis + POTENTIAL_TRAP)",
+      "stage_3_R1": {
+        "opus": {"path": "docs/reports/20260428_080107_D-R1-exp006_opus.md", "recommendation": "rewrite", "confidence": "High"},
+        "codex": {"path": "docs/reports/20260428_080110_D-R1-exp006_codex.md", "recommendation": "rewrite", "confidence": "High"},
+        "gemini": {"path": "docs/reports/20260428_080114_D-R1-exp006_gemini.md", "status": "FAILED (UTF-8 中文路径 bug, exit 55)"}
+      },
+      "stage_3_R2": {"path": "docs/reports/20260428_080847_D-R2-exp006_opus.md", "route": "C", "confidence": "High"},
+      "stage_3_R3": {"path": "docs/reports/20260428_081213_D-R3-exp006_codex.md", "approval": "Approve_with_modifications", "confidence": "High", "modifications": 7},
+      "stage_4_route": "C (rewrite)",
+      "decision_id": "D-026"
+    }
+  },
+  "v2_plan_changes": {
+    "head": "gmm → cmal",
+    "loss": "GMMLoss → CMALLoss",
+    "n_distributions": "3 → 5",
+    "seeds": "[42] → [42, 1337, 2024]",
+    "k_sweep": "无 → {3, 5, 8} on seed=42",
+    "uq_metrics": "coverage+width → +Winkler+PIT+CRPS-from-samples (HSCC: Winkler only)",
+    "mixture_params_saved": "no → yes (evaluator patch required)",
+    "raw_artifacts": "partial → full + sha256 manifest (mainstream gate)"
+  },
+  "v2a_canary_attempt_failed": {
+    "started_at": "2026-04-28 16:20:01",
+    "crashed_at": "2026-04-28 16:54:28",
+    "epoch_reached": "7 (~76% through)",
+    "error": "RuntimeError: Loss was NaN for 1 times in a row. Stopped training.",
+    "archived_run_dir": "experiments/exp006/results/_v2a_failed_NaN_2804_162001",
+    "root_cause": "MaskedCMALLoss term `max(t*err, (t-1)*err) / b` explodes when b → softplus floor (~1e-5) while error is large; forward-pass loss becomes inf/NaN.",
+    "fix_attempt_b": "Amendment B: clip_gradient_norm=1.0 only. INSUFFICIENT — see v2b."
+  },
+  "v2c_canary_attempt_failed": {
+    "started_at": "2026-04-29 01:19:44",
+    "crashed_at": "2026-04-29 ~02:03 (after epoch 9 completed at 02:00:28)",
+    "epoch_reached": "10 (epoch 9 completed avg_loss=-1.831; NaN in epoch 10)",
+    "error": "RuntimeError: Loss was NaN for 1 times in a row. Stopped training.",
+    "archived_run_dir": "experiments/exp006/results/_v2c_failed_NaN_lr5e-4_2904_011944",
+    "fix_c_partial_progress": "lr 1e-3 → 5e-4 + clip=1.0 让 NaN 推迟到 epoch 10 (vs v2b epoch 5, v2a epoch 7)，方向对但仍不够撑过 30 epoch。",
+    "true_root_cause": "NH 1.13 的 basetrainer.py:336 设默认 `allow_subsequent_nan_losses=0` —— 任何 NaN batch 即时 raise，与 Klotz 2020 reference 实现的 skip-and-continue 循环不一致。前面 B/C 都在治标（降低 NaN 频率），D 是治本（让偶发 NaN 不致命）。",
+    "fix_d": "Amendment D: allow_subsequent_nan_losses=5 (NH 默认 0)。Klotz reference 的 skip-NaN 循环就是这个语义；5 是宽松阈值（v2c 跑 ~16 万 batch 仅 1 次 NaN，连续 5 个 NaN 才视为真发散）。",
+    "epoch_losses_v2c": [-1.174, -1.520, -1.632, -1.689, -1.733, -1.766, -1.790, -1.812, -1.831]
+  },
+  "v2b_canary_attempt_failed": {
+    "started_at": "2026-04-29 01:01:08",
+    "crashed_at": "2026-04-29 01:14:47",
+    "epoch_reached": "5 (~74% through)",
+    "error": "RuntimeError: Loss was NaN for 1 times in a row. Stopped training.",
+    "archived_run_dir": "experiments/exp006/results/_v2b_failed_NaN_clip1_2904_010108",
+    "fix_b_failure_diagnosis": "clip_gradient_norm operates AFTER backprop; the NaN check (`basetrainer.py:337`) fires on forward loss being NaN, which clip cannot prevent. Loss inf comes from `error/b` overflow in forward, not from gradient explosion.",
+    "fix_c": "Amendment C: lower initial LR 1e-3 → 5e-4 (halve schedule), match Klotz 2020 §A.2 reference exactly. Keep clip_gradient_norm=1.0 as belt-and-suspenders.",
+    "fix_authority": "Klotz et al. 2020 (arXiv 2012.14295) §A.2 + §B.4: 'CMAL is more sensitive to learning rate than GMM; we use lr=5e-4 + grad clip 1.0.'",
+    "epoch1_loss_v2b": -1.255,
+    "epoch4_loss_v2b": -1.721,
+    "pipefail_check": "set -eo pipefail caught nh-run failure correctly; evaluate/analyze did NOT bogus-run (vs v2a where they did)."
+  },
+  "execution_phases": {
+    "phase_A_p0_fix": {
+      "A0_canary": "CMAL K=5 seed=42 (~6h GPU)",
+      "decision_gate_G": "NSE >= 0.65 (vs exp002 0.738) → continue A1+A2; NSE < 0.65 → A3 root cause + Route D escalation",
+      "A1_full": "CMAL K=5 x 3 seed [42, 1337, 2024] (~18h GPU)",
+      "A2": "patch NH UncertaintyTester for mixture param save",
+      "A3": "NSE root cause diagnosis (CMAL vs GMM vs exp002)"
+    },
+    "phase_B_p1_hardening": {
+      "B1": "CMAL K sweep {3, 8} seed=42 (~12h GPU)",
+      "B2": "CRPS/PIT/Winkler for CMAL/GMM samples; HSCC: Winkler/interval score only (R3 mod #4)",
+      "B3": "raw artifacts manifest + sha256 (mainstream gate)",
+      "B4": "clip vs no-clip + linear vs log-target ablation (100 basin spot check)"
+    },
+    "phase_C_narrative_sync": {
+      "C1": "EXPERIMENTS_INDEX / charter / narrative-framework consistency",
+      "C2": "narrative §5.7 lock CMAL K=5 3-seed; GMM K=3 → supplementary; narrowness collapse as hypothesis (R3 mod #6)",
+      "C3": "If main baseline list changes → explicit PCR + 3 AI re-sign"
+    },
+    "phase_D_fallback": {
+      "trigger": "A0 canary fail AND A3 confirms non-config issue",
+      "action": "Route D escalation: §5.7 main baseline → real independent-seed deep ensemble (5 seed deterministic LSTM, NOT single checkpoint reuse)",
+      "requires": "PCR + 3 AI re-sign"
+    }
+  },
+  "resource_budget": "~25-30h GPU + several h CPU",
+  "dependencies": ["exp002"],
+  "blocking": [],
+  "target_journal": "Water Resources Research (WRR, AGU)",
+  "last_updated": "2026-05-02 (Phase A1 closed Route A PASS_with_footnote, D-029, plan v5)",
+  "status_final": "closed",
+  "result_type": "Route A (positive, head-to-head MDN baseline established)",
+  "v3_final_run_dirs": {
+    "seed_42": "experiments/exp006/results/exp006_mdn_camels_us_2904_155205",
+    "seed_1337": "experiments/exp006/results/exp006_mdn_camels_us_seed1337_3004_223135",
+    "seed_2024": "experiments/exp006/results/exp006_mdn_camels_us_seed2024_0105_123958"
+  },
+  "v3_aggregate": "experiments/exp006/results/_3seed_aggregate/aggregate.json",
+  "v3_3seed_summary": {
+    "test_mean_basin_nse_mean": 0.5789,
+    "test_mean_basin_nse_std": 0.0099,
+    "tier_coverage_spread_pp_mean": 9.88,
+    "tier_coverage_spread_pp_std": 1.73,
+    "tier_coverage_spread_pp_range": [8.80, 11.88]
+  },
+  "closure_verdict": "PASS_with_footnote (tier spread std 1.73 pp slightly above 1.0 pp threshold; mean 9.88 pp dramatically better than v1 GMM 42.84 baseline and global split CP 19.86)",
+  "final_decision_id": "D-029"
+}

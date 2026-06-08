@@ -1,0 +1,43 @@
+{
+  "n_hucs": 4,
+  "seeds": [
+    42,
+    137,
+    2024
+  ],
+  "per_huc": {
+    "10": {
+      "n_seeds": 3,
+      "spread_global_pp_mean": 53.75600454132232,
+      "spread_global_pp_std": 3.983007166048382,
+      "spread_hscc_pp_mean": 28.978051933394152,
+      "spread_hscc_pp_std": 0.8479887204747231
+    },
+    "12": {
+      "n_seeds": 3,
+      "spread_global_pp_mean": 21.413481350124353,
+      "spread_global_pp_std": 5.251136622964941,
+      "spread_hscc_pp_mean": 15.080168833342618,
+      "spread_hscc_pp_std": 4.7284138887655
+    },
+    "14": {
+      "n_seeds": 3,
+      "spread_global_pp_mean": 78.96754370235254,
+      "spread_global_pp_std": 2.604403534726697,
+      "spread_hscc_pp_mean": 48.736951765057846,
+      "spread_hscc_pp_std": 5.025404416730677
+    },
+    "18": {
+      "n_seeds": 3,
+      "spread_global_pp_mean": 32.153470456570396,
+      "spread_global_pp_std": 15.821578981738549,
+      "spread_hscc_pp_mean": 31.434326289352697,
+      "spread_hscc_pp_std": 5.527788128789423
+    }
+  },
+  "narrative_hooks": [
+    "R2 D-R2-exp003 A5 mitigation: 95% CI on per-tier HSCC coverage for 4 most failed HUCs (10, 12, 14, 18).",
+    "HUC-10 humid 0.509 (single seed) \u2192 3-seed mean \u00b1 std with CI exposes seed-variability of within-tier exchangeability failure.",
+    "Narrative \u00a75.4 transfer reliability map can cite per-cell \u00b1std as uncertainty bands instead of point estimates."
+  ]
+}

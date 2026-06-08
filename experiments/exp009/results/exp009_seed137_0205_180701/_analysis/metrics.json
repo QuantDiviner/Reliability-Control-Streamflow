@@ -1,0 +1,49 @@
+{
+  "alpha": 0.1,
+  "n_basins_analyzed": 671,
+  "global_q": 1.302637434005348,
+  "overall_global_coverage": 0.8792287738999386,
+  "tier_coverage_spread_global_pp": 22.92809749394977,
+  "tier_coverage_spread_hscc_pp": 1.4281754726126028,
+  "per_tier": {
+    "dry": {
+      "n_basins": 92,
+      "global_coverage": 0.7244950576066481,
+      "hscc_coverage": 0.8819518352869634,
+      "global_width_mm_d": 0.6125030013854089,
+      "hscc_width_mm_d": 1.1384613858940809,
+      "test_pred_min": -1.3625922203063965
+    },
+    "semi_arid": {
+      "n_basins": 77,
+      "global_coverage": 0.7834080330436312,
+      "hscc_coverage": 0.8697500433878049,
+      "global_width_mm_d": 1.9579484466608468,
+      "hscc_width_mm_d": 3.054442380155836,
+      "test_pred_min": -0.3010401725769043
+    },
+    "humid": {
+      "n_basins": 407,
+      "global_coverage": 0.9154257202734074,
+      "hscc_coverage": 0.8836371961648969,
+      "global_width_mm_d": 6.787864578443897,
+      "hscc_width_mm_d": 5.26101929432637,
+      "test_pred_min": -0.4160926342010498
+    },
+    "snow": {
+      "n_basins": 95,
+      "global_coverage": 0.9537760325461458,
+      "hscc_coverage": 0.884031798113931,
+      "global_width_mm_d": 5.36251232373087,
+      "hscc_width_mm_d": 3.029497127470217,
+      "test_pred_min": -0.9137346744537354
+    }
+  },
+  "success_criteria": {
+    "S1": false,
+    "S2": true,
+    "S3": true,
+    "S4": false,
+    "S5": true
+  }
+}

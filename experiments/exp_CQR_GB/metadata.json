@@ -1,0 +1,49 @@
+{
+  "experiment_id": "exp_CQR_GB",
+  "role": "camels_gb_cqr_external_frontier",
+  "status": "completed",
+  "created": "2026-05-25",
+  "decision_gate": "D-050",
+  "target_journal": "Water Resources Research",
+  "purpose": "Bounded CAMELS-GB CQR extension authorized by the WRR P-Bounded consensus package.",
+  "scope": {
+    "dataset": "CAMELS-GB native 50-basin exp004 seed=42 prediction set",
+    "methods": [
+      "vanilla Global residual-CQR",
+      "Mondrian residual-CQR by GB tier"
+    ],
+    "metrics": [
+      "coverage",
+      "cross-tier coverage spread",
+      "mean interval width",
+      "Winkler score",
+      "CRPS",
+      "PIT reliability"
+    ],
+    "qr_fit_cap": "10000 calibration points per fitted quantile regressor; conformal correction computed on the full calibration residual set"
+  },
+  "results": {
+    "summary_json": "experiments/exp_CQR_GB/results/summary.json",
+    "global_cqr": {
+      "marginal_coverage": 0.8787350647602912,
+      "spread_pp": 12.630919006123897,
+      "mean_width": 1.7606135449788125,
+      "mean_winkler": 2.644284502817435,
+      "mean_crps": 0.32483477603848904
+    },
+    "mondrian_cqr": {
+      "marginal_coverage": 0.8773918686783359,
+      "spread_pp": 5.919822719400159,
+      "mean_width": 1.6950631396612388,
+      "mean_winkler": 2.565529522333059,
+      "mean_crps": 0.3211058714223236
+    }
+  },
+  "not_authorized": [
+    "HopCPT-GB",
+    "full 671-basin HopCPT rerun",
+    "exp012 causal validation",
+    "broad LORO expansion",
+    "manuscript-facing edits before valid FPA exit A"
+  ]
+}

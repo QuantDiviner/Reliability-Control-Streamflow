@@ -1,0 +1,103 @@
+# Post-review item 4: larger-backbone robustness check.
+# Reviewer concern (20250528 报告2, high-priority #4): hidden=64/30ep is small/short;
+# under-training may systematically inflate residual variance and amplify tier spread,
+# so the conditional-coverage failure could be a weak-model artifact.
+# This run reproduces the CAMELS-US temporal-split spread on a stronger backbone
+# (hidden=256, 50 epochs, single seed=42) to test whether the failure persists.
+#
+# Identical to exp002/config_full.yml EXCEPT: hidden_size, epochs, lr schedule,
+# experiment_name, run_dir, save_weights_every. All data/split/feature settings frozen
+# to keep the comparison clean (PROJECT_CHARTER §2.2 M1 frozen).
+
+experiment_name: item4_larger_backbone_h256
+
+run_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/post_review_wrr_enhancements/item4_larger_backbone/results
+
+train_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp002/basin_list_671.txt
+validation_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp002/basin_list_671.txt
+test_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp002/basin_list_671.txt
+
+train_start_date: '01/10/1980'
+train_end_date: '30/09/1990'
+validation_start_date: '01/10/1990'
+validation_end_date: '30/09/2000'
+test_start_date: '01/10/2000'
+test_end_date: '30/09/2014'
+
+seed: 42
+device: cuda:0
+
+validate_every: 5
+validate_n_random_basins: 1000      # >= 671 (NH gotcha: also clamps evaluate-time validation)
+metrics:
+- NSE
+
+model: cudalstm
+head: regression
+
+# --- larger backbone (the only model-capacity change) ---
+hidden_size: 256
+initial_forget_bias: 3
+output_dropout: 0.4
+output_activation: linear
+
+optimizer: Adam
+loss: NSE
+learning_rate:
+    0: 1e-3
+    20: 5e-4
+    35: 1e-4
+    45: 5e-5
+batch_size: 128
+epochs: 50
+
+predict_last_n: 1
+seq_length: 365
+num_workers: 4
+
+save_weights_every: 5               # epoch 50 (multiple of 5) is saved for evaluation
+save_validation_results: True
+
+dataset: camels_us
+data_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/data/raw/CAMELS_US
+
+forcings:
+- daymet
+
+dynamic_inputs:
+- prcp(mm/day)
+- srad(W/m2)
+- tmax(C)
+- tmin(C)
+- vp(Pa)
+
+target_variables:
+- QObs(mm/d)
+
+static_attributes:
+- elev_mean
+- slope_mean
+- area_gages2
+- frac_forest
+- lai_max
+- lai_diff
+- gvf_max
+- gvf_diff
+- soil_depth_pelletier
+- soil_depth_statsgo
+- soil_porosity
+- soil_conductivity
+- max_water_content
+- sand_frac
+- silt_frac
+- clay_frac
+- carbonate_rocks_frac
+- geol_permeability
+- p_mean
+- pet_mean
+- aridity
+- frac_snow
+- high_prec_freq
+- high_prec_dur
+- low_prec_freq
+- low_prec_dur

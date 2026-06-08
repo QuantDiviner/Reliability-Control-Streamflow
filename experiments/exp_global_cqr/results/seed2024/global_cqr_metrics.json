@@ -1,0 +1,69 @@
+{
+  "experiment": "exp_global_cqr",
+  "method": "vanilla global residual-CQR (single pooled Q_hat_global)",
+  "seed": 2024,
+  "alpha": 0.1,
+  "n_basins_analyzed": 671,
+  "n_tiers_reported": 4,
+  "Q_hat_global": -0.0008197496451679324,
+  "overall": {
+    "mean_coverage": 0.8928383305028005,
+    "mean_pi_width": 2.026268200982754,
+    "mean_winkler_score": 3.2893134380506175,
+    "tier_coverage_spread_pp": 4.815565605768102
+  },
+  "per_tier": [
+    {
+      "seed": 2024,
+      "tier": "dry",
+      "n_basins": 92,
+      "mean_coverage": 0.9298631679746892,
+      "median_coverage": 0.9514961861920594,
+      "std_coverage": 0.07961946716975334,
+      "mean_pi_width": 0.37003194571659287,
+      "median_pi_width": 0.29903247688747137,
+      "mean_winkler_score": 0.90401901747571,
+      "Q_hat_global": -0.0008197496451679324
+    },
+    {
+      "seed": 2024,
+      "tier": "semi_arid",
+      "n_basins": 77,
+      "mean_coverage": 0.8881580697653892,
+      "median_coverage": 0.9104244083708195,
+      "std_coverage": 0.09002651431139834,
+      "mean_pi_width": 0.8530782687539923,
+      "median_pi_width": 0.7939925251892217,
+      "mean_winkler_score": 1.8072906510915998,
+      "Q_hat_global": -0.0008197496451679324
+    },
+    {
+      "seed": 2024,
+      "tier": "humid",
+      "n_basins": 407,
+      "mean_coverage": 0.8817075119170081,
+      "median_coverage": 0.9129669469978486,
+      "std_coverage": 0.11124114598859235,
+      "mean_pi_width": 2.607798187165437,
+      "median_pi_width": 1.9652171823742661,
+      "mean_winkler_score": 4.219753082343083,
+      "Q_hat_global": -0.0008197496451679324
+    },
+    {
+      "seed": 2024,
+      "tier": "snow",
+      "n_basins": 95,
+      "mean_coverage": 0.9084629430689526,
+      "median_coverage": 0.94523762957168,
+      "std_coverage": 0.10555108821302078,
+      "mean_pi_width": 2.089706684032746,
+      "median_pi_width": 1.7344436297853827,
+      "mean_winkler_score": 2.814301922910643,
+      "Q_hat_global": -0.0008197496451679324
+    }
+  ],
+  "success_criteria": {
+    "S1_single_global_qhat": true,
+    "S2_all_tiers_reported": true
+  }
+}

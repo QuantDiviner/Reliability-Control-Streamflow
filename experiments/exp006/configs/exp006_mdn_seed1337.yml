@@ -1,0 +1,149 @@
+# exp006 full training: MDN baseline (Klotz 2022 paradigm) on CAMELS-US 671 basins, 30 epochs.
+#
+# === v2 (Phase A0 canary, 2026-04-28, D-026) ===
+# v1 (head: gmm, K=3) reviewed and rewritten via Route C — Klotz 2022 真正主推 CMAL，
+# v1 的 GMM 配置在 R1+R2+R3 一致判定为 straw-man baseline (详见 D-026, LESSON-003,
+# experiments/exp006/plan.md Amendment A1)。v2 切换到 head=cmal + K=5，先跑 canary 单 seed
+# 验证 NSE >= 0.65 (Decision Gate G)，再扩 3-seed [42, 1337, 2024] 与 K sweep {3, 8}。
+# v1 数据保留为 supplementary "GMM K=3 reference run":
+#   experiments/exp006/results/exp006_mdn_camels_us_2704_232730/
+#
+# Authority chain:
+#   - PROJECT_CHARTER §2.2 (M1 frozen): alpha=0.10, tier_scheme, experimental_tiers (tier_1 reuse)
+#   - PROJECT_CHARTER §2.3 (M2 三级): model + training params (hidden=64, 30 epoch, AdamW etc.)
+#   - exp006/plan.md Amendment A1 (head: cmal, K=5, CMALLoss)
+#   - Reuses exp002 basin_list_671.txt + train/val/test temporal split (D-007)
+#
+# Differences vs exp002/config_full.yml:
+#   - head: regression → cmal (5-component Asymmetric Laplacian Mixture, Klotz 2022 真正 paradigm)
+#   - loss: NSE → CMALLoss (negative log-likelihood for asymmetric Laplacian mixture)
+#   - +n_distributions: 5 (K=5 mixture components, R3 修订 #1)
+#   - +n_samples: 200 (UncertaintyTester draws 200 samples/timestep at evaluation)
+#   - removed output_activation (CMAL head applies its own positivity/softmax internally)
+#   - run_dir: experiments/exp006/results
+
+experiment_name: exp006_mdn_camels_us_seed1337
+
+run_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp006/results
+
+# Reuse exp002 basin list (671 CAMELS-US basins) — guarantees identical train/cal/test
+# split for head-to-head HSCC vs MDN comparison (plan §2.4).
+train_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp002/basin_list_671.txt
+validation_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp002/basin_list_671.txt
+test_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp002/basin_list_671.txt
+
+# Date splits (D-007): water-year-aware boundaries identical to exp002.
+train_start_date: '01/10/1980'
+train_end_date: '30/09/1990'
+validation_start_date: '01/10/1990'
+validation_end_date: '30/09/2000'
+test_start_date: '01/10/2000'
+test_end_date: '30/09/2014'
+
+seed: 1337                          # Phase A1 (D-028): 2nd seed for cross-seed std
+device: cuda:0
+
+# Mid-training validation: same gotcha as exp002 (validate_n_random_basins clamps
+# both train-time and post-training evaluate when invoked via run_dir).
+validate_every: 10                  # Phase A1 (D-028 Codex refinement): halve walltime; mid-training NSE only at epoch 10/20/30
+validate_n_random_basins: 1000
+metrics:
+- NSE
+
+# === MDN-specific (v3: UMAL, Klotz family numerical-robust variant; PCR-005, D-027) ===
+# v3 (2026-04-29): head 切换 cmal → umal，因 4 次 v2 CMAL canary 全部 forward NaN 崩溃。
+# UMAL = Uncountable Mixture of Asymmetric Laplacians (Brando et al. NeurIPS 2019;
+# Klotz 2020 hydrology adaptation)。Klotz family 同 paradigm，无 fixed K（用 random tau
+# samples），结构上比 CMAL 更稳（虽 b 下界仍 1e-5，但 mu 自由度少一个 t、batch 扩展
+# n_taus 份的平均效应降低单点溢出影响）。详细 root-cause 见 records/2904_phase_A3_NaN_root_cause.md。
+model: cudalstm
+head: umal                      # v2: cmal → v3: umal (PCR-005 Path B)
+# n_distributions: 5            # deprecated for UMAL (no fixed K)
+n_taus: 20                      # UMAL Monte Carlo tau samples per batch (R1' subagent: Klotz 100 太贵, n_taus 倍数 batch compute; 20 足够 MC smoothing)
+umal_extend_batch: True         # NH UMAL 必需，每 sample 扩展为 n_taus 份 (config.py:864)
+tau_up: 0.99                    # UMAL tau sampling upper bound (NH 必需, config.py:801)
+tau_down: 0.01                  # UMAL tau sampling lower bound (NH 必需, config.py:797)
+n_samples: 200                  # samples drawn per timestep at evaluation
+
+# Streamflow is non-negative; clip mixture samples that fall below 0
+# (NH samplingutils.py requires this string to be set; default None crashes evaluation).
+negative_sample_handling: clip
+
+# Architecture (M2 三级, kept identical to exp002 for matched comparison)
+hidden_size: 64
+initial_forget_bias: 3
+output_dropout: 0.4
+
+# === Training ===
+optimizer: Adam
+loss: UMALLoss                  # v2 was CMALLoss; PCR-005 切到 UMAL → 必须改 loss
+# v3 PCR-005 (2026-04-29): revert lr 到 v1 GMM schedule (1e-3 → 5e-4 → 1e-4)。
+# Amendment C 把 lr 减半到 5e-4 是为了 CMAL 数值稳定 (Klotz 2020 §A.2)；UMAL 没有
+# CMAL 的 forward overflow 主要 driver（mu drift × b → eps），不需要这个保守化。
+# 用 v1 GMM 同 lr 也方便 head-to-head 对照（控制变量只剩 head/loss）。
+learning_rate:
+    0: 1e-3
+    10: 5e-4
+    20: 1e-4
+batch_size: 128
+epochs: 30
+
+clip_gradient_norm: 1.0    # 保留作 cheap insurance（R1' subagent: never harmful）
+
+# v3 PCR-005 (2026-04-29): revert allow_subsequent_nan_losses 到 NH 默认 0
+# R1' subagent 修正: 对 UMAL canary, "we want to *see* a NaN if it happens"。
+# UMAL 的 b 下界仍是 1e-5（与 CMAL 同），forward overflow 风险降低但未消除（10-15% 残余概率）。
+# 如果 UMAL 也 NaN → 立即触发 Phase D fallback，不再 hyperparameter 调（per 用户拍板补充条件 #2）。
+# Skip 5 是 v2 CMAL 的 defensive 残留，对 v3 反而 mask 掉重要信号。
+allow_subsequent_nan_losses: 0
+
+predict_last_n: 1
+seq_length: 365
+num_workers: 4
+
+save_weights_every: 1
+save_validation_results: True
+
+dataset: camels_us
+data_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/data/raw/CAMELS_US
+
+forcings:
+- daymet
+
+dynamic_inputs:
+- prcp(mm/day)
+- srad(W/m2)
+- tmax(C)
+- tmin(C)
+- vp(Pa)
+
+target_variables:
+- QObs(mm/d)
+
+static_attributes:
+- elev_mean
+- slope_mean
+- area_gages2
+- frac_forest
+- lai_max
+- lai_diff
+- gvf_max
+- gvf_diff
+- soil_depth_pelletier
+- soil_depth_statsgo
+- soil_porosity
+- soil_conductivity
+- max_water_content
+- sand_frac
+- silt_frac
+- clay_frac
+- carbonate_rocks_frac
+- geol_permeability
+- p_mean
+- pet_mean
+- aridity
+- frac_snow
+- high_prec_freq
+- high_prec_dur
+- low_prec_freq
+- low_prec_dur

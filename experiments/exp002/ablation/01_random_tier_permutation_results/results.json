@@ -1,0 +1,17 @@
+{
+  "ablation": "A1_random_tier_permutation",
+  "N": 50,
+  "seed": 42,
+  "real_spread_reduction_pp": 18.85622080003,
+  "real_spread_global_pp": 19.861799185266772,
+  "real_spread_hscc_pp": 1.0055783852367717,
+  "random_mean_pp": 2.2601069222115875,
+  "random_sd_pp": 1.5206249196498502,
+  "random_min_pp": 0.23306128914811763,
+  "random_max_pp": 8.793870393989279,
+  "z_score_real_vs_random": 10.914008881059209,
+  "empirical_p_value_one_sided": 0.0,
+  "success_A1_1_real_gt_mean_3sd": true,
+  "success_A1_2_random_mean_near_zero": false,
+  "success_A1_3_p_lt_001": true
+}

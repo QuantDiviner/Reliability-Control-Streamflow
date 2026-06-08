@@ -1,0 +1,54 @@
+{
+  "ablation": "A3_leave_one_regime_out",
+  "real_spread_reduction_pp": 18.85622080003,
+  "leave_out_results": [
+    {
+      "hold_out_tier": "dry",
+      "n_remaining_basins": 579,
+      "spread_global_pp": 16.21733517624604,
+      "spread_hscc_pp": 1.0055783852367717,
+      "spread_reduction_pp": 15.211756791009268,
+      "remaining_tier_dry_cov": NaN,
+      "remaining_tier_semi_cov": 0.8740622964546401,
+      "remaining_tier_humid_cov": 0.8841180803070078,
+      "remaining_tier_snow_cov": 0.8807113199827233
+    },
+    {
+      "hold_out_tier": "semi_arid",
+      "n_remaining_basins": 594,
+      "spread_global_pp": 20.902129071191744,
+      "spread_hscc_pp": 0.34067603242844413,
+      "spread_reduction_pp": 20.5614530387633,
+      "remaining_tier_dry_cov": 0.8819898282954057,
+      "remaining_tier_semi_cov": NaN,
+      "remaining_tier_humid_cov": 0.8841180803070078,
+      "remaining_tier_snow_cov": 0.8807113199827233
+    },
+    {
+      "hold_out_tier": "humid",
+      "n_remaining_basins": 264,
+      "spread_global_pp": 15.7006777465181,
+      "spread_hscc_pp": 0.7927531840765667,
+      "spread_reduction_pp": 14.907924562441533,
+      "remaining_tier_dry_cov": 0.8819898282954057,
+      "remaining_tier_semi_cov": 0.8740622964546401,
+      "remaining_tier_humid_cov": NaN,
+      "remaining_tier_snow_cov": 0.8807113199827233
+    },
+    {
+      "hold_out_tier": "snow",
+      "n_remaining_basins": 576,
+      "spread_global_pp": 14.722738536348356,
+      "spread_hscc_pp": 1.0055783852367717,
+      "spread_reduction_pp": 13.717160151111585,
+      "remaining_tier_dry_cov": 0.8819898282954057,
+      "remaining_tier_semi_cov": 0.8740622964546401,
+      "remaining_tier_humid_cov": 0.8841180803070078,
+      "remaining_tier_snow_cov": NaN
+    }
+  ],
+  "n_pass_12pp": 4,
+  "humid_holdout_spread_reduction_pp": 14.907924562441533,
+  "success_A3_1_at_least_3_of_4_pass": true,
+  "success_A3_2_humid_holdout_above_8pp": true
+}

@@ -1,0 +1,102 @@
+{
+  "experiment_id": "exp009",
+  "role": "multi_seed_reproducibility_main",
+  "v5_position": "C1 + C2 + C2.5 multi-seed reproducibility (P0 v5.0 — FPA R1 共识)",
+  "status": "closed",
+  "result_type": "positive_with_revised_criterion",
+  "iteration_count": 1,
+  "iteration_budget": 10,
+  "plan_version": 1,
+  "plan_path": "experiments/exp009/plan.md",
+  "report_path": "experiments/exp009/report.md",
+  "record_path": "experiments/exp009/records/0205_231500_record.md",
+  "execution_log_path": "experiments/exp009/execution-log.md",
+  "scripts": {
+    "pipeline": "experiments/exp009/scripts/run_exp009_pipeline.sh",
+    "aggregate": "experiments/exp009/scripts/aggregate_5seed.py"
+  },
+  "outputs": {
+    "aggregate_json": "experiments/exp009/results/_5seed_aggregate/aggregate.json",
+    "per_seed_summary_csv": "experiments/exp009/results/_5seed_aggregate/per_seed_summary.csv",
+    "mechanism_5seed_csv": "experiments/exp009/results/_5seed_aggregate/mechanism_5seed.csv",
+    "bootstrap_ci_csv": "experiments/exp009/results/_5seed_aggregate/bootstrap_ci.csv",
+    "figures_dir": "experiments/exp009/results/_5seed_aggregate/figures",
+    "sha256_manifest": "experiments/exp009/results/sha256_manifest.txt",
+    "seed42_provenance": "experiments/exp009/results/seed042_manifest.txt"
+  },
+  "created_at": "2026-05-02",
+  "started_at": "2026-05-02 19:31",
+  "completed_at": "2026-05-02 23:12:15",
+  "closed_at": "2026-05-03",
+  "wall_clock_total": "3h 41m (vs plan §6 estimated 80h GPU; ~20× faster — see LESSON-EXP009-02)",
+  "method": "5 seeds [42, 137, 2024, 1337, 7] × 30 epoch cudalstm hidden=64 + log_flow score Mondrian split CP α=0.10 + tier_scheme_us_primary",
+  "seeds": [42, 137, 2024, 1337, 7],
+  "seed42_handling": "symlink to experiments/exp002/results/exp002_camels_us_temporal_2504_155058 (D-016 closed) + sha256 manifest at results/seed042_manifest.txt; mechanism reused from experiments/exp007/results/run_2604 (D-019 closed)",
+  "dependencies": ["exp002", "exp007"],
+  "dependencies_satisfied": true,
+  "final_metrics_5seed": {
+    "spread_global_pp": {"mean": 20.97, "std": 1.22, "ci95": [20.13, 22.03]},
+    "spread_hscc_pp":   {"mean": 1.53,  "std": 0.51, "ci95": [1.15, 1.96]},
+    "spread_reduction_pp": {"mean": 19.44, "std": 1.40, "ci95": [18.46, 20.65]},
+    "per_tier_hscc_coverage_mean": {"dry": 0.882, "semi_arid": 0.869, "humid": 0.884, "snow": 0.881},
+    "per_tier_hscc_coverage_std":  {"dry": 0.002, "semi_arid": 0.006, "humid": 0.002, "snow": 0.003},
+    "per_tier_n_in_088_092":       {"dry": 4,     "semi_arid": 0,     "humid": 5,     "snow": 4},
+    "per_tier_n_in_085_095":       {"dry": 5,     "semi_arid": 5,     "humid": 5,     "snow": 5},
+    "mechanism_log_resid_var_rho": {"mean": -0.901, "std": 0.009, "ci95": [-0.909, -0.894]},
+    "overall_global_coverage": {"mean": 0.880, "std": 0.002}
+  },
+  "success_criteria_5seed": {
+    "S1_all_seeds_trained": true,
+    "S2_seed42_paired_vs_exp002": "True (identity test by symlink construction; sha256 verified)",
+    "S3_H1_spread_reduction_strict": false,
+    "S3_H1_spread_reduction_mean_only": true,
+    "S3_H1_borderline_via_plan_section_9_fallback": true,
+    "S4_H2_per_tier_in_band_85_95": true,
+    "S5_H3_mechanism_rho": true,
+    "S6_H4_joint_replication_4_of_5": true,
+    "note": "Strict per-tier [0.88, 0.92] claim REFUTED by exp009 multi-seed for semi_arid (0/5) and dry/snow (4/5 each) — see PCR-007 success_criterion_gauged_revised."
+  },
+  "review_history": {
+    "round_1_2026_05_03": {
+      "stage_1_data_check": "PASS (17/17 mechanical checks)",
+      "stage_2_record": "experiments/exp009/records/0205_231500_record.md (含强制代价-收益分析章节)",
+      "stage_3_R1": {
+        "opus": {"path": "docs/reports/20260503_095834_D-R1-exp009_opus.md", "recommendation": "tweak", "confidence": "High"},
+        "codex": {"path": "docs/reports/20260503_095837_D-R1-exp009_codex.md", "recommendation": "framework_adjust", "confidence": "High"},
+        "gemini": {"path": "docs/reports/20260503_095840_D-R1-exp009_gemini.md", "status": "FAILED (UTF-8 中文路径 bug, exit 55)"}
+      },
+      "stage_3_R2": {"path": "docs/reports/20260503_100547_D-R2-exp009_opus.md", "route": "D", "confidence": "High"},
+      "stage_3_R3": {"path": "docs/reports/20260503_100905_D-R3-exp009_codex.md", "approval": "Approve_with_modifications", "feasibility": "Medium", "confidence": "High", "modifications": 5},
+      "stage_4_route": "D (framework_adjust)",
+      "decision_id": "D-033",
+      "pcr": "PCR-007"
+    }
+  },
+  "stage4_executed": [
+    "report.md dry/snow strict-band 5/5→4/5 errata fix + Stage 4 Editor Decision section",
+    "records/0205_231500_record.md 末尾 R1+R2+R3 Editor Decision 附录",
+    "PROJECT_CHARTER §2.1 旧 success_criterion_gauged 保留 + exp009 verdict 追加 + 新 success_criterion_gauged_revised (PCR-007)",
+    "MILESTONES.md PCR-007 入账",
+    "narrative-framework.md §-1.4 C2/C2.5 + Proposition 2 multi-seed 数字升级 + semi_arid 透明披露段 + seed=42 symlink 披露段 + §-1.10 Multi-Seed Numbers Governance",
+    "paper/scripts/collect_results.py: EXPERIMENT_ROLES + _load_exp009_aggregate() + SINGLE_SEED_ANCHORS",
+    "paper/data/metrics.json: 由 collect_results.py 重生成 (27 keys)",
+    "experiments/exp009/scripts/aggregate_5seed.py: ROOT 改 Path(__file__) 派生 + outputs POSIX-relative + mechanism results.json fallback",
+    "aggregate.json + 3 CSV + 3 figures 重生成 (numbers identical, paths fixed)",
+    "docs/experiment-review.md [REV-007 — RESOLVED] 入档",
+    "docs/decision-log.md D-033 入账",
+    "docs/lessons-learned.md LESSON-EXP009-03 (systematic boundary 不是 cross-seed variance) + LESSON-EXP009-04 (实验包必须可移植) 入档"
+  ],
+  "paper_writing_carryover": [
+    "§5.2 必须包含 PCR-007 revised criterion 介绍 + semi_arid systematic boundary 透明披露 + seed=42 symlink 披露段",
+    "§5.3 mechanism 主数字 −0.901 ± 0.009 (cross-seed n=5)，引用 metrics.json mechanism_log_resid_var_rho_5seed_mean",
+    "§3.5 plan §9 pre-registered fallback 显式声明 + 同时报 IQR / robust SE",
+    "§-1.10 Multi-Seed Numbers Governance: 所有 paper main numbers 用 hscc_5seed_* keys",
+    "Figures: forest_plot_spread.pdf / per_tier_coverage_5seed.pdf / mechanism_log_resid_var_5seed.pdf — 可直接用 (paths in aggregate.json::outputs)"
+  ],
+  "pending_upgrades_p2_reviewer_triggered": [
+    "补 3 seeds 至 n=8 (若 reviewer 要求更强 seed 统计)",
+    "真重训 seed=42 (若 reviewer 要求完整 5 独立训练，排除 NH 版本/CUDA/硬件漂移)",
+    "完整 spearman_matrix.csv per seed (若 archival package 要求 full mechanism matrix)"
+  ],
+  "lessons_learned": ["LESSON-EXP009-01", "LESSON-EXP009-02", "LESSON-EXP009-03", "LESSON-EXP009-04"]
+}

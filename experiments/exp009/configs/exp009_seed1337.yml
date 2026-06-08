@@ -1,0 +1,103 @@
+# exp009 multi-seed reproducibility: seed=1337 (4 of 5 in v5.0 set [42,137,2024,1337,7])
+#
+# Authority: exp009/plan.md §4.1 + PCR-006 (PROJECT_CHARTER M2 v2.0)
+# Provenance: 100% inherits exp002 config_full.yml; only experiment_name/run_dir/seed modified.
+# seed=42 reused via symlink at experiments/exp009/results/seed042_run -> exp002 archived run.
+
+experiment_name: exp009_seed1337
+
+run_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp009/results
+
+# Full CAMELS-US 671 basins (built by experiments/exp002/build_basin_list.py)
+train_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp002/basin_list_671.txt
+validation_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp002/basin_list_671.txt
+test_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp002/basin_list_671.txt
+
+# Date-period splits (D-007): water-year-aware boundaries, NO array halving
+train_start_date: '01/10/1980'
+train_end_date: '30/09/1990'
+validation_start_date: '01/10/1990'
+validation_end_date: '30/09/2000'
+test_start_date: '01/10/2000'
+test_end_date: '30/09/2014'
+
+seed: 1337
+device: cuda:0
+
+# Mid-training validation (D-014 + D-015 fix):
+#   - validate_every: 5 拉长间隔，节省训练期成本
+#   - validate_n_random_basins 必须 ≥ basin_file 行数（NH gotcha：此参数同时钳制 train-time 和 evaluate-time validation；
+#     若设小则 nh-run evaluate --period validation 也只采样此数量，破坏 HSCC 全 basin calibration scores 需求）
+validate_every: 5
+validate_n_random_basins: 1000
+metrics:
+- NSE
+
+model: cudalstm
+head: regression
+
+# M2 三级参数（当前 状态: 进行中, 待 exp002 完成时锁定）
+hidden_size: 64
+initial_forget_bias: 3
+output_dropout: 0.4
+output_activation: linear        # D-013 决策：保留 linear，负预测由 hscc_analysis_v2.py log-clipping 兜底
+
+optimizer: Adam
+loss: NSE
+learning_rate:
+    0: 1e-3
+    10: 5e-4
+    20: 1e-4
+batch_size: 128
+epochs: 30
+
+predict_last_n: 1
+seq_length: 365
+num_workers: 4
+
+save_weights_every: 1
+save_validation_results: True
+
+dataset: camels_us
+data_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/data/raw/CAMELS_US
+
+forcings:
+- daymet
+
+dynamic_inputs:
+- prcp(mm/day)
+- srad(W/m2)
+- tmax(C)
+- tmin(C)
+- vp(Pa)
+
+target_variables:
+- QObs(mm/d)
+
+static_attributes:
+- elev_mean
+- slope_mean
+- area_gages2
+- frac_forest
+- lai_max
+- lai_diff
+- gvf_max
+- gvf_diff
+- soil_depth_pelletier
+- soil_depth_statsgo
+- soil_porosity
+- soil_conductivity
+- max_water_content
+- sand_frac
+- silt_frac
+- clay_frac
+- carbonate_rocks_frac
+- geol_permeability
+- p_mean
+- pet_mean
+- aridity
+- frac_snow
+- high_prec_freq
+- high_prec_dur
+- low_prec_freq
+- low_prec_dur

@@ -1,0 +1,57 @@
+{
+  "exp": "exp010",
+  "action": "10_closure_evaluation",
+  "alpha": 0.1,
+  "criteria": [
+    {
+      "id": "S0",
+      "description": "HopCPT/HSCC/Global CP synthetic sanity (iid+AR1+het)",
+      "verdict": "PASS",
+      "evidence": "3/3 DGPs |cov-0.90|<0.02; het: HSCC spread 3.21pp vs Global 24.76pp"
+    },
+    {
+      "id": "S1",
+      "description": "HopCPT marginal coverage \u2208 [0.88, 0.92]",
+      "verdict": "FAIL",
+      "value": "0.9308 \u00b1 0.0040 (3 seeds)",
+      "tolerance": "[0.88, 0.92]",
+      "deviation_pp": "+3.08",
+      "evidence": "Action 4 attribution: Hopfield retrieval averaging conservativeness on asymmetric residuals"
+    },
+    {
+      "id": "S2",
+      "description": "Cross-tier coverage spread numerically reported, vs HSCC/Global CP",
+      "verdict": "PASS",
+      "evidence": "HopCPT 574-subset 3-seed: spread 2.48pp \u00b1 0.42"
+    },
+    {
+      "id": "S3",
+      "description": "Spread ordering HSCC < HopCPT < Global CP on 574-subset (5-seed reference)",
+      "verdict": "PASS",
+      "evidence": "HSCC 5-seed 1.76pp < HopCPT 2.55pp < Global CP 5-seed 20.93pp"
+    },
+    {
+      "id": "S4",
+      "description": "HopCPT 3-seed mean \u00b1 std (multi-seed reproducibility)",
+      "verdict": "PASS",
+      "value": "3 seeds",
+      "evidence": "Action 6: marginal 0.9308 \u00b1 0.0040; spread 2.48pp \u00b1 0.42"
+    },
+    {
+      "id": "S5",
+      "description": "Per-tier Winkler score reported (HopCPT vs HSCC vs Global CP)",
+      "verdict": "PASS",
+      "evidence": "comparison_matrix_574subset.csv 'winkler_mm_d' column populated for all 4 tiers \u00d7 3 methods"
+    }
+  ],
+  "n_pass": 5,
+  "n_partial": 0,
+  "n_fail": 1,
+  "route": "B",
+  "verdict": "Close-with-caveat \u2014 Route B. S1 marginal coverage outside [0.88, 0.92] (0.9308, +3.08pp) but rooted explanation provided (Action 4: Hopfield retrieval averaging conservativeness is a structural method property, not configuration bug). Acceptable for paper \u00a75.7 with explicit \u2264100w disclosure (over_coverage_root_cause_synthesis.md).",
+  "deferred_actions": [
+    "A2A score-equalized log-flow rerun (deferred \u2014 code complexity high)",
+    "A2B nh_states.p extraction (deferred \u2014 NH inference rerun complexity)"
+  ],
+  "paper_framing": "\u00a75.7 head-to-head: HSCC vs HopCPT vs Global CP \u2014 three methods on the reliability-efficiency Pareto frontier on a 574-basin subset of CAMELS-US. HSCC achieves smallest cross-tier spread (1.76pp \u00b1 0.30, 5-seed); HopCPT achieves smallest mean intervals (~50% narrower than HSCC); Global CP shows largest spread (20.93pp \u00b1 \u2013, 5-seed) reproducing C1 diagnosis. HopCPT exhibits +3.4pp marginal over-cover that we attribute to structural Hopfield retrieval averaging on asymmetric streamflow residuals (\u2264100w disclosure \u00a75.7.1). Score-space asymmetry caveat: HopCPT trains on raw residual MSE in z-score space; HSCC and Global CP use log-flow split CP \u2014 see Limitations on Score-Space Comparability. 97-basin filter bias unbiased on log_resid_var (KS p=0.15)."
+}

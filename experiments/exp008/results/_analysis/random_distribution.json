@@ -1,0 +1,809 @@
+{
+  "n_repeats": 20,
+  "base_seed": 42,
+  "n_folds_processed": 18,
+  "elapsed_seconds": 19.70748519897461,
+  "cross_fold": {
+    "physical_spread_reduction_pp_mean": 10.09208190471842,
+    "physical_spread_reduction_pp_std": 10.143070999710945,
+    "random_spread_reduction_pp_mean": -0.32671546334095347,
+    "random_spread_reduction_pp_std": 3.390270380951494,
+    "welch_t_stat": 4.345850405928636,
+    "welch_p_value_one_sided_phys_gt_rand": 0.00021457152348340055,
+    "cohens_d_phys_vs_rand": 1.377734311304579,
+    "per_tier_comparison": {
+      "dry": {
+        "n_folds_with_tier": 9,
+        "physical_cov_mean": 0.6502774456838114,
+        "physical_cov_std": 0.27160855661503336,
+        "random_cov_mean": 0.6877133863978355,
+        "random_cov_std": 0.1544010927836171,
+        "abs_diff_pp": 3.743594071402412,
+        "t_statistic": -0.35946849616914495,
+        "p_value_two_sided": 0.7251594274172477
+      },
+      "semi_arid": {
+        "n_folds_with_tier": 9,
+        "physical_cov_mean": 0.7520396343940238,
+        "physical_cov_std": 0.09253250697921027,
+        "random_cov_mean": 0.7103468794960893,
+        "random_cov_std": 0.14803239543946958,
+        "abs_diff_pp": 4.169275489793445,
+        "t_statistic": 0.7164797137576153,
+        "p_value_two_sided": 0.4859743974864089
+      },
+      "humid": {
+        "n_folds_with_tier": 14,
+        "physical_cov_mean": 0.7789223477941124,
+        "physical_cov_std": 0.13230219754622705,
+        "random_cov_mean": 0.7855219736881135,
+        "random_cov_std": 0.1598036454371582,
+        "abs_diff_pp": 0.6599625894001093,
+        "t_statistic": -0.11902598190295262,
+        "p_value_two_sided": 0.9062013580275237
+      },
+      "snow": {
+        "n_folds_with_tier": 8,
+        "physical_cov_mean": 0.737863976712468,
+        "physical_cov_std": 0.16669633024138075,
+        "random_cov_mean": 0.7378122399936203,
+        "random_cov_std": 0.11956429770859991,
+        "abs_diff_pp": 0.005173671884761699,
+        "t_statistic": 0.0007133276272474267,
+        "p_value_two_sided": 0.999441934145035
+      }
+    },
+    "plan_s1_per_tier_pass": {
+      "dry": false,
+      "semi_arid": false,
+      "humid": false,
+      "snow": false
+    },
+    "plan_s2_overall_p_lt_0_01": true,
+    "plan_s3_random_le_50pct_physical": true,
+    "plan_s4_random_not_diff_from_zero": true,
+    "n_random_total": 360
+  },
+  "per_fold": [
+    {
+      "huc": "01",
+      "physical": {
+        "q_global": 1.341137170791626,
+        "per_tier": {
+          "humid": {
+            "n_basins": 27,
+            "global_coverage": 0.9660156771659665,
+            "hscc_coverage": 0.9483336533683143
+          }
+        },
+        "spread_global_pp": 0.0,
+        "spread_hscc_pp": 0.0,
+        "spread_reduction_pp": 0.0
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 0.0,
+        "spread_hscc_pp_std": 0.0,
+        "spread_reduction_pp_mean": 0.0,
+        "spread_reduction_pp_std": 0.0,
+        "per_tier_hscc_cov_mean": {
+          "dry": NaN,
+          "semi_arid": NaN,
+          "humid": 0.9655281907559283,
+          "snow": NaN
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": NaN,
+          "semi_arid": NaN,
+          "humid": 0.002521296898487318,
+          "snow": NaN
+        }
+      }
+    },
+    {
+      "huc": "02",
+      "physical": {
+        "q_global": 1.3648907780641528,
+        "per_tier": {
+          "humid": {
+            "n_basins": 75,
+            "global_coverage": 0.9447908559392634,
+            "hscc_coverage": 0.9174618943732185
+          }
+        },
+        "spread_global_pp": 0.0,
+        "spread_hscc_pp": 0.0,
+        "spread_reduction_pp": 0.0
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 0.0,
+        "spread_hscc_pp_std": 0.0,
+        "spread_reduction_pp_mean": 0.0,
+        "spread_reduction_pp_std": 0.0,
+        "per_tier_hscc_cov_mean": {
+          "dry": NaN,
+          "semi_arid": NaN,
+          "humid": 0.9456019017833477,
+          "snow": NaN
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": NaN,
+          "semi_arid": NaN,
+          "humid": 0.00459429528258633,
+          "snow": NaN
+        }
+      }
+    },
+    {
+      "huc": "03",
+      "physical": {
+        "q_global": 1.2883727312073807,
+        "per_tier": {
+          "semi_arid": {
+            "n_basins": 14,
+            "global_coverage": 0.718145085147701,
+            "hscc_coverage": 0.8194180977252314
+          },
+          "humid": {
+            "n_basins": 78,
+            "global_coverage": 0.8378143142778393,
+            "hscc_coverage": 0.7985344751677464
+          }
+        },
+        "spread_global_pp": 11.966922913013821,
+        "spread_hscc_pp": 2.0883622557484993,
+        "spread_reduction_pp": 9.878560657265323
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 5.482543822861538,
+        "spread_hscc_pp_std": 3.54236317923216,
+        "spread_reduction_pp_mean": -0.8680951281405973,
+        "spread_reduction_pp_std": 2.362404938294399,
+        "per_tier_hscc_cov_mean": {
+          "dry": NaN,
+          "semi_arid": 0.8164534988401602,
+          "humid": 0.8170765649913673,
+          "snow": NaN
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": NaN,
+          "semi_arid": 0.05376944694808054,
+          "humid": 0.013535498096317346,
+          "snow": NaN
+        }
+      }
+    },
+    {
+      "huc": "04",
+      "physical": {
+        "q_global": 1.332629036902861,
+        "per_tier": {
+          "semi_arid": {
+            "n_basins": 5,
+            "global_coverage": 0.7351457070213183,
+            "hscc_coverage": 0.8109133581067866
+          },
+          "humid": {
+            "n_basins": 26,
+            "global_coverage": 0.8657791444839519,
+            "hscc_coverage": 0.8234792931971303
+          }
+        },
+        "spread_global_pp": 13.063343746263357,
+        "spread_hscc_pp": 1.256593509034376,
+        "spread_reduction_pp": 11.80675023722898
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 7.077305486544384,
+        "spread_hscc_pp_std": 6.276134675345274,
+        "spread_reduction_pp_mean": -0.8729377067596618,
+        "spread_reduction_pp_std": 2.583191647608096,
+        "per_tier_hscc_cov_mean": {
+          "dry": NaN,
+          "semi_arid": 0.840750445861446,
+          "humid": 0.8444199399284523,
+          "snow": NaN
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": NaN,
+          "semi_arid": 0.07817866468116426,
+          "humid": 0.017035798058363,
+          "snow": NaN
+        }
+      }
+    },
+    {
+      "huc": "05",
+      "physical": {
+        "q_global": 1.2910286664943276,
+        "per_tier": {
+          "humid": {
+            "n_basins": 45,
+            "global_coverage": 0.8623506979456647,
+            "hscc_coverage": 0.8161644941603798
+          }
+        },
+        "spread_global_pp": 0.0,
+        "spread_hscc_pp": 0.0,
+        "spread_reduction_pp": 0.0
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 0.0,
+        "spread_hscc_pp_std": 0.0,
+        "spread_reduction_pp_mean": 0.0,
+        "spread_reduction_pp_std": 0.0,
+        "per_tier_hscc_cov_mean": {
+          "dry": NaN,
+          "semi_arid": NaN,
+          "humid": 0.8588739662792217,
+          "snow": NaN
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": NaN,
+          "semi_arid": NaN,
+          "humid": 0.004743308640104408,
+          "snow": NaN
+        }
+      }
+    },
+    {
+      "huc": "06",
+      "physical": {
+        "q_global": 1.288138961791184,
+        "per_tier": {
+          "humid": {
+            "n_basins": 17,
+            "global_coverage": 0.9682912792976301,
+            "hscc_coverage": 0.9419704426506212
+          }
+        },
+        "spread_global_pp": 0.0,
+        "spread_hscc_pp": 0.0,
+        "spread_reduction_pp": 0.0
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 0.0,
+        "spread_hscc_pp_std": 0.0,
+        "spread_reduction_pp_mean": 0.0,
+        "spread_reduction_pp_std": 0.0,
+        "per_tier_hscc_cov_mean": {
+          "dry": NaN,
+          "semi_arid": NaN,
+          "humid": 0.9678709774007347,
+          "snow": NaN
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": NaN,
+          "semi_arid": NaN,
+          "humid": 0.0030808195222682636,
+          "snow": NaN
+        }
+      }
+    },
+    {
+      "huc": "07",
+      "physical": {
+        "q_global": 1.2397973060598906,
+        "per_tier": {
+          "semi_arid": {
+            "n_basins": 2,
+            "global_coverage": 0.6105026403285743,
+            "hscc_coverage": 0.755818501858009
+          },
+          "humid": {
+            "n_basins": 31,
+            "global_coverage": 0.759335785442547,
+            "hscc_coverage": 0.6848009185946007
+          }
+        },
+        "spread_global_pp": 14.883314511397272,
+        "spread_hscc_pp": 7.101758326340835,
+        "spread_reduction_pp": 7.781556185056438
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 8.589632372888843,
+        "spread_hscc_pp_std": 6.657373188398058,
+        "spread_reduction_pp_mean": 0.48907591654416327,
+        "spread_reduction_pp_std": 3.481777128771294,
+        "per_tier_hscc_cov_mean": {
+          "dry": NaN,
+          "semi_arid": 0.7635487971836495,
+          "humid": 0.749196545175801,
+          "snow": NaN
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": NaN,
+          "semi_arid": 0.10146885604492531,
+          "humid": 0.012307622678319238,
+          "snow": NaN
+        }
+      }
+    },
+    {
+      "huc": "08",
+      "physical": {
+        "q_global": 1.2856758236881358,
+        "per_tier": {
+          "humid": {
+            "n_basins": 12,
+            "global_coverage": 0.853288230485299,
+            "hscc_coverage": 0.8101452175118289
+          }
+        },
+        "spread_global_pp": 0.0,
+        "spread_hscc_pp": 0.0,
+        "spread_reduction_pp": 0.0
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 0.0,
+        "spread_hscc_pp_std": 0.0,
+        "spread_reduction_pp_mean": 0.0,
+        "spread_reduction_pp_std": 0.0,
+        "per_tier_hscc_cov_mean": {
+          "dry": NaN,
+          "semi_arid": NaN,
+          "humid": 0.8534683752332655,
+          "snow": NaN
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": NaN,
+          "semi_arid": NaN,
+          "humid": 0.005463830429014802,
+          "snow": NaN
+        }
+      }
+    },
+    {
+      "huc": "09",
+      "physical": {
+        "q_global": 1.3276609539964501,
+        "per_tier": {
+          "dry": {
+            "n_basins": 2,
+            "global_coverage": 0.7265793076471738,
+            "hscc_coverage": 0.8702327400743204
+          },
+          "semi_arid": {
+            "n_basins": 5,
+            "global_coverage": 0.7557960815371088,
+            "hscc_coverage": 0.8672004863820563
+          },
+          "humid": {
+            "n_basins": 2,
+            "global_coverage": 0.9115000977899472,
+            "hscc_coverage": 0.8651476628202621
+          }
+        },
+        "spread_global_pp": 18.49207901427734,
+        "spread_hscc_pp": 0.5085077254058268,
+        "spread_reduction_pp": 17.983571288871513
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 12.755676208013892,
+        "spread_hscc_pp_std": 5.26932015204603,
+        "spread_reduction_pp_mean": 1.161996557319354,
+        "spread_reduction_pp_std": 4.327232380027878,
+        "per_tier_hscc_cov_mean": {
+          "dry": 0.7907556777004061,
+          "semi_arid": 0.7862178020715397,
+          "humid": 0.7784695972757033,
+          "snow": NaN
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": 0.06462773309172984,
+          "semi_arid": 0.04440653857440425,
+          "humid": 0.07236511833954336,
+          "snow": NaN
+        }
+      }
+    },
+    {
+      "huc": "10",
+      "physical": {
+        "q_global": 1.3409503102288975,
+        "per_tier": {
+          "dry": {
+            "n_basins": 23,
+            "global_coverage": 0.4257633567924605,
+            "hscc_coverage": 0.6124995557795185
+          },
+          "semi_arid": {
+            "n_basins": 22,
+            "global_coverage": 0.6694210799973933,
+            "hscc_coverage": 0.7861318651546688
+          },
+          "humid": {
+            "n_basins": 9,
+            "global_coverage": 0.56683436547466,
+            "hscc_coverage": 0.5090965222424674
+          },
+          "snow": {
+            "n_basins": 16,
+            "global_coverage": 0.9547070329804108,
+            "hscc_coverage": 0.7971553642174237
+          }
+        },
+        "spread_global_pp": 52.89436761879502,
+        "spread_hscc_pp": 28.805884197495637,
+        "spread_reduction_pp": 24.08848342129939
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 17.874193882409788,
+        "spread_hscc_pp_std": 9.019075171671302,
+        "spread_reduction_pp_mean": -1.0814600231999165,
+        "spread_reduction_pp_std": 4.305812624978377,
+        "per_tier_hscc_cov_mean": {
+          "dry": 0.644337570280771,
+          "semi_arid": 0.6439212800595071,
+          "humid": 0.6633305241214874,
+          "snow": 0.6293245924405907
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": 0.07181886710697247,
+          "semi_arid": 0.06276063343351877,
+          "humid": 0.12151292578570547,
+          "snow": 0.05729877394394712
+        }
+      }
+    },
+    {
+      "huc": "11",
+      "physical": {
+        "q_global": 1.2774422764773803,
+        "per_tier": {
+          "dry": {
+            "n_basins": 9,
+            "global_coverage": 0.7488493952906928,
+            "hscc_coverage": 0.8887071298055008
+          },
+          "semi_arid": {
+            "n_basins": 4,
+            "global_coverage": 0.645900541569311,
+            "hscc_coverage": 0.7670928071815222
+          },
+          "humid": {
+            "n_basins": 17,
+            "global_coverage": 0.7550994581286455,
+            "hscc_coverage": 0.6981857088620702
+          },
+          "snow": {
+            "n_basins": 1,
+            "global_coverage": 0.9665558380598475,
+            "hscc_coverage": 0.8574222569919813
+          }
+        },
+        "spread_global_pp": 32.065529649053644,
+        "spread_hscc_pp": 19.05214209434306,
+        "spread_reduction_pp": 13.013387554710587
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 27.705313073497713,
+        "spread_hscc_pp_std": 16.18497540631748,
+        "spread_reduction_pp_mean": -0.08110346563979479,
+        "spread_reduction_pp_std": 2.438820669202033,
+        "per_tier_hscc_cov_mean": {
+          "dry": 0.7569763059599912,
+          "semi_arid": 0.7523109555550607,
+          "humid": 0.7371950676796868,
+          "snow": 0.7241834539409349
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": 0.05170066983260509,
+          "semi_arid": 0.0856130188460305,
+          "humid": 0.029508496212314092,
+          "snow": 0.2580547406653836
+        }
+      }
+    },
+    {
+      "huc": "12",
+      "physical": {
+        "q_global": 1.217889559268905,
+        "per_tier": {
+          "dry": {
+            "n_basins": 18,
+            "global_coverage": 0.32906085065282586,
+            "hscc_coverage": 0.4893383300712647
+          },
+          "semi_arid": {
+            "n_basins": 16,
+            "global_coverage": 0.46172745941717186,
+            "hscc_coverage": 0.6803980050850773
+          },
+          "humid": {
+            "n_basins": 3,
+            "global_coverage": 0.5901949279614055,
+            "hscc_coverage": 0.5509485624877762
+          }
+        },
+        "spread_global_pp": 26.11340773085796,
+        "spread_hscc_pp": 19.10596750138126,
+        "spread_reduction_pp": 7.007440229476702
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 18.643665077503837,
+        "spread_hscc_pp_std": 9.232435912578348,
+        "spread_reduction_pp_mean": -1.7587924754304463,
+        "spread_reduction_pp_std": 3.73528813753174,
+        "per_tier_hscc_cov_mean": {
+          "dry": 0.40014039372015003,
+          "semi_arid": 0.4073052231901955,
+          "humid": 0.41102105885361917,
+          "snow": NaN
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": 0.0512231214444937,
+          "semi_arid": 0.06749986108744147,
+          "humid": 0.15170504023005216,
+          "snow": NaN
+        }
+      }
+    },
+    {
+      "huc": "13",
+      "physical": {
+        "q_global": 1.3072518229484116,
+        "per_tier": {
+          "dry": {
+            "n_basins": 2,
+            "global_coverage": 0.8987874046548014,
+            "hscc_coverage": 0.9932524936436534
+          },
+          "snow": {
+            "n_basins": 5,
+            "global_coverage": 0.9455896733815763,
+            "hscc_coverage": 0.8748679835712888
+          }
+        },
+        "spread_global_pp": 4.680226872677484,
+        "spread_hscc_pp": 11.838451007236461,
+        "spread_reduction_pp": -7.158224134558977
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 5.131625268922354,
+        "spread_hscc_pp_std": 3.7791530869502323,
+        "spread_reduction_pp_mean": -0.611284959906126,
+        "spread_reduction_pp_std": 1.9114386872981008,
+        "per_tier_hscc_cov_mean": {
+          "dry": 0.9126540191668295,
+          "semi_arid": NaN,
+          "humid": NaN,
+          "snow": 0.9373733620183847
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": 0.045102050957104414,
+          "semi_arid": NaN,
+          "humid": NaN,
+          "snow": 0.016510763751515948
+        }
+      }
+    },
+    {
+      "huc": "14",
+      "physical": {
+        "q_global": 1.3352807044972135,
+        "per_tier": {
+          "dry": {
+            "n_basins": 1,
+            "global_coverage": 0.0013690592607079992,
+            "hscc_coverage": 0.12614903187952278
+          },
+          "snow": {
+            "n_basins": 16,
+            "global_coverage": 0.7749037911972103,
+            "hscc_coverage": 0.5941767979194233
+          }
+        },
+        "spread_global_pp": 77.35347319365023,
+        "spread_hscc_pp": 46.80277660399006,
+        "spread_reduction_pp": 30.550696589660177
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 32.038069301449674,
+        "spread_hscc_pp_std": 14.764835960260323,
+        "spread_reduction_pp_mean": 1.7075927302850988,
+        "spread_reduction_pp_std": 3.333552047114752,
+        "per_tier_hscc_cov_mean": {
+          "dry": 0.7060727557207119,
+          "semi_arid": NaN,
+          "humid": NaN,
+          "snow": 0.7341146112909241
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": 0.33910029498449995,
+          "semi_arid": NaN,
+          "humid": NaN,
+          "snow": 0.027428201226486874
+        }
+      }
+    },
+    {
+      "huc": "15",
+      "physical": {
+        "q_global": 1.2413506627082174,
+        "per_tier": {
+          "dry": {
+            "n_basins": 18,
+            "global_coverage": 0.6462287896826672,
+            "hscc_coverage": 0.7559110215101451
+          },
+          "snow": {
+            "n_basins": 1,
+            "global_coverage": 0.9786817915118325,
+            "hscc_coverage": 0.9436729904165851
+          }
+        },
+        "spread_global_pp": 33.24530018291654,
+        "spread_hscc_pp": 18.776196890644,
+        "spread_reduction_pp": 14.469103292272534
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 29.831136096291583,
+        "spread_hscc_pp_std": 16.30835503427891,
+        "spread_reduction_pp_mean": 0.3335978458493908,
+        "spread_reduction_pp_std": 3.0826893295273954,
+        "per_tier_hscc_cov_mean": {
+          "dry": 0.6531871356459434,
+          "semi_arid": NaN,
+          "humid": NaN,
+          "snow": 0.672739332451384
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": 0.0239252814096603,
+          "semi_arid": NaN,
+          "humid": NaN,
+          "snow": 0.32762653952790666
+        }
+      }
+    },
+    {
+      "huc": "16",
+      "physical": {
+        "q_global": 1.3311900258053873,
+        "per_tier": {
+          "dry": {
+            "n_basins": 3,
+            "global_coverage": 0.5027055218723515,
+            "hscc_coverage": 0.6945042049677294
+          },
+          "snow": {
+            "n_basins": 15,
+            "global_coverage": 0.8423097726747606,
+            "hscc_coverage": 0.5909135718263286
+          }
+        },
+        "spread_global_pp": 33.96042508024091,
+        "spread_hscc_pp": 10.359063314140071,
+        "spread_reduction_pp": 23.601361766100837
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 11.42856232794842,
+        "spread_hscc_pp_std": 7.5456774915260585,
+        "spread_reduction_pp_mean": -0.5520783787429698,
+        "spread_reduction_pp_std": 6.264184790162434,
+        "per_tier_hscc_cov_mean": {
+          "dry": 0.7992844934322646,
+          "semi_arid": NaN,
+          "humid": NaN,
+          "snow": 0.7802612631553203
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": 0.1096276149327827,
+          "semi_arid": NaN,
+          "humid": NaN,
+          "snow": 0.047743020390832454
+        }
+      }
+    },
+    {
+      "huc": "17",
+      "physical": {
+        "q_global": 1.3987622261032733,
+        "per_tier": {
+          "semi_arid": {
+            "n_basins": 2,
+            "global_coverage": 0.5353021709368277,
+            "hscc_coverage": 0.5515353021709368
+          },
+          "humid": {
+            "n_basins": 53,
+            "global_coverage": 0.8477576580599214,
+            "hscc_coverage": 0.7876777286162907
+          },
+          "snow": {
+            "n_basins": 36,
+            "global_coverage": 0.9053990604001032,
+            "hscc_coverage": 0.7750764063549922
+          }
+        },
+        "spread_global_pp": 37.00968894632754,
+        "spread_hscc_pp": 23.614242644535388,
+        "spread_reduction_pp": 13.395446301792157
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 12.050720176499171,
+        "spread_hscc_pp_std": 8.483494762123877,
+        "spread_reduction_pp_mean": -2.042058303194369,
+        "spread_reduction_pp_std": 5.137505453523458,
+        "per_tier_hscc_cov_mean": {
+          "dry": NaN,
+          "semi_arid": 0.8322423109039111,
+          "humid": 0.8663548960776538,
+          "snow": 0.8553110054141856
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": NaN,
+          "semi_arid": 0.12444011472032351,
+          "humid": 0.01336359464784977,
+          "snow": 0.048398892903286174
+        }
+      }
+    },
+    {
+      "huc": "18",
+      "physical": {
+        "q_global": 1.2768543958658767,
+        "per_tier": {
+          "dry": {
+            "n_basins": 16,
+            "global_coverage": 0.31263446117739097,
+            "hscc_coverage": 0.4219025034226482
+          },
+          "semi_arid": {
+            "n_basins": 7,
+            "global_coverage": 0.5413930876477328,
+            "hscc_coverage": 0.7298482858819256
+          },
+          "humid": {
+            "n_basins": 12,
+            "global_coverage": 0.7960916617771693,
+            "hscc_coverage": 0.7529662950648675
+          },
+          "snow": {
+            "n_basins": 5,
+            "global_coverage": 0.670134950127127,
+            "hscc_coverage": 0.4696264424017212
+          }
+        },
+        "spread_global_pp": 48.34572005997783,
+        "spread_hscc_pp": 33.10637916422193,
+        "spread_reduction_pp": 15.239340895755904
+      },
+      "random": {
+        "n_repeats": 20,
+        "spread_hscc_pp_mean": 25.10340355582875,
+        "spread_hscc_pp_std": 10.605157439958537,
+        "spread_reduction_pp_mean": -1.705330949121287,
+        "spread_reduction_pp_std": 4.316742559079621,
+        "per_tier_hscc_cov_mean": {
+          "dry": 0.526012125953452,
+          "semi_arid": 0.550371601799335,
+          "humid": 0.5389000260773193,
+          "snow": 0.5691902992372383
+        },
+        "per_tier_hscc_cov_std": {
+          "dry": 0.07244654787612913,
+          "semi_arid": 0.13579537106867604,
+          "humid": 0.079812686699914,
+          "snow": 0.13300893160524999
+        }
+      }
+    }
+  ]
+}

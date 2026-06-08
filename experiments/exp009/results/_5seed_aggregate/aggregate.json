@@ -1,0 +1,269 @@
+{
+  "exp": "exp009_multi_seed_reproducibility",
+  "version": "v1.0",
+  "n_seeds": 5,
+  "seeds": [
+    42,
+    137,
+    2024,
+    1337,
+    7
+  ],
+  "seed42_provenance": "symlink to experiments/exp002/results/exp002_camels_us_temporal_2504_155058 (D-016 closed); mechanism reused from experiments/exp007/results/run_2604 (D-019 closed).",
+  "spread_reduction_pp": {
+    "mean": 19.437114979200338,
+    "std": 1.4011827497325229,
+    "min": 17.843194849911782,
+    "max": 21.49992202133717,
+    "ci95": [
+      18.45890883249612,
+      20.65428342581029
+    ]
+  },
+  "spread_global_pp": {
+    "mean": 20.969966156238765,
+    "std": 1.2176800374500751
+  },
+  "spread_hscc_pp": {
+    "mean": 1.5328511770384257,
+    "std": 0.5146670908075922
+  },
+  "per_tier_hscc_coverage": {
+    "dry": {
+      "mean": 0.8821682099473881,
+      "std": 0.0017064563930311216,
+      "n_in_088_092": 4,
+      "n_in_085_095": 5,
+      "n_total": 5
+    },
+    "semi_arid": {
+      "mean": 0.8690863575950782,
+      "std": 0.005969240737286831,
+      "n_in_088_092": 0,
+      "n_in_085_095": 5,
+      "n_total": 5
+    },
+    "humid": {
+      "mean": 0.8838532728201942,
+      "std": 0.0021792616109298775,
+      "n_in_088_092": 5,
+      "n_in_085_095": 5,
+      "n_total": 5
+    },
+    "snow": {
+      "mean": 0.8810716487895327,
+      "std": 0.0032710310904231644,
+      "n_in_088_092": 4,
+      "n_in_085_095": 5,
+      "n_total": 5
+    }
+  },
+  "mechanism_log_resid_var_rho": {
+    "mean": -0.9005131961617279,
+    "std": 0.009336652301525085,
+    "min": -0.9141565467860365,
+    "max": -0.8926134492639229,
+    "per_seed": {
+      "42": -0.8926134492639229,
+      "137": -0.8953958430219263,
+      "2024": -0.9062730392296884,
+      "1337": -0.9141565467860365,
+      "7": -0.8941271025070652
+    }
+  },
+  "success_criteria": {
+    "S1_all_seeds_trained": {
+      "pass": true,
+      "n_seeds": 5
+    },
+    "S2_seed42_paired_vs_exp002": {
+      "pass": true,
+      "diff_pp": 0.0,
+      "note": "symlink reuse; exact match by construction (sha256 manifested)."
+    },
+    "S3_H1_spread_reduction": {
+      "pass": false,
+      "pass_mean_only": true,
+      "mean_pp": 19.437114979200338,
+      "std_pp": 1.4011827497325229,
+      "thresholds": {
+        "mean_ge": 18.0,
+        "std_le": 1.0
+      },
+      "note": "If std > 1 but \u2264 1.5: borderline; document as 'mean \u00b1 std with 95% CI' per plan \u00a79 fallback."
+    },
+    "S4_H2_per_tier_in_band": {
+      "pass": true,
+      "n_seeds_all_tier_in_band_85_95": 5,
+      "per_seed_in_band": {
+        "42": true,
+        "137": true,
+        "2024": true,
+        "1337": true,
+        "7": true
+      },
+      "thresholds": {
+        "band": [
+          0.85,
+          0.95
+        ],
+        "min_seeds": 4
+      }
+    },
+    "S5_H3_mechanism_rho": {
+      "pass": true,
+      "mean": -0.9005131961617279,
+      "std": 0.009336652301525085,
+      "per_seed": {
+        "42": -0.8926134492639229,
+        "137": -0.8953958430219263,
+        "2024": -0.9062730392296884,
+        "1337": -0.9141565467860365,
+        "7": -0.8941271025070652
+      },
+      "thresholds": {
+        "mean_le": -0.85,
+        "std_le": 0.05
+      }
+    },
+    "S6_H4_joint_replication": {
+      "pass": true,
+      "n_seeds_passing_H1_H2_H3": 4,
+      "per_seed_pass": {
+        "42": true,
+        "137": true,
+        "2024": true,
+        "1337": false,
+        "7": true
+      },
+      "per_seed_breakdown": {
+        "42": {
+          "H1": true,
+          "H2": true,
+          "H3": true
+        },
+        "137": {
+          "H1": true,
+          "H2": true,
+          "H3": true
+        },
+        "2024": {
+          "H1": true,
+          "H2": true,
+          "H3": true
+        },
+        "1337": {
+          "H1": false,
+          "H2": true,
+          "H3": true
+        },
+        "7": {
+          "H1": true,
+          "H2": true,
+          "H3": true
+        }
+      },
+      "thresholds": {
+        "min_seeds": 4
+      }
+    }
+  },
+  "bootstrap_ci_table": [
+    {
+      "metric": "spread_global_pp",
+      "mean": 20.969966156238765,
+      "std": 1.2176800374500751,
+      "ci95_lo": 20.132598708995857,
+      "ci95_hi": 22.02922000253148
+    },
+    {
+      "metric": "spread_hscc_pp",
+      "mean": 1.5328511770384257,
+      "std": 0.5146670908075922,
+      "ci95_lo": 1.1515705565879042,
+      "ci95_hi": 1.9605207473121777
+    },
+    {
+      "metric": "spread_reduction_pp",
+      "mean": 19.437114979200338,
+      "std": 1.4011827497325229,
+      "ci95_lo": 18.45890883249612,
+      "ci95_hi": 20.65428342581029
+    },
+    {
+      "metric": "overall_global_coverage",
+      "mean": 0.8802961273275562,
+      "std": 0.001610433271039506,
+      "ci95_lo": 0.8790945069837371,
+      "ci95_hi": 0.8816275031484242
+    },
+    {
+      "metric": "hscc_cov_dry",
+      "mean": 0.8821682099473881,
+      "std": 0.0017064563930311216,
+      "ci95_lo": 0.8807960160231822,
+      "ci95_hi": 0.883453715669825
+    },
+    {
+      "metric": "hscc_cov_semi_arid",
+      "mean": 0.8690863575950782,
+      "std": 0.005969240737286831,
+      "ci95_lo": 0.8644862662302668,
+      "ci95_hi": 0.8736864489598896
+    },
+    {
+      "metric": "hscc_cov_humid",
+      "mean": 0.8838532728201942,
+      "std": 0.0021792616109298775,
+      "ci95_lo": 0.88200147110165,
+      "ci95_hi": 0.8856326207087694
+    },
+    {
+      "metric": "hscc_cov_snow",
+      "mean": 0.8810716487895327,
+      "std": 0.0032710310904231644,
+      "ci95_lo": 0.8781770095155619,
+      "ci95_hi": 0.8832285292236539
+    },
+    {
+      "metric": "rho_log_resid_var_coverage_global",
+      "mean": -0.9005131961617279,
+      "std": 0.009336652301525085,
+      "ci95_lo": -0.9085739564189727,
+      "ci95_hi": -0.8937753893127806
+    }
+  ],
+  "outputs": {
+    "per_seed_summary_csv": "experiments/exp009/results/_5seed_aggregate/per_seed_summary.csv",
+    "mechanism_5seed_csv": "experiments/exp009/results/_5seed_aggregate/mechanism_5seed.csv",
+    "bootstrap_ci_csv": "experiments/exp009/results/_5seed_aggregate/bootstrap_ci.csv",
+    "figures_dir": "experiments/exp009/results/_5seed_aggregate/figures"
+  },
+  "mechanism_data_provenance": [
+    {
+      "seed": 42,
+      "source": "experiments/exp007/results/run_2604/results.json",
+      "kind": "results_json_top5_fallback"
+    },
+    {
+      "seed": 137,
+      "source": "experiments/exp009/results/exp009_seed137_0205_180701/_mechanism/results.json",
+      "kind": "results_json_top5_fallback"
+    },
+    {
+      "seed": 2024,
+      "source": "experiments/exp009/results/exp009_seed2024_0205_193110/_mechanism/results.json",
+      "kind": "results_json_top5_fallback"
+    },
+    {
+      "seed": 1337,
+      "source": "experiments/exp009/results/exp009_seed1337_0205_204444/_mechanism/results.json",
+      "kind": "results_json_top5_fallback"
+    },
+    {
+      "seed": 7,
+      "source": "experiments/exp009/results/exp009_seed007_0205_215826/_mechanism/results.json",
+      "kind": "results_json_top5_fallback"
+    }
+  ]
+}

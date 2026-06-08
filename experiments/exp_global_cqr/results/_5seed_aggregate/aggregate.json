@@ -1,0 +1,62 @@
+{
+  "experiment": "exp_global_cqr",
+  "method": "vanilla global residual-CQR (single pooled Q_hat_global)",
+  "alpha": 0.1,
+  "seeds": [
+    42,
+    137,
+    2024,
+    1337,
+    7
+  ],
+  "n_seeds": 5,
+  "overall_cross_seed": {
+    "mean_coverage": 0.8925172072995359,
+    "std_coverage": 0.0007547941187029728,
+    "tier_coverage_spread_pp": 4.751965551673791,
+    "tier_coverage_spread_pp_std": 0.5582403478832041,
+    "mean_pi_width": 2.0346897518301117,
+    "mean_winkler_score": 3.2901321909369323
+  },
+  "per_tier_cross_seed": [
+    {
+      "tier": "dry",
+      "n_basins": 92.0,
+      "mean_coverage": 0.9258943329166384,
+      "std_coverage": 0.006521492381394096,
+      "mean_pi_width": 0.33410420667255414,
+      "mean_winkler_score": 0.8960379955690858
+    },
+    {
+      "tier": "humid",
+      "n_basins": 407.0,
+      "mean_coverage": 0.8838864000244806,
+      "std_coverage": 0.0023917680272192883,
+      "mean_pi_width": 2.6367935643346634,
+      "mean_winkler_score": 4.204272885535976
+    },
+    {
+      "tier": "semi_arid",
+      "n_basins": 77.0,
+      "mean_coverage": 0.8796647889695766,
+      "std_coverage": 0.004930342939666596,
+      "mean_pi_width": 0.833686870449155,
+      "mean_winkler_score": 1.8709666480883744
+    },
+    {
+      "tier": "snow",
+      "n_basins": 95.0,
+      "mean_coverage": 0.9075875148319656,
+      "std_coverage": 0.002422466442008785,
+      "mean_pi_width": 2.075477544793019,
+      "mean_winkler_score": 2.8425232443197785
+    }
+  ],
+  "success_criteria": {
+    "S1_single_global_qhat_per_seed": true,
+    "S2_all_tiers_reported": true,
+    "S3_seed_runs_completed": 5,
+    "S4_cross_seed_summary_complete": true,
+    "S5_ready_for_pareto_row": true
+  }
+}

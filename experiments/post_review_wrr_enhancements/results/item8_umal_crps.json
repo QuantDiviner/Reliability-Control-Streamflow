@@ -1,0 +1,26 @@
+{
+  "units": "mm/d",
+  "predictive_object": "UMAL native 200-sample predictive distribution",
+  "aggregation": "per-basin mean over test days, then basin-equal mean across basins (matches exp011 marginal CRPS)",
+  "n_seeds": 3,
+  "per_seed": {
+    "42": {
+      "n_basins": 671,
+      "marginal_crps": 0.39296851609847144,
+      "median_basin_crps": 0.2928384644872029
+    },
+    "1337": {
+      "n_basins": 671,
+      "marginal_crps": 0.41235128902870116,
+      "median_basin_crps": 0.3087805078523096
+    },
+    "2024": {
+      "n_basins": 671,
+      "marginal_crps": 0.41276860748137056,
+      "median_basin_crps": 0.3095150822357868
+    }
+  },
+  "umal_marginal_crps_seed42": 0.39296851609847144,
+  "umal_marginal_crps_mean": 0.4060294708695144,
+  "umal_marginal_crps_std": 0.011313043061933281
+}

@@ -1,0 +1,227 @@
+# ============================================================================
+# 学术研究项目 .gitignore
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Python
+# ----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 虚拟环境
+venv/
+ENV/
+env/
+.venv/
+
+# ----------------------------------------------------------------------------
+# Jupyter Notebook
+# ----------------------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# ----------------------------------------------------------------------------
+# IDE
+# ----------------------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.spyderproject
+.spyproject
+
+# ----------------------------------------------------------------------------
+# 操作系统
+# ----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ----------------------------------------------------------------------------
+# 数据文件 (大文件不提交)
+# ----------------------------------------------------------------------------
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/README.md
+
+# CAMELS 数据集（大文件，不提交）
+data/raw/CAMELS_US/
+data/raw/*.zip
+
+# 常见数据格式
+*.csv
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.parquet
+
+# 如果某些小型数据文件需要提交，使用 git add -f
+
+# ----------------------------------------------------------------------------
+# 模型检查点 (大文件不提交)
+# ----------------------------------------------------------------------------
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.pb
+*.onnx
+checkpoints/
+saved_models/
+
+# ----------------------------------------------------------------------------
+# 实验输出
+# ----------------------------------------------------------------------------
+experiments/*/logs/
+experiments/*/checkpoints/
+experiments/_scratch/
+
+# 保留实验结构和配置
+!experiments/**/config.yaml
+!experiments/**/metadata.json
+!experiments/**/README.md
+
+# ----------------------------------------------------------------------------
+# 论文编译输出
+# ----------------------------------------------------------------------------
+paper/**/*.pdf
+!paper/paper.pdf
+paper/**/*.aux
+paper/**/*.log
+paper/**/*.out
+paper/**/*.bbl
+paper/**/*.blg
+paper/**/*.fls
+paper/**/*.fdb_latexmk
+paper/**/*.synctex.gz
+paper/**/_site/
+paper/**/.quarto/
+
+# 保留源文件
+!paper/source/**
+!paper/data/**
+!paper/scripts/**
+
+# ----------------------------------------------------------------------------
+# 日志
+# ----------------------------------------------------------------------------
+*.log
+logs/
+wandb/
+mlruns/
+tensorboard/
+
+# ----------------------------------------------------------------------------
+# 敏感信息 ⚠️ 重要
+# ----------------------------------------------------------------------------
+# 环境变量
+.env
+.env.*
+!.env.example
+
+# 密钥和凭证
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.yaml
+secrets.json
+credentials.json
+*_credentials.json
+**/credentials/
+**/secrets/
+
+# API 密钥
+*api_key*
+*apikey*
+*API_KEY*
+*.token
+token.txt
+
+# SSH
+id_rsa
+id_rsa.*
+*.pub
+
+# 配置文件（可能含敏感信息）
+config.local.yaml
+config.private.yaml
+private_config.*
+
+# ----------------------------------------------------------------------------
+# 外部库（git clone，不提交）
+# ----------------------------------------------------------------------------
+libs/neuralhydrology/
+# exp010 vendored (1.2 GB, MIT, ml-jku/HopCPT @ master 2026-04-30)
+# 入档信息: experiments/exp010/metadata.json (commit hash + license)
+# 本地 patches: experiments/exp010/execution-log.md ELOG-004/005
+libs/HopCPT/
+
+# ----------------------------------------------------------------------------
+# 混合架构运行时文件 (P0)
+# ----------------------------------------------------------------------------
+.checkpoints/
+runner.log
+RUNNER_STATUS.txt
+
+# ----------------------------------------------------------------------------
+# NeuralHydrology evaluation 大产物
+# ----------------------------------------------------------------------------
+# 项目惯例：仅入账 _analysis/ + config.yml + 小型 audit CSV，
+# pickle / checkpoint / TensorBoard / 训练缓存均通过 run_pipeline.sh 重现。
+# 见 a3123e3 / 1133dca commit 中 "未入账的大文件" 说明。
+
+# NH evaluation pickle（用 .p 后缀，未被 *.pkl/*.pickle 捕获）
+**/test/model_epoch*/test_results.p
+**/validation/model_epoch*/validation_results.p
+
+# NH 训练缓存（scaler + xarray cache，每次重训会重生成）
+**/train_data/
+
+# TensorBoard event 文件（未被 *.log 捕获）
+events.out.tfevents.*
+
+# 实验 smoke 测试 / 失败 attempt 残留（仅本地诊断，不入版本）
+experiments/*/results/_smoke_*/
+experiments/*/results/_attempt*_failed_*/
+
+# exp010 派生 NH preds 拼接 + Hydra run dir + sanity 残留（可由 concat_nh_results.py + run_hopcpt.sh 重现）
+experiments/exp010/cal_test_results.p
+experiments/exp010/results/run_*/
+experiments/exp010/_sanity/
+
+# ----------------------------------------------------------------------------
+# 临时文件
+# ----------------------------------------------------------------------------
+*.tmp
+*.temp
+*.bak
+.cache/

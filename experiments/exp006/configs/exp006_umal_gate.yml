@@ -1,0 +1,116 @@
+# exp006 v3 PCR-005 — UMAL GATING smoke (50 basins × 5 epochs)
+#
+# Per R1' Opus subagent recommendation: a hard pre-flight check before
+# committing to the full 671-basin × 30-epoch canary. UMAL is structurally
+# safer than CMAL (4 v2 canary failures) but its `b` lower bound is still
+# 1e-5 — overflow path is mitigated, not eliminated. This 50-basin × 5-epoch
+# run validates that UMAL forward + backward training is stable on a
+# representative subset before spending ~6h GPU on the full canary.
+#
+# Pass criterion (per R1' §5):
+#   - 5 epochs complete, no NaN events
+#   - train loss strictly decreasing
+#   - validation NSE plausible (>0.3 on 50 basins is fine for a smoke)
+#
+# Fail action: skip Path B canary; trigger Phase D fallback or Path E (multi-quantile head).
+#
+# Time estimate: ~30 min on RTX 4070 (50 basins × 5 epoch × ~15-20 batches/epoch
+# × n_taus=20 multiplier).
+
+experiment_name: exp006_umal_gate
+
+run_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp006/results
+
+train_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp006/configs/gate_50_basins.txt
+validation_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp006/configs/gate_50_basins.txt
+test_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp006/configs/gate_50_basins.txt
+
+# Same date splits as full config (exp002 D-007 boundaries)
+train_start_date: '01/10/1980'
+train_end_date: '30/09/1990'
+validation_start_date: '01/10/1990'
+validation_end_date: '30/09/2000'
+test_start_date: '01/10/2000'
+test_end_date: '30/09/2014'
+
+seed: 42
+device: cuda:0
+
+validate_every: 5
+validate_n_random_basins: 50
+metrics:
+- NSE
+
+# === UMAL head (PCR-005 Path B; R1' subagent gating) ===
+model: cudalstm
+head: umal
+n_taus: 20
+umal_extend_batch: True
+tau_up: 0.99
+tau_down: 0.01
+n_samples: 100
+negative_sample_handling: clip
+
+hidden_size: 64
+initial_forget_bias: 3
+output_dropout: 0.4
+
+optimizer: Adam
+loss: UMALLoss
+learning_rate: 1e-3      # gate uses constant lr (5 epoch insufficient for schedule)
+batch_size: 128
+epochs: 5
+
+clip_gradient_norm: 1.0
+allow_subsequent_nan_losses: 0   # gate must surface any NaN immediately
+
+predict_last_n: 1
+seq_length: 365
+num_workers: 4
+
+save_weights_every: 1
+save_validation_results: True
+
+dataset: camels_us
+data_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/data/raw/CAMELS_US
+
+forcings:
+- daymet
+
+dynamic_inputs:
+- prcp(mm/day)
+- srad(W/m2)
+- tmax(C)
+- tmin(C)
+- vp(Pa)
+
+target_variables:
+- QObs(mm/d)
+
+static_attributes:
+- elev_mean
+- slope_mean
+- area_gages2
+- frac_forest
+- lai_max
+- lai_diff
+- gvf_max
+- gvf_diff
+- soil_depth_pelletier
+- soil_depth_statsgo
+- soil_porosity
+- soil_conductivity
+- max_water_content
+- sand_frac
+- silt_frac
+- clay_frac
+- carbonate_rocks_frac
+- geol_permeability
+- p_mean
+- pet_mean
+- aridity
+- frac_snow
+- high_prec_freq
+- high_prec_dur
+- low_prec_freq
+- low_prec_dur

@@ -1,0 +1,21 @@
+{
+  "analysis": "seed42_basin_equal_calibration_global_cp",
+  "n_basins": 671,
+  "day_pooled_q": 1.2497258186340332,
+  "basin_equal_q": 1.2495534420013428,
+  "q_ratio_basin_equal_to_day_pooled": 0.9998620684392366,
+  "day_pooled_tier_coverage": {
+    "dry": 0.7502673825747564,
+    "semi_arid": 0.8100644117483157,
+    "humid": 0.9086920586867395,
+    "snow": 0.9488853744274242
+  },
+  "basin_equal_tier_coverage": {
+    "dry": 0.7501904767168192,
+    "semi_arid": 0.8099983717839773,
+    "humid": 0.9086655024778267,
+    "snow": 0.9488601078923212
+  },
+  "day_pooled_spread_pp": 19.861799185266772,
+  "basin_equal_spread_pp": 19.866963117550206
+}

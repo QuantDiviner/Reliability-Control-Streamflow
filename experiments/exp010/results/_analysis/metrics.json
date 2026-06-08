@@ -1,0 +1,42 @@
+{
+  "experiment": "exp010",
+  "method": "HopCPT (Auer 2024) \u2014 EpsPredictionHopfield + precomputed_nh on exp002 LSTM",
+  "alpha": 0.1,
+  "seed": 42,
+  "basin_count_planned": 671,
+  "basin_count_actual": 574,
+  "basin_count_missing": 0,
+  "basin_count_extra": 0,
+  "tier_scheme": "snow_first then aridity (>1.5 dry / 1.0-1.5 semi_arid / <=1.0 humid); from PROJECT_CHARTER \u00a72",
+  "tier_counts": {
+    "humid": 339,
+    "snow": 83,
+    "dry": 82,
+    "semi_arid": 70
+  },
+  "overall": {
+    "mean_coverage": 0.9341515887288738,
+    "mean_coverage_eps_vs_0_90": 0.03415158872887379,
+    "mean_pi_width": 1.8153879939802022,
+    "mean_winkler_score": 2.7085764428253
+  },
+  "per_tier_mean_coverage": {
+    "dry": 0.936722748803862,
+    "semi_arid": 0.9474672403676901,
+    "humid": 0.933753801259673,
+    "snow": 0.9220060370564991
+  },
+  "per_tier_n_basins": {
+    "dry": 82,
+    "semi_arid": 70,
+    "humid": 339,
+    "snow": 83
+  },
+  "tier_coverage_spread_pp": 2.546120331119106,
+  "headline_comparison_NOTE": "exp002 671-basin spread 19.86pp / HSCC 1.01pp; exp009 5-seed spread 20.97\u00b11.22pp / HSCC 1.53\u00b10.51pp. exp010 spread above is 574-basin subset, NOT directly comparable until exp002/exp009 are recomputed on same 574-basin subset (CPU-only follow-up).",
+  "production_run_dir": "experiments/exp010/results/run_030526_120659/",
+  "wall_clock_min": 98,
+  "log_path": "experiments/exp010/logs/production_20260503_120656.log",
+  "per_basin_csv": "experiments/exp010/results/_analysis/per_basin_metrics.csv",
+  "tier_aggregate_csv": "experiments/exp010/results/_analysis/tier_aggregate.csv"
+}

@@ -1,0 +1,34 @@
+{
+  "g1_original_failed": true,
+  "ar1_distribution": {
+    "min": -0.1676201755623711,
+    "median": 0.5046607176190008,
+    "max": 0.9931222955594228,
+    "iqr": [
+      0.3049186221731677,
+      0.7503945428108634
+    ]
+  },
+  "het_distribution": {
+    "min": 1.0480860509707717,
+    "median": 40.11864893296631,
+    "max": 542.4105091888903,
+    "n_finite": 671
+  },
+  "strongest_mechvar_pool": {
+    "var": "log_resid_var",
+    "target": "cov_err_global_signed",
+    "rho": -0.8926134492639229,
+    "p": 1.1700069712976303e-233
+  },
+  "aridity_signed_cov_err_rho": -0.3678543100623577,
+  "frac_snow_signed_cov_err_rho": 0.40552802190349596,
+  "strongest_per_tier": {
+    "tier": "humid",
+    "var": "log_resid_var",
+    "target": "cov_err_hscc_signed",
+    "rho": -0.900538020563346
+  },
+  "g1_passed_with_signed_cov": true,
+  "interpretation": "see ABLATION_REPORT for narrative"
+}

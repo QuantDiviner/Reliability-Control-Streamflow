@@ -1,0 +1,49 @@
+{
+  "n_basins_evaluated": 50,
+  "tier_coverage_table": [
+    {
+      "tier": "gb_drier_q4",
+      "n_basins": 12,
+      "ensemble_coverage_mean": 0.4942514776009941,
+      "ensemble_width_mean": 0.17931090233226618,
+      "residual_coverage_mean": 0.9571865512288388,
+      "residual_width_mean": 1.4173180883129437
+    },
+    {
+      "tier": "gb_mid",
+      "n_basins": 12,
+      "ensemble_coverage_mean": 0.4853504928806133,
+      "ensemble_width_mean": 0.25697441150744754,
+      "residual_coverage_mean": 0.9306772544724352,
+      "residual_width_mean": 1.5953986222545307
+    },
+    {
+      "tier": "gb_wet",
+      "n_basins": 21,
+      "ensemble_coverage_mean": 0.43670329846175104,
+      "ensemble_width_mean": 0.549070037546612,
+      "residual_coverage_mean": 0.9386419387461616,
+      "residual_width_mean": 4.143984956400735
+    },
+    {
+      "tier": "gb_montane",
+      "n_basins": 5,
+      "ensemble_coverage_mean": 0.32672508214676893,
+      "ensemble_width_mean": 0.6786992371082305,
+      "residual_coverage_mean": 0.928039430449069,
+      "residual_width_mean": 5.08374056816101
+    }
+  ],
+  "cross_tier_spread_pp": {
+    "global_cp": 11.313366650236361,
+    "hscc_3seed_mean": 2.1114423423064874,
+    "ensemble_gaussian": 16.752639545422515,
+    "residual_gaussian": 2.9147120779769775
+  },
+  "method_comparison": "Cross-tier coverage spread (lower = more uniform per-tier reliability):\n  Global CP        : 11.31pp\n  HSCC (3-seed)    : 2.11pp\n  Ensemble Gaussian: 16.75pp\n  Residual Gaussian: 2.91pp\n",
+  "interpretation_notes": [
+    "Ensemble Gaussian uses 3-seed epistemic \u03c3; tends to be very narrow (seeds agree on most days), so intervals can under-cover.",
+    "Residual Gaussian uses fixed per-basin residual \u03c3 from cal period; ignores heteroscedasticity but is a fair single-distribution baseline.",
+    "HSCC's advantage over both Gaussian baselines is distribution-free calibration via conformal quantiles on log-flow score."
+  ]
+}

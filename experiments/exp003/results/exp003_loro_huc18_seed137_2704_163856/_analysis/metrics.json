@@ -1,0 +1,66 @@
+{
+  "huc": "18",
+  "alpha": 0.1,
+  "n_cal_basins": 631,
+  "n_test_basins": 40,
+  "global_q": 1.283934807776991,
+  "tier_coverage_spread_global_pp": 31.38405371927765,
+  "tier_coverage_spread_hscc_pp": 35.93305579614987,
+  "per_tier": {
+    "dry": {
+      "n_basins": 16,
+      "global_coverage": 0.40059651867787993,
+      "hscc_coverage": 0.5268800117347937,
+      "global_width_mm_d": 1.3926592906937003,
+      "hscc_width_mm_d": 2.3557685241103172,
+      "hscc_q": 1.7590789554818385,
+      "test_pred_min": -10.394287109375,
+      "n_cal_basins": 76,
+      "n_cal_pts": 277628
+    },
+    "semi_arid": {
+      "n_basins": 7,
+      "global_coverage": 0.6831046911234668,
+      "hscc_coverage": 0.7971557095359169,
+      "global_width_mm_d": 3.9264358622687205,
+      "hscc_width_mm_d": 6.314904110772269,
+      "hscc_q": 1.7123883604737629,
+      "test_pred_min": -5.380917072296143,
+      "n_cal_basins": 70,
+      "n_cal_pts": 255710
+    },
+    "humid": {
+      "n_basins": 12,
+      "global_coverage": 0.7144370558706564,
+      "hscc_coverage": 0.66210313579764,
+      "global_width_mm_d": 10.112922012805939,
+      "hscc_width_mm_d": 8.365677316983541,
+      "hscc_q": 1.1256915569293517,
+      "test_pred_min": -2.8701682090759277,
+      "n_cal_basins": 395,
+      "n_cal_pts": 1442202
+    },
+    "snow": {
+      "n_basins": 5,
+      "global_coverage": 0.6208879327205163,
+      "hscc_coverage": 0.43782515157441815,
+      "global_width_mm_d": 4.67524905204773,
+      "hscc_width_mm_d": 2.6873013496398928,
+      "hscc_q": 0.8514681696739494,
+      "test_pred_min": -2.474611282348633,
+      "n_cal_basins": 90,
+      "n_cal_pts": 328770
+    }
+  },
+  "success_criteria_pub": {
+    "S1_prime_per_tier": false,
+    "S2_prime_spread": false,
+    "S3_prime_global": true,
+    "S4_prime_neg_alarm": false,
+    "S5_prime_humid": false,
+    "S6_prime_spread_reduction": false,
+    "max_neg_pred": 10.394287109375,
+    "eligible_tier_count": 4,
+    "tier_count_with_test": 4
+  }
+}

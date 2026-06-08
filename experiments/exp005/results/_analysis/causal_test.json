@@ -1,0 +1,28 @@
+{
+  "H1_ar1_increases_under_perturbation": {
+    "statistic": 130.0,
+    "pvalue": 0.18413829803466797,
+    "n_pairs": 20,
+    "median_diff": 0.0032041966915130615
+  },
+  "H4_hscc_coverage_decreases_under_perturbation": {
+    "statistic": 154.5,
+    "pvalue": 0.967719739720083,
+    "n_pairs": 20,
+    "median_diff": 0.0043019163081736145
+  },
+  "H_aux_nse_decreases": {
+    "statistic": 42.0,
+    "pvalue": 0.0085906982421875,
+    "n_pairs": 20,
+    "median_diff": -0.0037500178441405296
+  },
+  "H_aux_het_increases": {
+    "statistic": 122.0,
+    "pvalue": 0.2729377746582031,
+    "n_pairs": 20,
+    "median_diff": -0.0008653276375441554
+  },
+  "alpha": 0.1,
+  "target_coverage": 0.9
+}

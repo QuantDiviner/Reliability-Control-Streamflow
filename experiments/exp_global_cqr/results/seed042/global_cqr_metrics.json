@@ -1,0 +1,69 @@
+{
+  "experiment": "exp_global_cqr",
+  "method": "vanilla global residual-CQR (single pooled Q_hat_global)",
+  "seed": 42,
+  "alpha": 0.1,
+  "n_basins_analyzed": 671,
+  "n_tiers_reported": 4,
+  "Q_hat_global": -0.0018011214685790344,
+  "overall": {
+    "mean_coverage": 0.8927651040746603,
+    "mean_pi_width": 2.0730158891622725,
+    "mean_winkler_score": 3.2820818099275804,
+    "tier_coverage_spread_pp": 3.840318667364473
+  },
+  "per_tier": [
+    {
+      "seed": 42,
+      "tier": "dry",
+      "n_basins": 92,
+      "mean_coverage": 0.9155541318863295,
+      "median_coverage": 0.9369254840602386,
+      "std_coverage": 0.07908311601854537,
+      "mean_pi_width": 0.32063340153417813,
+      "median_pi_width": 0.25180230534047376,
+      "mean_winkler_score": 0.878988449191421,
+      "Q_hat_global": -0.0018011214685790344
+    },
+    {
+      "seed": 42,
+      "tier": "semi_arid",
+      "n_basins": 77,
+      "mean_coverage": 0.8771509452126848,
+      "median_coverage": 0.8900840993545863,
+      "std_coverage": 0.08784130796187996,
+      "mean_pi_width": 0.8190434286013971,
+      "median_pi_width": 0.6565316654923289,
+      "mean_winkler_score": 1.9068486951429127,
+      "Q_hat_global": -0.0018011214685790344
+    },
+    {
+      "seed": 42,
+      "tier": "humid",
+      "n_basins": 407,
+      "mean_coverage": 0.8862784119620984,
+      "median_coverage": 0.9207901427733229,
+      "std_coverage": 0.10443705046588289,
+      "mean_pi_width": 2.6926223913695986,
+      "median_pi_width": 2.0561606076820658,
+      "mean_winkler_score": 4.193907828679335,
+      "Q_hat_global": -0.0018011214685790344
+    },
+    {
+      "seed": 42,
+      "tier": "snow",
+      "n_basins": 95,
+      "mean_coverage": 0.9111417710589881,
+      "median_coverage": 0.9454332094660669,
+      "std_coverage": 0.09798244013126707,
+      "mean_pi_width": 2.131912962073747,
+      "median_pi_width": 1.760753154527148,
+      "mean_winkler_score": 2.81749601407686,
+      "Q_hat_global": -0.0018011214685790344
+    }
+  ],
+  "success_criteria": {
+    "S1_single_global_qhat": true,
+    "S2_all_tiers_reported": true
+  }
+}

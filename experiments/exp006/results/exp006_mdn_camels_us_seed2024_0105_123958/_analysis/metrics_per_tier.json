@@ -1,0 +1,51 @@
+{
+  "alpha": 0.1,
+  "target_coverage": 0.9,
+  "n_samples_per_step": 200,
+  "epoch": 30,
+  "period": "test",
+  "per_tier": {
+    "dry": {
+      "n_basins": 92,
+      "n_timesteps": 467071,
+      "coverage": 0.759569744214477,
+      "mean_width": 0.2396625815054919,
+      "median_width": 0.04209677577018736,
+      "coverage_deviation_pp": 14.043025578552303,
+      "mean_basin_nse": 0.2471299552075241
+    },
+    "humid": {
+      "n_basins": 407,
+      "n_timesteps": 2054321,
+      "coverage": 0.7218925377290112,
+      "mean_width": 1.8444229084506434,
+      "median_width": 0.6288365423679345,
+      "coverage_deviation_pp": 17.810746227098882,
+      "mean_basin_nse": 0.6562316011298787
+    },
+    "semi_arid": {
+      "n_basins": 77,
+      "n_timesteps": 392266,
+      "coverage": 0.6880101767678055,
+      "mean_width": 0.6858427428985282,
+      "median_width": 0.14853408634662624,
+      "coverage_deviation_pp": 21.19898232321945,
+      "mean_basin_nse": 0.4954715934279677
+    },
+    "snow": {
+      "n_basins": 95,
+      "n_timesteps": 477721,
+      "coverage": 0.6700040400149878,
+      "mean_width": 1.062670790377444,
+      "median_width": 0.34347918033599834,
+      "coverage_deviation_pp": 22.99959599850122,
+      "mean_basin_nse": 0.6945526395973406
+    }
+  },
+  "overall": {
+    "coverage": 0.715853344612914,
+    "mean_width": 1.3792823206587421,
+    "mean_basin_nse": 0.5871177809160264,
+    "tier_coverage_spread_pp": 8.956570419948918
+  }
+}

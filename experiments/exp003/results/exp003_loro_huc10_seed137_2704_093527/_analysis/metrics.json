@@ -1,0 +1,66 @@
+{
+  "huc": "10",
+  "alpha": 0.1,
+  "n_cal_basins": 601,
+  "n_test_basins": 70,
+  "global_q": 1.2805214285838034,
+  "tier_coverage_spread_global_pp": 58.09930718084101,
+  "tier_coverage_spread_hscc_pp": 28.229358242296065,
+  "per_tier": {
+    "dry": {
+      "n_basins": 23,
+      "global_coverage": 0.36050007596341616,
+      "hscc_coverage": 0.5783694323037258,
+      "global_width_mm_d": 0.5318030164293621,
+      "hscc_width_mm_d": 1.0549380675606106,
+      "hscc_q": 1.9072818278816115,
+      "test_pred_min": -0.44765031337738037,
+      "n_cal_basins": 69,
+      "n_cal_pts": 252057
+    },
+    "semi_arid": {
+      "n_basins": 22,
+      "global_coverage": 0.6677518911241408,
+      "hscc_coverage": 0.7907470293548484,
+      "global_width_mm_d": 1.0793067718094045,
+      "hscc_width_mm_d": 1.6477825059132143,
+      "hscc_q": 1.6600893495882842,
+      "test_pred_min": -0.5629805326461792,
+      "n_cal_basins": 55,
+      "n_cal_pts": 200915
+    },
+    "humid": {
+      "n_basins": 9,
+      "global_coverage": 0.6045958655423872,
+      "hscc_coverage": 0.5434489711269275,
+      "global_width_mm_d": 3.0233500136269464,
+      "hscc_width_mm_d": 2.3551395734151206,
+      "hscc_q": 1.0743968486740765,
+      "test_pred_min": -1.4390588998794556,
+      "n_cal_basins": 398,
+      "n_cal_pts": 1453161
+    },
+    "snow": {
+      "n_basins": 16,
+      "global_coverage": 0.9414931477718262,
+      "hscc_coverage": 0.8257425535498881,
+      "global_width_mm_d": 3.8210410811007023,
+      "hscc_width_mm_d": 2.3933780193328857,
+      "hscc_q": 0.9093536434363293,
+      "test_pred_min": -0.6313906908035278,
+      "n_cal_basins": 79,
+      "n_cal_pts": 288587
+    }
+  },
+  "success_criteria_pub": {
+    "S1_prime_per_tier": false,
+    "S2_prime_spread": false,
+    "S3_prime_global": true,
+    "S4_prime_neg_alarm": true,
+    "S5_prime_humid": false,
+    "S6_prime_spread_reduction": true,
+    "max_neg_pred": 1.4390588998794556,
+    "eligible_tier_count": 4,
+    "tier_count_with_test": 4
+  }
+}

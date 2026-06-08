@@ -1,0 +1,25 @@
+{
+  "analysis": "G6 static-attribute weighted conformal on exp003 LORO",
+  "weighting": "diagonal-Gaussian density-ratio estimate using source/target aridity and frac_snow only",
+  "no_target_flow_leakage": true,
+  "baseline_hscc": {
+    "method": "HSCC",
+    "mean_coverage": 0.7283808314213295,
+    "spread_pp": 19.515185619978414,
+    "mean_width_mm_d": 4.050103688974659,
+    "min_tier": "dry",
+    "max_tier": "humid"
+  },
+  "weighted_hscc": {
+    "method": "Weighted_HSCC",
+    "mean_coverage": 0.758646994099782,
+    "spread_pp": 15.8271192490401,
+    "mean_width_mm_d": 114.97344257901932,
+    "min_tier": "dry",
+    "max_tier": "humid"
+  },
+  "delta_weighted_minus_baseline_spread_pp": -3.688066370938314,
+  "weighted_to_baseline_width_ratio": 28.38777755048698,
+  "interpretation": "limited_rescue_with_unacceptable_width_cost",
+  "claim_boundary": "Empirical rescue attempt only; not a formal Tibshirani weighted-CP coverage guarantee."
+}

@@ -1,0 +1,123 @@
+# exp004 — CAMELS-GB external validation, GB-native training (方案 B per D-021).
+#
+# Authority chain:
+#   - PROJECT_CHARTER §2.2 (M1 frozen): score_function, alpha, tier_scheme, experimental_tiers (tier_3)
+#   - PROJECT_CHARTER §2.3 (M2 三级): model + training params (mirror exp002)
+#   - exp004/plan.md (Step 05 output)
+#   - decision-log.md D-008 (GB 主文 subsection), D-020 (50 basins), D-021 (方案 B)
+#   - exp002 config_full.yml as template
+
+experiment_name: exp004_camels_gb_native_seed137
+
+run_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp004/results
+
+# 50 basins selected by experiments/exp004/scripts/select_gb_basins.py
+# (4-tier balanced: humid 40% / semi_arid 25% / dry 20% / snow 15%; tweaked if GB Köppen distribution short of snow)
+train_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp004/basin_lists/gb_50.txt
+validation_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp004/basin_lists/gb_50.txt
+test_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp004/basin_lists/gb_50.txt
+
+# Date splits — water-year-aware (Oct→Sep). CAMELS-GB span: 1970-10-01 to 2015-09-30.
+# Train: 1980-2000 (20 yr) — wider than exp002 to compensate for fewer basins
+# Validation (= calibration period for HSCC): 2000-2010
+# Test: 2010-2015
+train_start_date: '01/10/1980'
+train_end_date: '30/09/2000'
+validation_start_date: '01/10/2000'
+validation_end_date: '30/09/2010'
+test_start_date: '01/10/2010'
+test_end_date: '30/09/2015'
+
+seed: 137
+device: cuda:0
+
+# NH gotcha (D-015): validate_n_random_basins must be ≥ basin file size to avoid
+# truncation at evaluate-time. With 50 basins, set 100 for headroom.
+validate_every: 5
+validate_n_random_basins: 100
+metrics:
+- NSE
+
+model: cudalstm
+head: regression
+
+hidden_size: 64
+initial_forget_bias: 3
+output_dropout: 0.4
+output_activation: linear        # mirror exp002 D-013; HSCC analysis handles negative predictions via log-clipping
+
+optimizer: Adam
+loss: NSE
+learning_rate:
+    0: 1e-3
+    10: 5e-4
+    20: 1e-4
+batch_size: 128
+epochs: 30
+
+predict_last_n: 1
+seq_length: 365
+num_workers: 4
+
+save_weights_every: 1
+save_validation_results: True
+
+dataset: camels_gb
+# CAMELS-GB zip extracts to data/raw/CAMELS_GB/data/{attributes,timeseries}/.
+# NH camelsgb.py expects <data_dir>/{attributes,timeseries}/ → point at the inner data/.
+data_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/data/raw/CAMELS_GB/data
+
+# CAMELS-GB forcings (Coxon et al. 2020 standard column names).
+# precipitation: mm/d (CEH-GEAR + ERA5 blended)
+# pet:           mm/d (Penman-Monteith)
+# temperature:   °C   (HadUK-Grid daily mean)
+# humidity:      g/kg (specific humidity, ERA5)
+# shortwave_rad: W/m² (ERA5)
+# windspeed:     m/s  (ERA5, 10m)
+dynamic_inputs:
+- precipitation
+- pet
+- temperature
+- humidity
+- shortwave_rad
+- windspeed
+
+# Target: discharge_spec is normalized (mm/d, area-corrected); aligns with exp002's QObs(mm/d)
+target_variables:
+- discharge_spec
+
+# Static attributes — picked to mirror exp002 set in spirit (climate + topo + soil) using
+# the actual CAMELS-GB column names.
+# Climate (matches exp002 1:1):
+#   p_mean, pet_mean, aridity, frac_snow, high_prec_freq, high_prec_dur, low_prec_freq, low_prec_dur
+# Topography:
+#   elev_mean (gauge_elev → catchment mean), dpsbar (mean drainage path slope), area
+# Land cover (analogue to exp002 frac_forest / lai):
+#   dwood_perc (deciduous woodland), ewood_perc (evergreen woodland), grass_perc, urban_perc
+# Soil:
+#   sand_perc, silt_perc, clay_perc, organic_perc, soil_depth_pelletier
+# Hydrogeology (UK-specific, no clean US analogue but available):
+#   inter_high_perc (highly productive aquifer), frac_high_perc
+static_attributes:
+- p_mean
+- pet_mean
+- aridity
+- frac_snow
+- high_prec_freq
+- high_prec_dur
+- low_prec_freq
+- low_prec_dur
+- elev_mean
+- dpsbar
+- area
+- dwood_perc
+- ewood_perc
+- grass_perc
+- urban_perc
+- sand_perc
+- silt_perc
+- clay_perc
+- organic_perc
+- soil_depth_pelletier
+- inter_high_perc
+- frac_high_perc

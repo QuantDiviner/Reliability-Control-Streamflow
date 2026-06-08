@@ -1,0 +1,47 @@
+# macOS / CPU-only 环境
+# 适用于: macOS (AMD/Intel CPU，无 CUDA GPU)
+# 创建: conda env create -f environment.yml
+# 激活: conda activate hscc-hydrology
+
+name: hscc-hydrology
+
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+
+  # PyTorch CPU-only (macOS)
+  - pytorch::pytorch>=2.1
+  - pytorch::torchvision
+
+  # 核心科学计算 (numpy<2.0 — PyTorch 2.2 编译兼容性要求)
+  - numpy>=1.24,<2.0
+  - pandas>=2.0
+  - scipy>=1.11
+  - scikit-learn>=1.3
+
+  # 水文/地理数据
+  - xarray>=2023.1
+  - netcdf4>=1.6
+  - h5py>=3.9
+
+  # NeuralHydrology 依赖
+  - numba>=0.57
+  - ruamel.yaml>=0.17
+  - tensorboard>=2.13
+  - tqdm>=4.65
+  - matplotlib>=3.7
+  - seaborn>=0.12
+
+  # Jupyter
+  - jupyterlab>=4.0
+  - ipykernel
+
+  - pip
+  - pip:
+    - mapie>=0.8.0
+    - crepes>=0.6.0
+    - hydroeval>=0.1.0

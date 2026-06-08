@@ -1,0 +1,21 @@
+{
+  "experiment_id": "exp_global_cqr",
+  "name": "vanilla_global_cqr_camels_us",
+  "status": "closed",
+  "created_at": "2026-05-25",
+  "updated_at": "2026-05-25",
+  "execution_status": "closed_route_a",
+  "review_route": "A",
+  "review_report": "docs/reports/20260525_T_experiment_reviewer_exp_global_cqr_claude.md",
+  "max_train_points": 10000,
+  "priority": "P0",
+  "decision": "D-044",
+  "role": "vanilla Romano 2019 global CQR reference point for C1-centric WRR repair",
+  "dependencies": ["exp002", "exp009", "exp011"],
+  "forbidden_scopes_respected": [
+    "paper/source/**",
+    "paper/journals/**",
+    "paper/output/**",
+    "paper/source/_freeze/**"
+  ]
+}

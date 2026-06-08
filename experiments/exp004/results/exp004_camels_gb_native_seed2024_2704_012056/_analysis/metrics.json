@@ -1,0 +1,69 @@
+{
+  "alpha": 0.1,
+  "n_basins_analyzed": 50,
+  "global_q": 0.5327903209444627,
+  "tier_coverage_spread_global_pp": 11.300554154183217,
+  "tier_coverage_spread_hscc_pp": 2.366482963264549,
+  "nse_overall": 0.8563606849561134,
+  "per_tier": {
+    "gb_drier_q4": {
+      "n_basins": 12.0,
+      "global_coverage": 0.8293611547465779,
+      "hscc_coverage": 0.8891470487212007,
+      "global_width_mm_d": 0.6687669331828753,
+      "hscc_width_mm_d": 0.9062534073988596,
+      "global_q": 0.5327903209444627,
+      "hscc_q": 0.6984273880029999,
+      "nse_mean": 0.8283216655254364,
+      "test_pred_min_in_tier": -0.5748627185821533
+    },
+    "gb_mid": {
+      "n_basins": 12.0,
+      "global_coverage": 0.8983205549470609,
+      "hscc_coverage": 0.8801569916027748,
+      "global_width_mm_d": 1.178832784295082,
+      "hscc_width_mm_d": 1.061154452462991,
+      "global_q": 0.5327903209444627,
+      "hscc_q": 0.4835528962716941,
+      "nse_mean": 0.8892517611384392,
+      "test_pred_min_in_tier": -0.04421091079711914
+    },
+    "gb_wet": {
+      "n_basins": 21.0,
+      "global_coverage": 0.9379781592855342,
+      "hscc_coverage": 0.9038218212354203,
+      "global_width_mm_d": 3.173782745997111,
+      "hscc_width_mm_d": 2.6544146026883806,
+      "global_q": 0.5327903209444627,
+      "hscc_q": 0.4514900085366029,
+      "nse_mean": 0.881438265244166,
+      "test_pred_min_in_tier": -0.09575843811035156
+    },
+    "gb_montane": {
+      "n_basins": 5.0,
+      "global_coverage": 0.824972617743702,
+      "hscc_coverage": 0.8974808324205915,
+      "global_width_mm_d": 2.9892438888549804,
+      "hscc_width_mm_d": 3.8968796730041504,
+      "global_q": 0.5327903209444627,
+      "hscc_q": 0.6753668099197481,
+      "nse_mean": 0.8264310479164123,
+      "test_pred_min_in_tier": -1.0941119194030762
+    }
+  },
+  "success_criteria": {
+    "S1": true,
+    "S2": true,
+    "S3": true,
+    "S4": true,
+    "S5": true
+  },
+  "frame": "partial",
+  "frame_note": "Partial replication \u2014 qualitative success; quantitative weaker",
+  "us_comparison": {
+    "us_global_spread_pp": 19.861799185266772,
+    "us_hscc_spread_pp": 1.0055783852367717,
+    "gb_global_spread_pp": 11.300554154183217,
+    "gb_hscc_spread_pp": 2.366482963264549
+  }
+}

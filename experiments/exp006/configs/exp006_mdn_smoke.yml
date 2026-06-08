@@ -1,0 +1,105 @@
+# exp006 SMOKE TEST — 5 basins × 1 epoch, sanity check before launching 10h full run.
+# Same as exp006_mdn.yml except:
+#   - basin file: 5 basins
+#   - epochs: 1
+#   - learning_rate: single value (1e-3, no schedule)
+#   - n_samples: 100 (faster eval)
+#   - num_workers: 2
+
+experiment_name: exp006_mdn_smoke
+
+run_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp006/results
+
+train_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp006/configs/smoke_5_basins.txt
+validation_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp006/configs/smoke_5_basins.txt
+test_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp006/configs/smoke_5_basins.txt
+
+train_start_date: '01/10/1980'
+train_end_date: '30/09/1990'
+validation_start_date: '01/10/1990'
+validation_end_date: '30/09/2000'
+test_start_date: '01/10/2000'
+test_end_date: '30/09/2014'
+
+seed: 42
+device: cuda:0
+
+validate_every: 1
+validate_n_random_basins: 5
+metrics:
+- NSE
+
+model: cudalstm
+# v3 (PCR-005, 2026-04-29): head cmal → umal. See full config for rationale.
+head: umal
+# n_distributions: 5            # deprecated for UMAL
+n_taus: 20                      # match full config
+umal_extend_batch: True
+tau_up: 0.99
+tau_down: 0.01
+n_samples: 100
+negative_sample_handling: clip
+
+hidden_size: 64
+initial_forget_bias: 3
+output_dropout: 0.4
+
+optimizer: Adam
+loss: UMALLoss                  # v3 PCR-005: must match head=umal
+learning_rate: 1e-3             # v3 revert to v1 schedule (UMAL doesn't need CMAL's conservative LR)
+batch_size: 128
+epochs: 1
+
+clip_gradient_norm: 1.0
+allow_subsequent_nan_losses: 0    # v3 PCR-005: revert to NH default; want to see NaN if it happens (R1' subagent)
+
+predict_last_n: 1
+seq_length: 365
+num_workers: 2
+
+save_weights_every: 1
+save_validation_results: True
+
+dataset: camels_us
+data_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/data/raw/CAMELS_US
+
+forcings:
+- daymet
+
+dynamic_inputs:
+- prcp(mm/day)
+- srad(W/m2)
+- tmax(C)
+- tmin(C)
+- vp(Pa)
+
+target_variables:
+- QObs(mm/d)
+
+static_attributes:
+- elev_mean
+- slope_mean
+- area_gages2
+- frac_forest
+- lai_max
+- lai_diff
+- gvf_max
+- gvf_diff
+- soil_depth_pelletier
+- soil_depth_statsgo
+- soil_porosity
+- soil_conductivity
+- max_water_content
+- sand_frac
+- silt_frac
+- clay_frac
+- carbonate_rocks_frac
+- geol_permeability
+- p_mean
+- pet_mean
+- aridity
+- frac_snow
+- high_prec_freq
+- high_prec_dur
+- low_prec_freq
+- low_prec_dur

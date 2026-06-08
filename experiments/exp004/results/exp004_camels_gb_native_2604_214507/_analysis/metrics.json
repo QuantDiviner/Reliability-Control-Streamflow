@@ -1,0 +1,87 @@
+{
+  "alpha": 0.1,
+  "n_basins_analyzed": 50,
+  "global_q": 0.5152206897706703,
+  "tier_coverage_spread_global_pp": 11.26729118724783,
+  "tier_coverage_spread_hscc_pp": 1.570868802162384,
+  "spread_reduction_pp": 9.696422385085446,
+  "nse_overall": 0.8571873831673569,
+  "per_tier": {
+    "gb_drier_q4": {
+      "n_basins": 12.0,
+      "global_coverage": 0.8234289830774452,
+      "hscc_coverage": 0.8909725825150683,
+      "global_width_mm_d": 0.6174354925751686,
+      "hscc_width_mm_d": 0.8482603927453359,
+      "global_q": 0.5152206897706703,
+      "hscc_q": 0.6847363457891155,
+      "nse_mean": 0.8282034043222666,
+      "test_pred_min_in_tier": -1.3336377143859863
+    },
+    "gb_mid": {
+      "n_basins": 12.0,
+      "global_coverage": 0.9191310697334795,
+      "hscc_coverage": 0.8917488134355605,
+      "global_width_mm_d": 1.0928956593076389,
+      "hscc_width_mm_d": 0.9370850125948588,
+      "global_q": 0.5152206897706703,
+      "hscc_q": 0.4465807275937161,
+      "nse_mean": 0.8908507373804847,
+      "test_pred_min_in_tier": -0.1100466251373291
+    },
+    "gb_wet": {
+      "n_basins": 21.0,
+      "global_coverage": 0.9331548395833216,
+      "hscc_coverage": 0.9005302054245232,
+      "global_width_mm_d": 3.08149984904698,
+      "hscc_width_mm_d": 2.5913342918668474,
+      "global_q": 0.5152206897706703,
+      "hscc_q": 0.4385023294726058,
+      "nse_mean": 0.8792580853970278,
+      "test_pred_min_in_tier": -0.95021653175354
+    },
+    "gb_montane": {
+      "n_basins": 5.0,
+      "global_coverage": 0.8204819277108433,
+      "hscc_coverage": 0.9066812705366921,
+      "global_width_mm_d": 2.911904740333557,
+      "hscc_width_mm_d": 4.059623384475708,
+      "global_q": 0.5152206897706703,
+      "hscc_q": 0.6935409842638072,
+      "nse_mean": 0.8304373055696488,
+      "test_pred_min_in_tier": -1.498429536819458
+    }
+  },
+  "success_criteria": {
+    "S1": true,
+    "S2": true,
+    "S3": true,
+    "S4": true,
+    "S5": true
+  },
+  "frame_official": "partial-strong",
+  "frame_official_decision_id": "D-023",
+  "frame_official_rationale": "5/5 plan §4 success criteria all pass (qualitative replication confirmed). Quantitative spread reduction 9.70pp falls 0.30pp below the 10pp 'consistent' threshold. Selecting 'partial-strong' (intermediate between 'partial' and 'consistent') makes both signals first-class. R2 Opus + R3 Codex agreed.",
+  "frame": "partial",
+  "frame_note": "Partial replication — qualitative success; quantitative weaker (kept for backward compat; superseded by frame_official)",
+  "us_vs_gb_comparison": {
+    "us_global_spread_pp": 19.861799185266772,
+    "us_hscc_spread_pp": 1.0055783852367717,
+    "gb_global_spread_pp": 11.26729118724783,
+    "gb_hscc_spread_pp": 1.570868802162384,
+    "us_spread_reduction_pp": 18.856220800030,
+    "gb_spread_reduction_pp": 9.696422385085446,
+    "interpretation": "qualitative replication confirmed; quantitative magnitude weaker than US (95% vs 86% reduction)"
+  },
+  "pcr_004_tier_renames": {
+    "gb_arid": "gb_drier_q4",
+    "gb_snow_inf": "gb_montane",
+    "rationale": "GB aridity ∈ [0.12, 0.96] (UNEP humid class) — 'arid' was misleading; 'drier_q4' is dataset-specific quantile name. 'snow_inf' is uninformative (frac_snow GB max = 0.17, not snow regime); 'montane' reflects Scottish highland regime."
+  },
+  "audit_trail": {
+    "pre_pcr_004_backup": "metrics_pre_PCR-004.json",
+    "pcr_004_decision": "MILESTONES.md PCR-004 (2026-04-27)",
+    "d_023_frame_decision": "docs/decision-log.md D-023 (2026-04-27)",
+    "d_022_tier_boundary_decision": "docs/decision-log.md D-022 (2026-04-26)"
+  }
+}

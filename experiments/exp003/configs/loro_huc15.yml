@@ -1,0 +1,108 @@
+# exp003 LORO fold template: HUC-2 leave-one-region-out (PUB).
+#
+# Authority chain:
+#   - PROJECT_CHARTER §2.2 (M1 frozen): score_function, alpha, tier_scheme, experimental_tiers
+#   - PROJECT_CHARTER §2.3 (M2 三级): model + training params (sealed by exp002 closing)
+#   - exp003/plan.md  (Step 05 output)
+#   - decision-log.md D-007 (双层实验), D-013 (S4 接受+兜底), D-014 (validation 编排), D-015 (validate_n_random_basins fix), D-016 (exp002 Route A)
+#
+# Render via: python experiments/exp003/render_fold_configs.py
+# Placeholders: 15 (zero-padded '01'..'18'), /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP.
+
+experiment_name: exp003_loro_huc15
+
+run_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp003/results
+
+# LORO basin lists (built by experiments/exp003/build_loro_basin_lists.py)
+#   train + validation use the same train_huc15.txt (~580-660 basins, NOT in held-out HUC)
+#   test uses test_huc15.txt (~7-92 basins located inside HUC-15)
+train_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp003/basin_lists/train_huc15.txt
+validation_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp003/basin_lists/train_huc15.txt
+test_basin_file: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/experiments/exp003/basin_lists/test_huc15.txt
+
+# Date-period splits (D-007), unchanged across folds
+train_start_date: '01/10/1980'
+train_end_date: '30/09/1990'
+validation_start_date: '01/10/1990'
+validation_end_date: '30/09/2000'
+test_start_date: '01/10/2000'
+test_end_date: '30/09/2014'
+
+seed: 42
+device: cuda:0
+
+# D-014 + D-015: validate_every: 5 keeps train-time cost down;
+# validate_n_random_basins MUST be >= largest train basin file (max 664 basins for HUC-13 fold)
+validate_every: 5
+validate_n_random_basins: 1000
+metrics:
+- NSE
+
+model: cudalstm
+head: regression
+
+# M2 三级参数 (sealed by exp002 closing — NOT to be modified per fold)
+hidden_size: 64
+initial_forget_bias: 3
+output_dropout: 0.4
+output_activation: linear        # D-013: retained, log-clipping handled in hscc_analysis_loro.py
+
+optimizer: Adam
+loss: NSE
+learning_rate:
+    0: 1e-3
+    10: 5e-4
+    20: 1e-4
+batch_size: 128
+epochs: 30
+
+predict_last_n: 1
+seq_length: 365
+num_workers: 4
+
+save_weights_every: 1
+save_validation_results: True
+
+dataset: camels_us
+data_dir: /home/qingsong/桌面/代码仓库/Reliability-Control-Streamflow-CP/data/raw/CAMELS_US
+
+forcings:
+- daymet
+
+dynamic_inputs:
+- prcp(mm/day)
+- srad(W/m2)
+- tmax(C)
+- tmin(C)
+- vp(Pa)
+
+target_variables:
+- QObs(mm/d)
+
+static_attributes:
+- elev_mean
+- slope_mean
+- area_gages2
+- frac_forest
+- lai_max
+- lai_diff
+- gvf_max
+- gvf_diff
+- soil_depth_pelletier
+- soil_depth_statsgo
+- soil_porosity
+- soil_conductivity
+- max_water_content
+- sand_frac
+- silt_frac
+- clay_frac
+- carbonate_rocks_frac
+- geol_permeability
+- p_mean
+- pet_mean
+- aridity
+- frac_snow
+- high_prec_freq
+- high_prec_dur
+- low_prec_freq
+- low_prec_dur

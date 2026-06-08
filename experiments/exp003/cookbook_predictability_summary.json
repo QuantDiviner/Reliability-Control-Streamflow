@@ -1,0 +1,105 @@
+{
+  "n_cells_used": 32,
+  "n_low_power_excluded": 32,
+  "class_distribution": {
+    "Marginal": 14,
+    "Unreliable": 12,
+    "Reliable": 6
+  },
+  "feature_columns": [
+    "aridity_mean",
+    "frac_snow_mean",
+    "p_mean_mean",
+    "p_seasonality_mean",
+    "high_prec_freq_mean",
+    "low_prec_freq_mean",
+    "elev_mean_mean",
+    "slope_mean_mean",
+    "area_gages2_mean"
+  ],
+  "accuracies_loho": {
+    "rf": 0.34375,
+    "lr": 0.25,
+    "majority": 0.4375,
+    "tier_only": 0.46875,
+    "nearest_huc": 0.46875
+  },
+  "bootstrap_ci_95": {
+    "rf": [
+      0.1875,
+      0.53125
+    ],
+    "lr": [
+      0.125,
+      0.40625
+    ],
+    "majority": [
+      0.25,
+      0.625
+    ],
+    "tier_only": [
+      0.28125,
+      0.65625
+    ],
+    "nearest_huc": [
+      0.3125,
+      0.65625
+    ]
+  },
+  "best_model": "rf",
+  "strongest_baseline": "tier_only",
+  "paired_bootstrap_pvalue": 0.926,
+  "r3_gate": {
+    "accuracy_threshold_pass": false,
+    "significance_threshold_pass": false,
+    "overall_pass": false,
+    "verdict": "FAIL"
+  },
+  "confusion_matrix_rf": {
+    "labels": [
+      "Reliable",
+      "Marginal",
+      "Unreliable"
+    ],
+    "matrix_rows_true_cols_pred": [
+      [
+        0,
+        3,
+        3
+      ],
+      [
+        1,
+        6,
+        7
+      ],
+      [
+        1,
+        6,
+        5
+      ]
+    ]
+  },
+  "per_class_metrics_rf": {
+    "Reliable": {
+      "tp": 0,
+      "fp": 2,
+      "fn": 6,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    "Marginal": {
+      "tp": 6,
+      "fp": 9,
+      "fn": 8,
+      "precision": 0.4,
+      "recall": 0.42857142857142855
+    },
+    "Unreliable": {
+      "tp": 5,
+      "fp": 10,
+      "fn": 7,
+      "precision": 0.3333333333333333,
+      "recall": 0.4166666666666667
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "config": "cudalstm hidden=256, 50 epochs, seed=42, CAMELS-US temporal split (671 basins)",
+  "hidden_size": 256,
+  "epochs": 50,
+  "seed": 42,
+  "median_test_nse": 0.695327639579773,
+  "mean_test_nse": 0.5977945647323185,
+  "global_spread_pp": 19.139476554670466,
+  "hscc_spread_pp": 2.201685995607472,
+  "global_dry_coverage": 0.7617553858809957,
+  "global_semi_arid_coverage": 0.7906784050563042,
+  "global_humid_coverage": 0.9066347824347021,
+  "global_snow_coverage": 0.9531501514277003
+}

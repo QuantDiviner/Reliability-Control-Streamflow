@@ -1,0 +1,59 @@
+{
+  "experiment_id": "exp011",
+  "name": "cqr_pit_crps_main",
+  "v5_role": "§5.7 CQR (Romano 2019) head-to-head + §5.8 standard UQ metrics scan",
+  "priority": "P0",
+  "status": "closed",
+  "closure_route": "A",
+  "closure_decision": "D-037",
+  "closed_at": "2026-05-05T03:00:00+08:00",
+  "closure_summary": "Phase 1 residual-CQR on CAMELS-US gauged 671 basins: marginal 0.890 / spread 2.38pp / width 2.00 mm/d / Winkler 3.25 / CRPS 0.40. Phase 2 UQ metrics scan: CAMELS-US (3 methods × 4 tiers full PIT/CRPS/reliability/Winkler) + CAMELS-GB extension (2 methods × 4 GB tiers). All 4 main-text criteria S1-S4 PASS. S5 (4-dataset scan) PARTIAL: 2/4 datasets done (CAMELS-US + GB), LORO + UMAL deferred to supplementary. S6/S7 PIT-uniformity KS p=0 expected for interval-method linear-ramp CDF (plan §4.2 caveat). Pareto frontier 5-method head-to-head (HSCC < CQR < HopCPT < Global CP on spread; CQR < HopCPT < HSCC < Global CP on width/Winkler/CRPS).",
+  "result_type": "positive_strong",
+  "stage4_actions_summary": {
+    "phase_1_residual_cqr": "DONE (residual-CQR via sklearn QuantileRegressor on LSTM residuals, 0 GPU + ~30 min CPU)",
+    "phase_2_uq_camels_us": "DONE (3 methods × 4 tiers × 6 metrics, vectorized closed-form CRPS, ~5 min CPU)",
+    "phase_2_uq_camels_gb": "DONE (2 methods × 4 GB tiers, ~1 min CPU)",
+    "phase_2_uq_loro": "DEFERRED (supplementary)",
+    "phase_2_uq_umal": "DEFERRED (supplementary)"
+  },
+  "iteration_count": 0,
+  "iteration_budget": 10,
+  "rewrite_count": 0,
+  "rewrite_budget": 3,
+  "plan_version": 1,
+  "plan_path": "experiments/exp011/plan.md",
+  "plan_amendments": ["A1 (2026-05-04): residual-CQR pivot — NH lacks native pinball loss; use sklearn QuantileRegressor on exp002 LSTM residuals + features instead of LSTM-quantile head training (saves ~10h GPU, 0 GPU usage, ~1-2d CPU only)"],
+  "dependencies": ["exp002", "exp003", "exp004", "exp006"],
+  "primary_metric": "tier_coverage_spread_pp",
+  "primary_metric_direction": "lower",
+  "secondary_metrics": ["PIT_uniformity_KS_p", "CRPS_per_tier_mean", "reliability_deviation_mean", "Winkler_per_tier_mean"],
+  "created_at": "2026-05-02",
+  "started_at": "2026-05-04T21:10:00+08:00",
+  "started_decision": "D-036",
+  "implementation_path": "Path_C_residual_CQR_with_sklearn",
+  "implementation_source": "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.QuantileRegressor.html (sklearn 1.8.0)",
+  "implementation_license": "BSD-3 (sklearn)",
+  "implementation_notes": "Standard CQR algorithm Romano 2019; residual-CQR variant uses pre-trained LSTM as point predictor, then trains quantile regressors on residuals with features [point_pred, forcings, statics] — well-established in CP literature",
+  "global_rules_version": "v2.0",
+  "global_rules_pcr_chain": ["PCR-006"],
+  "execution_log": "experiments/exp011/execution-log.md",
+  "datasets_reused": {
+    "exp002": "CAMELS-US gauged (671 basins, single seed=42)",
+    "exp003": "CAMELS-US LORO (18-fold, 3-seed_a5)",
+    "exp004": "CAMELS-GB (3-seed, 50/80 basins)",
+    "exp006": "UMAL (3-seed, mixture density samples)"
+  },
+  "alpha": 0.10,
+  "phase_breakdown": {
+    "phase_1_residual_CQR_main_text": {
+      "scope": "§5.7 head-to-head — CQR vs HSCC vs Global CP vs HopCPT on CAMELS-US gauged 671/574 basins",
+      "implementation": "sklearn QuantileRegressor (per-basin or pooled) on residuals from exp002 LSTM",
+      "compute": "0h GPU + ~2-4h CPU"
+    },
+    "phase_2_uq_metrics_scan": {
+      "scope": "§5.8 PIT/CRPS/reliability/Winkler scan across 4 datasets × 5+ methods",
+      "implementation": "Numerical integration (PIT/CRPS interval-based), binning (reliability), unified Winkler computation",
+      "compute": "0h GPU + ~3-5h CPU"
+    }
+  }
+}
